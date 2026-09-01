@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City of Calamba | CAL-E Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <div class="app">
+    <!-- Splash / welcome screen -->
+    <section id="splash" class="splash">
+      <div class="splash-brand">
+        <img src="{{ url_for('static', filename='assets/seal.png') }}"
+          alt="Republic of the Philippines — City of Calamba" class="brand-lockup" />
+      </div>
+
+      <div class="splash-mascot-wrap">
+        <img src="{{ url_for('static', filename='assets/mascot.png') }}" alt="CAL-E mascot" class="splash-mascot" />
+      </div>
+
+      <button id="start-chat" class="lets-talk-btn" type="button">Let's talk!</button>
+    </section>
+
+    <!-- Chat screen -->
+    <section id="chat-screen" class="chat-screen hidden">
+      <header class="app-header">
+        <img src="{{ url_for('static', filename='assets/seal.png') }}"
+          alt="Republic of the Philippines — City of Calamba" class="brand-lockup header-lockup" />
+      </header>
+
+      <div class="floating-mascot">
+        <img src="{{ url_for('static', filename='assets/mascot.png') }}" alt="CAL-E" />
+      </div>
+
+      <main id="chat-window" class="chat-window">
+        <div class="turn">
+          <div class="message bot">
+            <div class="bubble">Hi! I can help you find Calamba City government information — business permits,
+              certificates, health services, taxes, and more. What would you like to know?</div>
+          </div>
+        </div>
+      </main>
+
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off" required />
+        <button type="submit" aria-label="Send message">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="white" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
