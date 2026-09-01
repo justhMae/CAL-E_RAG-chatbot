@@ -23,22 +23,22 @@ The project is structured into modular components separating the frontend, backe
 
 * **`backend/`**
 
-* `app.py`: The main application server routing requests.
+*     `app.py`: The main application server routing requests.
 
 
-* `build_index.py`: Script to process documents and build the ChromaDB vector index.
+*     `build_index.py`: Script to process documents and build the ChromaDB vector index.
 
 
-* `rag_pipeline.py` & `generate.py`: Core components handling retrieval and LLM generation.
+*     `rag_pipeline.py` & `generate.py`: Core components handling retrieval and LLM generation.
 
 
-* `intent_classifier.py` & `preprocess.py`: Handles the NLP intent classification layer.
+*     `intent_classifier.py` & `preprocess.py`: Handles the NLP intent classification layer.
 
 
-* `forms_lookup.py`: Maps intents to specific local government PDF forms.
+*     `forms_lookup.py`: Maps intents to specific local government PDF forms.
 
 
-* `evaluate.py`: Contains standard evaluation metrics for the RAG and classification pipeline.
+*     `evaluate.py`: Contains standard evaluation metrics for the RAG and classification pipeline.
 
 
 
@@ -52,16 +52,16 @@ The project is structured into modular components separating the frontend, backe
 
 * **`data/`**
 
-* `documents.json`: Chunked raw text data from the Calamba City website.
+*     `documents.json`: Chunked raw text data from the Calamba City website.
 
 
-* `intent_training_data.csv`: Training data for the intent classification model.
+*     `intent_training_data.csv`: Training data for the intent classification model.
 
 
-* `forms/`: Stores downloadable PDF assets, such as `barangay_jurisdiction_request_form.pdf`.
+*     `forms/`: Stores downloadable PDF assets, such as `barangay_jurisdiction_request_form.pdf`.
 
 
-* `review/`: Contains manual review reports and schema documentation.
+*     `review/`: Contains manual review reports and schema documentation.
 
 
 
