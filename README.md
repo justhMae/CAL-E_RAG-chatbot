@@ -4,7 +4,7 @@ CAL-E is an AI-based chatbot designed to simplify public access to Calamba City 
 
 ## 🌟 Key Features
 
-* **Retrieval-Augmented Generation (RAG):** Documents are chunked, embedded using `all-MiniLM-L6-v2`, and stored in ChromaDB for fast, relevant retrieval.
+* **Retrieval-Augmented Generation (RAG):** Documents are chunked, embedded using `paraphrase-multilingual-MiniLM-L12-v2`, and stored in ChromaDB for fast, relevant retrieval.
 
 
 * **Fully Local Deployment:** The system generates responses using the `Qwen2.5-7B-Instruct` language model run locally via Ollama. This ensures user privacy and eliminates cloud usage costs.
@@ -59,9 +59,6 @@ The project is structured into modular components separating the frontend, backe
 
 
 *     `forms/`: Stores downloadable PDF assets, such as `barangay_jurisdiction_request_form.pdf`.
-
-
-*     `review/`: Contains manual review reports and schema documentation.
 
 
 

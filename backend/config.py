@@ -15,14 +15,14 @@ CHROMA_PERSIST_DIR = str(BASE_DIR / "chroma_store")
 INTENT_MODEL_PATH = BASE_DIR / "backend" / "intent_model.joblib"
 EVAL_OUTPUT_DIR = BASE_DIR / "evaluation"
 
-# Embedding model (local, via sentence-transformers)
+# embedding model (local, via sentence-transformers)
 EMBEDDING_MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 
-# Generation model (local, via Ollama)
+# generation model (local, via Ollama)
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 OLLAMA_MODEL = "qwen2.5:7b-instruct"
 
-# Chunking
+# chunking
 CHUNK_SIZE = 400
 CHUNK_OVERLAP = 80 
 STRUCTURED_DOC_MAX_CHARS = 2200 
@@ -32,10 +32,10 @@ TOP_K = 3 # number of chunks to retrieve per query
 MIN_SIMILARITY = 0.28  # below this cosine similarity, a chunk is treated as unrelated and dropped
 FORMS_MIN_SIMILARITY = 0.45  # a chunk must clear THIS higher bar before its attached forms get shown alongside an answer
 
-# Collection name
+# collection name
 CHROMA_COLLECTION_NAME = "calamba_city_docs"
 
-# The 13 categories from the project brief, and the intent
+# 18 categories: the original 13 from the project brief, plus 5 added new
 CATEGORIES = {
     "CERTIFICATES_PERMITS_IDS": "Certificates, Permits, and IDs",
     "BUSINESS_TRADE": "Business and Trade",
@@ -50,4 +50,9 @@ CATEGORIES = {
     "TAX": "Tax",
     "AGRICULTURAL": "Agricultural",
     "GENERAL_INFORMATION": "General Information",
+    "SECURITY_SAFETY": "Security and Safety",
+    "HOUSING_SETTLEMENTS": "Housing and Settlements",
+    "GOVERNMENT_LEGAL": "Government and Legal",
+    "FINANCE_LOANS": "Finance and Loans",
+    "FACILITIES_EQUIPMENT": "Facilities and Equipment",
 }

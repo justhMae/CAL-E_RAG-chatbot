@@ -1793,3 +1793,1877 @@ hotline ng CDRRMO,DISASTER_WEATHER
 is there a storm signal today,DISASTER_WEATHER
 paano humingi ng tulong sa baha,DISASTER_WEATHER
 anong gagawin pag lindol,DISASTER_WEATHER
+Do you offer automotive repair courses?,EDUCATION_TRAINING
+Libre ba ang gamot sa barangay health station?,HEALTH
+How can I apply for financial assistance?,SOCIAL_SERVICES
+Libre ba ang bakuna ng pusa?,VETERINARY
+May discount ba sa early payment?,TAX
+Is fire safety inspection required annually?,BUSINESS_TRADE
+How do I register as a farmer under RSBSA?,AGRICULTURAL
+Where do I file for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+What ID is required to claim a barangay clearance?,CERTIFICATES_PERMITS_IDS
+Are there free review classes for college entrance exams?,EDUCATION_TRAINING
+What is organic farming certification?,AGRICULTURAL
+How do I apply for socialized housing?,HOUSING
+Where can I find the city budget report?,GENERAL_INFORMATION
+What is needed to apply for an OFW pre-departure orientation?,EMPLOYMENT
+Saan ang City Health Office?,HEALTH
+What is the penalty for late cedula payment?,TAX
+Is there a housing program specifically for solo parents?,HOUSING
+Where is the City Treasurer's Office?,TAX
+May parking ba sa City Hall?,GENERAL_INFORMATION
+What government agencies participate in the Calamba job fair?,EMPLOYMENT
+How do I transfer my voter registration to a new barangay?,REGISTRATIONS_APPLICATIONS
+Can I appeal a denied building permit application?,HOUSING
+Where can I apply for a police clearance?,CERTIFICATES_PERMITS_IDS
+What is the city's urban gardening initiative?,AGRICULTURAL
+What is a DSWD referral and how do I get one?,SOCIAL_SERVICES
+What are the requirements for medical assistance from CSWDO?,HEALTH
+Can PESO help me build my resume?,EMPLOYMENT
+What is the city's environmental policy?,GENERAL_INFORMATION
+Saan ang housing office?,HOUSING
+What barangays are prone to flooding in Calamba?,DISASTER_WEATHER
+Are there weather updates posted by the city government?,DISASTER_WEATHER
+Ano ang schedule ng vaccination?,HEALTH
+Is there a vaccination drive for cats this month?,VETERINARY
+Does the city help with irrigation system requests?,AGRICULTURAL
+What should I do if my dog was bitten by a stray animal?,VETERINARY
+Is there a cash-for-work program after a disaster?,DISASTER_WEATHER
+What is the schedule for prenatal checkups?,HEALTH
+Saan ang TESDA office sa Calamba?,EDUCATION_TRAINING
+Are there housing programs for government employees?,HOUSING
+Ano ang RSBSA?,AGRICULTURAL
+Where do I renew my RSBSA registration?,AGRICULTURAL
+Paano mag-report ng aso na may sakit sa kapitbahay?,VETERINARY
+What is the schedule for the next computer literacy seminar?,EDUCATION_TRAINING
+What are the requirements for a business permit?,BUSINESS_TRADE
+What is the process for hospital referral?,HEALTH
+How do I apply for a market stall permit?,REGISTRATIONS_APPLICATIONS
+What documents do I need for a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Can I get help if my house burned down?,SOCIAL_SERVICES
+May tulong ba para sa biktima ng sunog?,SOCIAL_SERVICES
+Are there programs for single mothers?,SOCIAL_SERVICES
+Where can I get a community tax certificate?,TAX
+Where do I file a petition for correction of clerical error?,REGISTRATIONS_APPLICATIONS
+Where do I apply for a relocation program?,HOUSING
+Can out-of-school youth join TESDA for free?,EDUCATION_TRAINING
+Is there a nutrition program for malnourished children?,HEALTH
+Can OFWs avail of social welfare assistance?,SOCIAL_SERVICES
+Libre ba ang pataba?,AGRICULTURAL
+Do you have listings for work-from-home jobs?,EMPLOYMENT
+How do I verify if a lot has no legal issues?,HOUSING
+What is a deed of sale and do I need it?,HOUSING
+Who approves building permits in Calamba?,HOUSING
+What is the process for foster care application?,SOCIAL_SERVICES
+What food items should I stock before a typhoon?,DISASTER_WEATHER
+How do I register as a voter in Calamba?,REGISTRATIONS_APPLICATIONS
+Can informal settlers apply for city housing?,HOUSING
+Pwede bang mag-renew ng business permit online?,BUSINESS_TRADE
+What assistance is available for coconut farmers?,AGRICULTURAL
+Where can I get free condoms and family planning?,HEALTH
+How do I get a copy of my marriage contract?,REGISTRATIONS_APPLICATIONS
+What ordinances apply to street vendors?,REGISTRATIONS_APPLICATIONS
+Is there a grace period for late business permit renewal?,BUSINESS_TRADE
+How do I volunteer for rescue operations?,DISASTER_WEATHER
+What number do I call for the CDRRMO?,DISASTER_WEATHER
+How do I register my pet with the city?,VETERINARY
+Paano mag-enroll sa vocational course?,EDUCATION_TRAINING
+Can senior citizens find jobs through PESO?,EMPLOYMENT
+What health services are available at the barangay health center?,HEALTH
+What is a locational clearance for building permits?,HOUSING
+How much is the fee for a building permit application?,HOUSING
+Saan ang City Agriculture Office?,AGRICULTURAL
+How do I get a police clearance for employment?,EMPLOYMENT
+How do I renew my business permit?,BUSINESS_TRADE
+Paano magpabakuna ng aso laban sa rabies?,VETERINARY
+What documents are needed for passport application?,REGISTRATIONS_APPLICATIONS
+What is a real property tax clearance for housing?,HOUSING
+How long does building permit processing take?,HOUSING
+What should I feed a rescued kitten?,VETERINARY
+What is a tax declaration for land?,HOUSING
+Kailangan ko ng barangay ID para sa passport application.,CERTIFICATES_PERMITS_IDS
+Do I need a barangay endorsement for a community tax certificate?,CERTIFICATES_PERMITS_IDS
+What is the process for closing a business permit?,BUSINESS_TRADE
+Ano ang penalty ng hindi pagbabayad ng buwis?,TAX
+How do I sign up for earthquake drill training?,DISASTER_WEATHER
+Is there a family planning clinic in Calamba?,HEALTH
+Libre ba ang job fair?,EMPLOYMENT
+How do I apply for calamity assistance for crops?,AGRICULTURAL
+Can I apply for multiple business permits under one name?,BUSINESS_TRADE
+Where do I apply for a solo parent ID?,CERTIFICATES_PERMITS_IDS
+How do I file a petition for change of gender?,REGISTRATIONS_APPLICATIONS
+What documents do I need to pay my tax?,TAX
+What ordinances cover tricycle franchises?,REGISTRATIONS_APPLICATIONS
+Saan ang Sangguniang Panlungsod?,GENERAL_INFORMATION
+What is required to avail of the Rice Farmer Financial Assistance?,AGRICULTURAL
+Where is the nearest animal bite treatment center?,VETERINARY
+What is the city's feeding program for kids?,SOCIAL_SERVICES
+How do I get a certificate of no objection?,GENERAL_INFORMATION
+What is needed to transfer a tax declaration to a new owner?,TAX
+How do I get soil testing services?,AGRICULTURAL
+What's the validity period of a police clearance?,CERTIFICATES_PERMITS_IDS
+Can fresh graduates register at PESO?,EMPLOYMENT
+Can I check my business permit application status online?,BUSINESS_TRADE
+What is a tax declaration number?,TAX
+Ano ang kailangan para sa bagong negosyo?,BUSINESS_TRADE
+What are the barangays in Calamba?,GENERAL_INFORMATION
+What ordinance covers noise complaints in residential areas?,REGISTRATIONS_APPLICATIONS
+Who is the city administrator?,GENERAL_INFORMATION
+What is the age limit for scholarship applicants?,EDUCATION_TRAINING
+Is there a housing program for low income families?,HOUSING
+How do I apply for a housing loan?,HOUSING
+What is the fee for pet registration renewal?,VETERINARY
+Are there free medicines available at the barangay health station?,HEALTH
+What is a subdivision plan and where do I get it?,HOUSING
+What happens if I operate without a business permit?,BUSINESS_TRADE
+Can I request a certificate of good moral character online?,CERTIFICATES_PERMITS_IDS
+What happens if I lose my residency certificate?,CERTIFICATES_PERMITS_IDS
+Paano mag-apply ng socialized housing?,HOUSING
+What is the process for public bidding?,GENERAL_INFORMATION
+Can I join a community garden program?,AGRICULTURAL
+Where do I apply for a PWD ID?,SOCIAL_SERVICES
+How do I apply for a mayor's permit?,BUSINESS_TRADE
+Where can I get a vaccination card?,HEALTH
+How much does a business permit cost?,BUSINESS_TRADE
+Can I update my civil registry records online?,REGISTRATIONS_APPLICATIONS
+Is there an age limit for PESO job placement?,EMPLOYMENT
+Who do I contact for stray animal concerns?,VETERINARY
+Can I get my pet microchipped?,VETERINARY
+What calamity assistance is available for farmers?,AGRICULTURAL
+How do I renew my TESDA scholarship?,EDUCATION_TRAINING
+Are there jobs for high school graduates?,EMPLOYMENT
+What are the requirements for voter registration?,REGISTRATIONS_APPLICATIONS
+What are the requirements for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+Where is the human resource management office?,GENERAL_INFORMATION
+Can I get a refund for overpaid taxes?,TAX
+How do I register a birth certificate for my newborn?,REGISTRATIONS_APPLICATIONS
+Ano ang emergency hotline ng Calamba?,DISASTER_WEATHER
+Is there an online application for barangay clearance?,CERTIFICATES_PERMITS_IDS
+What photo size is needed for barangay ID application?,CERTIFICATES_PERMITS_IDS
+What is the emergency hotline number during floods?,DISASTER_WEATHER
+May libreng dental checkup ba?,HEALTH
+Paano mag-register bilang magsasaka?,AGRICULTURAL
+Is pet registration required in Calamba?,VETERINARY
+Saan mag-apply ng marriage license?,REGISTRATIONS_APPLICATIONS
+Pwede bang mag-update ng civil registry records?,REGISTRATIONS_APPLICATIONS
+Paano mag-apply ng bagong business permit?,BUSINESS_TRADE
+Pwede po bang kumuha ng barangay clearance kahit wala sa barangay?,CERTIFICATES_PERMITS_IDS
+What should I prepare in my emergency go-bag?,DISASTER_WEATHER
+Paano kumuha ng sanitary permit para sa negosyo?,BUSINESS_TRADE
+Can I authorize someone to claim my barangay ID?,CERTIFICATES_PERMITS_IDS
+Where can I get a free blood pressure check?,HEALTH
+What is a special assessment for infrastructure?,TAX
+How do I get a medical certificate for travel?,HEALTH
+What is the deadline for annual real property tax payment?,TAX
+How do I file a complaint against a city employee?,GENERAL_INFORMATION
+Can I authorize someone to pay my taxes?,TAX
+What is the city's vision and mission?,GENERAL_INFORMATION
+Where is the Public Employment Service Office located?,EMPLOYMENT
+Is there a shelter for abandoned animals in Calamba?,VETERINARY
+Paano mag-apply ng iskolarship sa Calamba?,EDUCATION_TRAINING
+Does CSWDO help families affected by fire?,SOCIAL_SERVICES
+Where can I get a copy of city ordinances?,GENERAL_INFORMATION
+Is real property tax paid quarterly or annually?,TAX
+Do I need an appointment for a police clearance?,CERTIFICATES_PERMITS_IDS
+How do I schedule an appointment with a department head?,GENERAL_INFORMATION
+Is there a mobile veterinary clinic?,VETERINARY
+Paano magpa-checkup sa health center?,HEALTH
+Libre ba ang wheelchair para sa PWD?,SOCIAL_SERVICES
+What is the NC2 assessment process?,EDUCATION_TRAINING
+Saan ang City Treasurer's Office?,TAX
+Are online modules available for distance learning?,EDUCATION_TRAINING
+Does the city provide farm equipment for rent?,AGRICULTURAL
+Is there a seedling nursery I can visit?,AGRICULTURAL
+Does the city offer dental services?,HEALTH
+Can informal settlers get legal housing?,HOUSING
+What is a job matching program?,EMPLOYMENT
+Ano ang requirements para sa barangay clearance?,CERTIFICATES_PERMITS_IDS
+Where can senior citizens avail of free medical checkups?,HEALTH
+What is the city's program for street children?,SOCIAL_SERVICES
+Are there programs for fisherfolk?,AGRICULTURAL
+What size of business needs a barangay business clearance first?,BUSINESS_TRADE
+Where is Calamba City Hall located?,GENERAL_INFORMATION
+What vaccines are given to infants?,HEALTH
+Pwede bang mag-apply ng housing kahit walang lupa?,HOUSING
+Does PESO assist with special program for employment of students?,EMPLOYMENT
+How do I get a tax clearance certificate?,TAX
+Do senior citizens need a cedula too?,CERTIFICATES_PERMITS_IDS
+How do I check my real property tax balance online?,TAX
+What vaccines does my puppy need?,VETERINARY
+How do I apply for a pet breeding permit?,VETERINARY
+What crops are suitable for our climate?,AGRICULTURAL
+Can I file for voter registration online?,REGISTRATIONS_APPLICATIONS
+What is the RSBSA and why do I need it?,AGRICULTURAL
+Can I apply for housing if I'm renting?,HOUSING
+Is there assistance for fisherfolk in Calamba?,AGRICULTURAL
+What documents prove ownership for a housing application?,HOUSING
+Do I need a fire safety inspection certificate for my permit?,BUSINESS_TRADE
+What should I do during a volcanic eruption?,DISASTER_WEATHER
+Paano po makakuha ng barangay clearance?,CERTIFICATES_PERMITS_IDS
+Can persons with mental illness get assistance?,SOCIAL_SERVICES
+Where is the Business Permits and Licensing Office?,BUSINESS_TRADE
+Saan mag-apply ng livelihood training?,EDUCATION_TRAINING
+What is the dress code for visiting offices?,GENERAL_INFORMATION
+Paano mag-apply ng trabaho sa job fair?,EMPLOYMENT
+Can I transfer my business permit to a new location?,BUSINESS_TRADE
+What are the symptoms that require immediate referral?,HEALTH
+How do I join the city's nutrition program?,HEALTH
+What is the difference between Signal 1 and Signal 3?,DISASTER_WEATHER
+How do I start a small farm in Calamba?,AGRICULTURAL
+What competencies are covered in the dressmaking course?,EDUCATION_TRAINING
+What time does City Hall open on weekdays?,GENERAL_INFORMATION
+What should I do during a strong earthquake?,DISASTER_WEATHER
+How do I get a health clearance for work?,HEALTH
+Paano mag-apply ng AICS o assistance to individuals in crisis?,SOCIAL_SERVICES
+What is the process for late registration of birth?,REGISTRATIONS_APPLICATIONS
+What is the process for new business registration?,BUSINESS_TRADE
+What training programs are available for out-of-school youth?,EDUCATION_TRAINING
+How do I check if my property is properly assessed?,TAX
+How do I check if my area is a danger zone?,DISASTER_WEATHER
+Is there a market assistance program for farmers?,AGRICULTURAL
+Magkano ang real property tax?,TAX
+How do I get a TESDA National Certificate?,EDUCATION_TRAINING
+Can I get a scholarship for graduate studies?,EDUCATION_TRAINING
+What's the process for requesting relief goods after a fire?,DISASTER_WEATHER
+Can you list the departments under the city government?,GENERAL_INFORMATION
+Magkano ang penalty ng late business permit renewal?,BUSINESS_TRADE
+Can I bring my pets to the evacuation center?,DISASTER_WEATHER
+How do I report a dengue outbreak?,HEALTH
+What documents are needed to enroll in a skills training program?,EDUCATION_TRAINING
+What is the waste segregation ordinance about?,REGISTRATIONS_APPLICATIONS
+What are the requirements for RSBSA registration?,AGRICULTURAL
+Are classes suspended due to bad weather?,DISASTER_WEATHER
+Are online classes offered for vocational courses?,EDUCATION_TRAINING
+How do I update my business name on the permit?,BUSINESS_TRADE
+Paano makipag-ugnayan sa opisina ng Punong Lungsod?,GENERAL_INFORMATION
+What companies are hiring in the next job fair?,EMPLOYMENT
+How do I know if there's a typhoon coming?,DISASTER_WEATHER
+Are solo parents entitled to any city benefits?,SOCIAL_SERVICES
+Saan ang PESO office?,EMPLOYMENT
+How do I report a flooded area?,DISASTER_WEATHER
+What happens if I renew my business permit late?,BUSINESS_TRADE
+How do I compute my business permit fee?,BUSINESS_TRADE
+Paano mag-request ng tulong medikal?,HEALTH
+What is a tax amnesty program?,TAX
+How do I request a city resolution copy?,GENERAL_INFORMATION
+Paano malaman kung may bagyo?,DISASTER_WEATHER
+Does the city provide deworming services for pets?,VETERINARY
+How do I sell my produce at the city market?,AGRICULTURAL
+What is the process for applying for PhilHealth assistance?,HEALTH
+Are there public WiFi spots in City Hall?,GENERAL_INFORMATION
+What happens if I don't pay my cedula?,TAX
+Is a barangay ID processed on the same day?,CERTIFICATES_PERMITS_IDS
+What assistance is available for indigent families?,SOCIAL_SERVICES
+Paano mag-sign up sa PESO job matching program?,EMPLOYMENT
+Saan pupunta kung kailangan mag-evacuate?,DISASTER_WEATHER
+What should I do if my house is flooded?,DISASTER_WEATHER
+Do I need a zoning clearance before business permit?,BUSINESS_TRADE
+Can I get a clearance without a valid ID?,CERTIFICATES_PERMITS_IDS
+Is there a seminar for computer literacy?,EDUCATION_TRAINING
+What if my NBI clearance application was denied?,CERTIFICATES_PERMITS_IDS
+Libre ba ang review para sa civil service exam?,EDUCATION_TRAINING
+How do I apply for agricultural loan?,AGRICULTURAL
+Can I apply for a business permit online?,BUSINESS_TRADE
+Are there free skills training for adults?,EDUCATION_TRAINING
+How do I contact the city engineer's office?,GENERAL_INFORMATION
+Paano magpa-checkup ng aso?,VETERINARY
+"I need a barangay ID, what do I need to bring?",CERTIFICATES_PERMITS_IDS
+Are there pre-positioned rescue teams during typhoons?,DISASTER_WEATHER
+Magkano ang fee sa marriage license?,REGISTRATIONS_APPLICATIONS
+Can I rent farm equipment from the city?,AGRICULTURAL
+Where can victims of abuse get assistance?,SOCIAL_SERVICES
+Is there a flood advisory today?,DISASTER_WEATHER
+What are the steps to obtain a barangay ID?,CERTIFICATES_PERMITS_IDS
+How can I find a job through PESO?,EMPLOYMENT
+Where do I renew my PWD ID?,SOCIAL_SERVICES
+Paano mag-apply ng marriage license?,REGISTRATIONS_APPLICATIONS
+Is Calamba under a landslide-prone area advisory?,DISASTER_WEATHER
+Is there an installment plan for delinquent property tax?,TAX
+What is a farm-to-market road program?,AGRICULTURAL
+Is there a scholarship renewal requirement every semester?,EDUCATION_TRAINING
+What is the quarantine period for new pets?,VETERINARY
+Can I pay taxes at the barangay hall?,TAX
+Does the city offer mental health consultation services?,HEALTH
+How do I apply for a 4Ps program?,SOCIAL_SERVICES
+What are the office hours during holidays?,GENERAL_INFORMATION
+What is a tax declaration number?,TAX
+Are laboratory tests free at the health center?,HEALTH
+What is a barangay business clearance used for?,BUSINESS_TRADE
+Do I need to renew my voter registration after moving barangays?,REGISTRATIONS_APPLICATIONS
+How do I get a certificate of eligibility?,EMPLOYMENT
+How do I apply for burial assistance?,SOCIAL_SERVICES
+What is the schedule for the anti-rabies clinic?,HEALTH
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+What services does PESO offer for unemployed?,EMPLOYMENT
+What diseases are covered in the vaccination program?,VETERINARY
+Is there a penalty for abandoning pets?,VETERINARY
+How do I enroll in a TESDA welding course?,EDUCATION_TRAINING
+What do I need to bring to pay my cedula?,TAX
+How do I apply for a study grant?,EDUCATION_TRAINING
+What documents are needed for a building permit application?,HOUSING
+What is the process for land titling?,HOUSING
+How do I get to City Hall from the highway?,GENERAL_INFORMATION
+Does the city give free vegetable seeds?,AGRICULTURAL
+How do I report illegal construction?,HOUSING
+What is the TESDA-PESO partnership program?,EMPLOYMENT
+How do I report a rabies case?,VETERINARY
+Where do I renew an expired building permit?,HOUSING
+What is the deadline for voter registration?,REGISTRATIONS_APPLICATIONS
+What is an annotation on a birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the city's disaster risk reduction plan?,DISASTER_WEATHER
+How do I update my property's assessed value?,TAX
+How do I report crop damage from typhoons?,AGRICULTURAL
+What courses are offered at the city training center?,EDUCATION_TRAINING
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the processing time for a new business permit?,BUSINESS_TRADE
+What skills are in demand locally?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+Where can I get free seedlings for my garden?,AGRICULTURAL
+What is a CENOMAR and where do I get it?,REGISTRATIONS_APPLICATIONS
+Ano ang mga barangay sa Calamba?,GENERAL_INFORMATION
+Can you help me get a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Are there subsidies for irrigation?,AGRICULTURAL
+Saan ang BPLO sa City Hall?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+How much is the fee for a residency certificate?,CERTIFICATES_PERMITS_IDS
+Are there shelters for abused women?,SOCIAL_SERVICES
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+Are there free eye checkups for students?,HEALTH
+Can a foreigner apply for a business permit in Calamba?,BUSINESS_TRADE
+How do I request an ambulance for an emergency?,HEALTH
+What is the process for legal guardianship?,SOCIAL_SERVICES
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+How do I transfer tax declaration to heir?,TAX
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+What is a labor market information report?,EMPLOYMENT
+What is a storm surge and how do I prepare?,DISASTER_WEATHER
+How do I get a social case study report?,SOCIAL_SERVICES
+How do I contact the City Health Office?,GENERAL_INFORMATION
+May training ba para sa organic farming?,AGRICULTURAL
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Where do I pay business tax separately from the business permit?,TAX
+Can working students apply for city scholarship?,EDUCATION_TRAINING
+Where is the social welfare office located?,SOCIAL_SERVICES
+Paano mag-donate ng tulong sa disaster response?,DISASTER_WEATHER
+Can I get a cedula even if I'm not a resident?,CERTIFICATES_PERMITS_IDS
+How do I close my business and cancel the permit?,BUSINESS_TRADE
+"My cat is not eating, where can I bring it?",VETERINARY
+What are the office hours of City Hall?,GENERAL_INFORMATION
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+Is there an informal settler relocation site in Calamba?,HOUSING
+May relief goods ba para sa biktima ng baha?,DISASTER_WEATHER
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Are there part-time jobs available?,EMPLOYMENT
+Paano mag-apply ng financial assistance?,SOCIAL_SERVICES
+Can I get a pet travel permit?,VETERINARY
+Paano mag-hanap ng trabaho sa PESO?,EMPLOYMENT
+What is the difference between cedula and real property tax?,TAX
+What is the duration of the dressmaking course?,EDUCATION_TRAINING
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Ano ang requirements para sa OFW application?,EMPLOYMENT
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+How do I apply for a correction of entry?,REGISTRATIONS_APPLICATIONS
+Does the city help with overseas job applications?,EMPLOYMENT
+What is the penalty for not registering a pet?,VETERINARY
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+Are there tax incentives for new businesses?,TAX
+Can I get a certificate after completing the seminar?,EDUCATION_TRAINING
+Where can I get a birth certificate from the health office?,HEALTH
+Saan ang CSWDO office?,SOCIAL_SERVICES
+What is the schedule for the next barista training?,EDUCATION_TRAINING
+How do I adopt a pet from the city pound?,VETERINARY
+What is a certificate of occupancy?,HOUSING
+Is a sanitary permit included in the business permit?,BUSINESS_TRADE
+Are there programs for stray animal control?,VETERINARY
+Paano mag-apply ng pabahay?,HOUSING
+What documents do I need for a job application?,EMPLOYMENT
+Does the city offer subsidized fertilizer for farmers?,AGRICULTURAL
+Does the city offer training for caregiving certification?,EDUCATION_TRAINING
+How do I file a complaint against my employer?,EMPLOYMENT
+How do I apply for a demolition permit?,HOUSING
+Can I get a fitness certificate for sports?,HEALTH
+Ano ang requirements para sa skills training?,EDUCATION_TRAINING
+How do I report a fallen tree blocking the road?,DISASTER_WEATHER
+Where can I get sandbags before a typhoon?,DISASTER_WEATHER
+Ano ang gagawin kung kinagat ng aso?,VETERINARY
+Is there a senior citizen discount on real property tax?,TAX
+What taxes do I pay with my business permit?,BUSINESS_TRADE
+How do I apply for a PhilHealth ID?,HEALTH
+What is the process for legitimation of a child?,REGISTRATIONS_APPLICATIONS
+How do I get updates on weather disturbances?,DISASTER_WEATHER
+Can I get a certificate of residency if I'm renting?,CERTIFICATES_PERMITS_IDS
+What are the requirements for a medical certificate from the city?,HEALTH
+Ano ang contact number ng mayor's office?,GENERAL_INFORMATION
+Is there a directory of all barangay captains?,GENERAL_INFORMATION
+Where can I get a certified true copy of my tax declaration?,TAX
+Where is the City Agriculture Office located?,AGRICULTURAL
+What offices does the city government have?,GENERAL_INFORMATION
+Is there a housing program for calamity victims?,HOUSING
+Are there training programs for farmers?,EDUCATION_TRAINING
+How do I get a transcript from the training center?,EDUCATION_TRAINING
+Does the city provide feeding programs for children?,SOCIAL_SERVICES
+What is the process for livestock registration?,AGRICULTURAL
+How do I get a zoning clearance?,HOUSING
+Ano ang requirements para sa late birth registration?,REGISTRATIONS_APPLICATIONS
+Ano ang mga opisina ng lungsod ng Calamba?,GENERAL_INFORMATION
+What events are happening this month?,GENERAL_INFORMATION
+"I want to start a {biz_type}, what permits do I need?",BUSINESS_TRADE
+Are there training programs for new farmers?,AGRICULTURAL
+What are the requirements for the scholarship program?,EDUCATION_TRAINING
+Can businesses get a cedula too?,TAX
+What is AICS and who can avail it?,SOCIAL_SERVICES
+What is the city's malnutrition program?,HEALTH
+How many days before a barangay ID is released?,CERTIFICATES_PERMITS_IDS
+What is the city's animal welfare program?,VETERINARY
+Where can I enroll in a vocational course?,EDUCATION_TRAINING
+Where can I get a copy of a marriage certificate?,REGISTRATIONS_APPLICATIONS
+What is the schedule for maternal care checkups?,HEALTH
+Can I pay the barangay ID fee online?,CERTIFICATES_PERMITS_IDS
+Does the city offer free spay and neuter for pets?,VETERINARY
+What training is offered for organic farming?,AGRICULTURAL
+How do I get a certificate of employment facilitation?,EMPLOYMENT
+How do I apply for a livelihood starter kit?,SOCIAL_SERVICES
+How do I check if my barangay is under a flood alert?,DISASTER_WEATHER
+Where can I register a new small business?,BUSINESS_TRADE
+Can I register to vote if I just moved to Calamba?,REGISTRATIONS_APPLICATIONS
+Who do I call in case of a fire emergency?,DISASTER_WEATHER
+Is there a scholarship for college students specifically?,EDUCATION_TRAINING
+Can a home-based business get a permit?,BUSINESS_TRADE
+What are the accepted payment methods for real property tax?,TAX
+Ano ang requirements para sa socialized housing?,HOUSING
+How do I report animal cruelty?,VETERINARY
+What is the process for adopting a child through CSWDO?,SOCIAL_SERVICES
+What is the process for tax protest?,TAX
+Paano mag-apply ng senior citizen ID?,SOCIAL_SERVICES
+When is the next job fair in Calamba?,EMPLOYMENT
+Paano mag-apply ng crop insurance sa Calamba?,AGRICULTURAL
+What is the process for child adoption?,SOCIAL_SERVICES
+How do I verify if my birth certificate is registered?,REGISTRATIONS_APPLICATIONS
+Ano ang benefits ng senior citizen?,SOCIAL_SERVICES
+Where do I submit my scholarship application form?,EDUCATION_TRAINING
+Can I pay my taxes in installments?,TAX
+How do I apply for a city scholarship?,EDUCATION_TRAINING
+How do I protect my crops from pests?,AGRICULTURAL
+What is the procedure for disaster victim identification?,SOCIAL_SERVICES
+What is required for a fencing permit?,HOUSING
+Can PESO refer me to a private company?,EMPLOYMENT
+Where is the releasing area for certificate of indigency?,CERTIFICATES_PERMITS_IDS
+What is the process for barangay ordinance exemption?,REGISTRATIONS_APPLICATIONS
+May trabaho ba para sa fresh graduate?,EMPLOYMENT
+What is the official Facebook page of Calamba City Hall?,GENERAL_INFORMATION
+Are veterinary services available on weekends?,VETERINARY
+How long does it take to process a residency certificate?,CERTIFICATES_PERMITS_IDS
+What barangays make up Calamba City?,GENERAL_INFORMATION
+What is a farmer's cooperative and how do I join?,AGRICULTURAL
+Paano magbayad ng cedula?,TAX
+Is COVID-19 testing still available?,HEALTH
+How do I pay my real property tax?,TAX
+Is there a livelihood assistance program for indigent families?,SOCIAL_SERVICES
+Magkano ang building permit?,HOUSING
+What is the deadline for quarterly tax payment?,TAX
+How do I get a health certificate for my pet before travel?,VETERINARY
+Where do I get a certificate of no marriage record?,REGISTRATIONS_APPLICATIONS
+What is the age requirement for TESDA programs?,EDUCATION_TRAINING
+Can I get burial assistance from the city?,SOCIAL_SERVICES
+What is the difference between BIR registration and business permit?,BUSINESS_TRADE
+What should I do if I found a stray dog?,VETERINARY
+How do I apply for medical assistance?,HEALTH
+What is the minimum wage in Calamba?,EMPLOYMENT
+When does the scholarship application open?,EDUCATION_TRAINING
+Where can I apply for a marriage license?,REGISTRATIONS_APPLICATIONS
+How do I request a medical abstract?,HEALTH
+Can a minor apply for a cedula?,CERTIFICATES_PERMITS_IDS
+Are there early warning systems in barangays?,DISASTER_WEATHER
+Paano mag-apply ng permit sa pagpapatayo ng bahay?,HOUSING
+Saan po pwede kumuha ng NBI clearance sa Calamba?,CERTIFICATES_PERMITS_IDS
+Paano mag-request ng relief goods after a typhoon?,DISASTER_WEATHER
+How do I compute my real property tax?,TAX
+Paano mag-apply ng tax amnesty sa Calamba?,TAX
+How do I report child abuse?,SOCIAL_SERVICES
+"I need a residency certificate for my job application, what should I prepare?",CERTIFICATES_PERMITS_IDS
+Is there a summer class program for kids?,EDUCATION_TRAINING
+Do home-based businesses need a permit too?,BUSINESS_TRADE
+Is there a dengue prevention program?,HEALTH
+Paano mag-apply ng late registration ng birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the SPES program and how do I apply?,EMPLOYMENT
+How do I get a certified copy of tax records?,TAX
+Do senior citizens get a discount on certificate fees?,CERTIFICATES_PERMITS_IDS
+Where can I get a free immunization for my child?,HEALTH
+Saan ang veterinary office?,VETERINARY
+Is a cedula required when applying for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+How do I request a certificate of appearance?,GENERAL_INFORMATION
+What services does the City Government of Calamba offer?,GENERAL_INFORMATION
+What is the process for filing a complaint?,GENERAL_INFORMATION
+Is there a fee for a certificate of residency?,CERTIFICATES_PERMITS_IDS
+How do I apply for disaster assistance?,DISASTER_WEATHER
+Can I register my marriage from abroad locally?,REGISTRATIONS_APPLICATIONS
+Is there a free consultation at the city health office?,HEALTH
+What documents prove my business is legitimate?,BUSINESS_TRADE
+What is the deadline for business permit renewal?,BUSINESS_TRADE
+Where do I report a damaged road after a storm?,DISASTER_WEATHER
+Are there free TESDA courses in Calamba?,EDUCATION_TRAINING
+Can senior citizens get a pension from the city?,SOCIAL_SERVICES
+What is the passing score for TESDA assessment?,EDUCATION_TRAINING
+What time does the job fair usually start?,EMPLOYMENT
+Where can I surrender an unwanted pet?,VETERINARY
+What documents do I need to register at PESO?,EMPLOYMENT
+Can I change my name on my birth certificate?,REGISTRATIONS_APPLICATIONS
+Paano mag-renew ng business permit kung late na?,BUSINESS_TRADE
+What is the mission of the City Government of Calamba?,GENERAL_INFORMATION
+How do I treat a wounded stray dog?,VETERINARY
+What is the role of the housing board?,HOUSING
+Are there public restrooms at City Hall?,GENERAL_INFORMATION
+How do I renew my expired community tax certificate?,CERTIFICATES_PERMITS_IDS
+What is an occupancy permit and how do I get one?,HOUSING
+What is required to register a newborn's birth certificate?,REGISTRATIONS_APPLICATIONS
+How do I update my PESO registration?,EMPLOYMENT
+Are there veterinary services for livestock?,VETERINARY
+What happens if I don't pay my real property tax on time?,TAX
+How do I prepare for a job interview?,EMPLOYMENT
+How do I get a certificate of residency?,CERTIFICATES_PERMITS_IDS
+Paano magsimula ng pagtatanim?,AGRICULTURAL
+Where can I get a free anti-rabies vaccine for my dog?,VETERINARY
+Does the city assist with housing loans?,HOUSING
+How do I file an application for a local ordinance exemption?,REGISTRATIONS_APPLICATIONS
+How do I report a missing person?,SOCIAL_SERVICES
+Are there programs for persons with disabilities?,HEALTH
+Can I build a second floor without a new permit?,HOUSING
+Are there seminars for entrepreneurship?,EDUCATION_TRAINING
+What are the requirements for a senior citizen ID?,SOCIAL_SERVICES
+What is the requirement for death certificate registration?,REGISTRATIONS_APPLICATIONS
+Paano mag-register ng botante?,REGISTRATIONS_APPLICATIONS
+Is there a livestock dispersal program for farmers?,AGRICULTURAL
+Do I need a DTI registration before applying for a business permit?,BUSINESS_TRADE
+What number do I call for rescue during floods?,DISASTER_WEATHER
+Can PESO help me find work abroad?,EMPLOYMENT
+Ilang araw bago ma-release ang residency certificate?,CERTIFICATES_PERMITS_IDS
+How long does birth certificate registration take?,REGISTRATIONS_APPLICATIONS
+How do I apply for an internship at City Hall?,GENERAL_INFORMATION
+How do I surrender an injured wild animal?,VETERINARY
+Paano makontak ang city hall?,GENERAL_INFORMATION
+Can I get educational assistance for my child?,SOCIAL_SERVICES
+Where can farmers get assistance after a typhoon damages crops?,AGRICULTURAL
+Where can I submit my resume for local job openings?,EMPLOYMENT
+How do I get a pet health certificate?,VETERINARY
+What is a community tax certificate used for?,TAX
+Is PESO registration free?,EMPLOYMENT
+Kailangan bang i-register ang alaga?,VETERINARY
+Where can I find the organizational chart of the city government?,GENERAL_INFORMATION
+Where is the nearest evacuation center?,DISASTER_WEATHER
+Where are the designated evacuation centers in my barangay?,DISASTER_WEATHER
+How do I apply for a home improvement loan?,HOUSING
+How do I apply for a death certificate registration?,REGISTRATIONS_APPLICATIONS
+What is the validity period of a cedula?,CERTIFICATES_PERMITS_IDS
+Paano mag-book ng dental checkup sa health center?,HEALTH
+How do I register as a job seeker?,EMPLOYMENT
+Is there a tuberculosis screening program?,HEALTH
+What is foster care and how do I apply?,SOCIAL_SERVICES
+Where do I file for legitimation of children?,REGISTRATIONS_APPLICATIONS
+Do online sellers need a business permit?,BUSINESS_TRADE
+How much does a police clearance cost?,CERTIFICATES_PERMITS_IDS
+What is a certificate of indigency used for?,SOCIAL_SERVICES
+May scholarship ba para sa STEM students?,EDUCATION_TRAINING
+What documents do I need to register my pet?,VETERINARY
+What is a locational clearance for residential?,HOUSING
+Is there insurance for homes in flood-prone areas?,DISASTER_WEATHER
+Is there a livestock vaccination program for farmers?,VETERINARY
+What is the schedule for pet vaccination?,VETERINARY
+Who is the current mayor of Calamba City?,GENERAL_INFORMATION
+Is there a typhoon signal in Calamba today?,DISASTER_WEATHER
+What are the requirements for a building permit?,HOUSING
+Paano magbayad ng real property tax?,TAX
+Saan po pwede kumuha ng certificate of indigency?,CERTIFICATES_PERMITS_IDS
+What is a socialized housing program?,HOUSING
+Is there a discount for early real property tax payment?,TAX
+What are the requirements for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+How do I get a certificate of residency?,CERTIFICATES_PERMITS_IDS
+Where can I apply for a police clearance?,CERTIFICATES_PERMITS_IDS
+"I need a barangay ID, what do I need to bring?",CERTIFICATES_PERMITS_IDS
+How long does it take to process a residency certificate?,CERTIFICATES_PERMITS_IDS
+Can I get a clearance without a valid ID?,CERTIFICATES_PERMITS_IDS
+What documents do I need for a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Paano po makakuha ng barangay clearance?,CERTIFICATES_PERMITS_IDS
+Is there a fee for a certificate of residency?,CERTIFICATES_PERMITS_IDS
+Where do I apply for a solo parent ID?,CERTIFICATES_PERMITS_IDS
+What are the requirements for a business permit?,BUSINESS_TRADE
+How do I renew my business permit?,BUSINESS_TRADE
+Where can I register a new small business?,BUSINESS_TRADE
+Do I need a DTI registration before applying for a business permit?,BUSINESS_TRADE
+What is the deadline for business permit renewal?,BUSINESS_TRADE
+How much does a business permit cost?,BUSINESS_TRADE
+Can I apply for a business permit online?,BUSINESS_TRADE
+What happens if I renew my business permit late?,BUSINESS_TRADE
+Paano mag-apply ng bagong business permit?,BUSINESS_TRADE
+Where is the Business Permits and Licensing Office?,BUSINESS_TRADE
+Is there a typhoon signal in Calamba today?,DISASTER_WEATHER
+Where is the nearest evacuation center?,DISASTER_WEATHER
+What is the emergency hotline number during floods?,DISASTER_WEATHER
+Are classes suspended due to bad weather?,DISASTER_WEATHER
+How do I report a flooded area?,DISASTER_WEATHER
+What should I do during a strong earthquake?,DISASTER_WEATHER
+Is there a flood advisory today?,DISASTER_WEATHER
+Paano mag-request ng relief goods after a typhoon?,DISASTER_WEATHER
+Who do I call in case of a fire emergency?,DISASTER_WEATHER
+What barangays are prone to flooding in Calamba?,DISASTER_WEATHER
+How do I register as a voter in Calamba?,REGISTRATIONS_APPLICATIONS
+What is the waste segregation ordinance about?,REGISTRATIONS_APPLICATIONS
+Where can I apply for a marriage license?,REGISTRATIONS_APPLICATIONS
+What are the requirements for voter registration?,REGISTRATIONS_APPLICATIONS
+How do I file an application for a local ordinance exemption?,REGISTRATIONS_APPLICATIONS
+Can I register to vote if I just moved to Calamba?,REGISTRATIONS_APPLICATIONS
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Paano mag-apply ng marriage license?,REGISTRATIONS_APPLICATIONS
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+What ordinances apply to street vendors?,REGISTRATIONS_APPLICATIONS
+Are there free TESDA courses in Calamba?,EDUCATION_TRAINING
+How do I apply for a city scholarship?,EDUCATION_TRAINING
+What training programs are available for out-of-school youth?,EDUCATION_TRAINING
+What are the requirements for the scholarship program?,EDUCATION_TRAINING
+Where can I enroll in a vocational course?,EDUCATION_TRAINING
+Is there a seminar for computer literacy?,EDUCATION_TRAINING
+Paano mag-apply ng iskolarship sa Calamba?,EDUCATION_TRAINING
+When does the scholarship application open?,EDUCATION_TRAINING
+Are there free skills training for adults?,EDUCATION_TRAINING
+What competencies are covered in the dressmaking course?,EDUCATION_TRAINING
+How can I find a job through PESO?,EMPLOYMENT
+When is the next job fair in Calamba?,EMPLOYMENT
+What documents do I need to register at PESO?,EMPLOYMENT
+Does the city help with overseas job applications?,EMPLOYMENT
+Where is the Public Employment Service Office located?,EMPLOYMENT
+Can PESO help me build my resume?,EMPLOYMENT
+Paano mag-apply ng trabaho sa job fair?,EMPLOYMENT
+What companies are hiring in the next job fair?,EMPLOYMENT
+Is PESO registration free?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+What health services are available at the barangay health center?,HEALTH
+How do I apply for medical assistance?,HEALTH
+Where can I get a free immunization for my child?,HEALTH
+What are the requirements for medical assistance from CSWDO?,HEALTH
+Is there a free consultation at the city health office?,HEALTH
+What is the schedule for maternal care checkups?,HEALTH
+Paano mag-request ng tulong medikal?,HEALTH
+Are laboratory tests free at the health center?,HEALTH
+Where can I get a vaccination card?,HEALTH
+Does the city offer dental services?,HEALTH
+How do I apply for socialized housing?,HOUSING
+What are the requirements for a building permit?,HOUSING
+Where do I apply for a relocation program?,HOUSING
+Can informal settlers apply for city housing?,HOUSING
+What documents are needed for a building permit application?,HOUSING
+Paano mag-apply ng socialized housing?,HOUSING
+Who approves building permits in Calamba?,HOUSING
+Is there a housing program for low income families?,HOUSING
+What is a locational clearance for building permits?,HOUSING
+How long does building permit processing take?,HOUSING
+Where can I get a free anti-rabies vaccine for my dog?,VETERINARY
+How do I register my pet with the city?,VETERINARY
+What should I do if my dog was bitten by a stray animal?,VETERINARY
+Is there a vaccination drive for cats this month?,VETERINARY
+Where is the nearest animal bite treatment center?,VETERINARY
+Does the city offer free spay and neuter for pets?,VETERINARY
+Paano magpabakuna ng aso laban sa rabies?,VETERINARY
+What documents do I need to register my pet?,VETERINARY
+Who do I contact for stray animal concerns?,VETERINARY
+Is pet registration required in Calamba?,VETERINARY
+How can I apply for financial assistance?,SOCIAL_SERVICES
+What are the requirements for a senior citizen ID?,SOCIAL_SERVICES
+Where do I apply for a PWD ID?,SOCIAL_SERVICES
+Does CSWDO help families affected by fire?,SOCIAL_SERVICES
+What assistance is available for indigent families?,SOCIAL_SERVICES
+Paano mag-apply ng senior citizen ID?,SOCIAL_SERVICES
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+Where is the social welfare office located?,SOCIAL_SERVICES
+Can I get burial assistance from the city?,SOCIAL_SERVICES
+What is a certificate of indigency used for?,SOCIAL_SERVICES
+How do I pay my real property tax?,TAX
+Where can I get a community tax certificate?,TAX
+Is there a discount for early real property tax payment?,TAX
+What do I need to bring to pay my cedula?,TAX
+Where is the City Treasurer's Office?,TAX
+What happens if I don't pay my real property tax on time?,TAX
+Paano magbayad ng real property tax?,TAX
+Can businesses get a cedula too?,TAX
+Is real property tax paid quarterly or annually?,TAX
+What is a tax declaration number?,TAX
+How do I register as a farmer under RSBSA?,AGRICULTURAL
+Where can I get free seedlings for my garden?,AGRICULTURAL
+Does the city offer subsidized fertilizer for farmers?,AGRICULTURAL
+What are the requirements for RSBSA registration?,AGRICULTURAL
+Is there assistance for fisherfolk in Calamba?,AGRICULTURAL
+Where is the City Agriculture Office located?,AGRICULTURAL
+Paano mag-register bilang magsasaka?,AGRICULTURAL
+What calamity assistance is available for farmers?,AGRICULTURAL
+Can I join a community garden program?,AGRICULTURAL
+Does the city give free vegetable seeds?,AGRICULTURAL
+What offices does the city government have?,GENERAL_INFORMATION
+Who is the current mayor of Calamba City?,GENERAL_INFORMATION
+What are the office hours of City Hall?,GENERAL_INFORMATION
+How do I contact the City Health Office?,GENERAL_INFORMATION
+Where is Calamba City Hall located?,GENERAL_INFORMATION
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Can you list the departments under the city government?,GENERAL_INFORMATION
+Ano ang mga opisina ng lungsod ng Calamba?,GENERAL_INFORMATION
+What services does the City Government of Calamba offer?,GENERAL_INFORMATION
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+How much does a police clearance cost?,CERTIFICATES_PERMITS_IDS
+Can I request a certificate of good moral character online?,CERTIFICATES_PERMITS_IDS
+What ID is required to claim a barangay clearance?,CERTIFICATES_PERMITS_IDS
+How many days before a barangay ID is released?,CERTIFICATES_PERMITS_IDS
+Saan po pwede kumuha ng NBI clearance sa Calamba?,CERTIFICATES_PERMITS_IDS
+Is a cedula required when applying for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+Can I get a certificate of residency if I'm renting?,CERTIFICATES_PERMITS_IDS
+What's the validity period of a police clearance?,CERTIFICATES_PERMITS_IDS
+Do senior citizens get a discount on certificate fees?,CERTIFICATES_PERMITS_IDS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+What is the process for closing a business permit?,BUSINESS_TRADE
+Do I need a fire safety inspection certificate for my permit?,BUSINESS_TRADE
+Can a home-based business get a permit?,BUSINESS_TRADE
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Paano kumuha ng sanitary permit para sa negosyo?,BUSINESS_TRADE
+Is there a grace period for late business permit renewal?,BUSINESS_TRADE
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+Can I check my business permit application status online?,BUSINESS_TRADE
+What size of business needs a barangay business clearance first?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+Where can I get sandbags before a typhoon?,DISASTER_WEATHER
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+How do I sign up for earthquake drill training?,DISASTER_WEATHER
+What's the process for requesting relief goods after a fire?,DISASTER_WEATHER
+Are there weather updates posted by the city government?,DISASTER_WEATHER
+Where do I report a damaged road after a storm?,DISASTER_WEATHER
+Is Calamba under a landslide-prone area advisory?,DISASTER_WEATHER
+What number do I call for the CDRRMO?,DISASTER_WEATHER
+How do I check if my barangay is under a flood alert?,DISASTER_WEATHER
+How do I apply for a death certificate registration?,REGISTRATIONS_APPLICATIONS
+What is required to register a newborn's birth certificate?,REGISTRATIONS_APPLICATIONS
+Paano mag-apply ng late registration ng birth certificate?,REGISTRATIONS_APPLICATIONS
+Can I update my civil registry records online?,REGISTRATIONS_APPLICATIONS
+What is the process for legitimation of a child?,REGISTRATIONS_APPLICATIONS
+Where do I file a petition for correction of clerical error?,REGISTRATIONS_APPLICATIONS
+How long does birth certificate registration take?,REGISTRATIONS_APPLICATIONS
+What ordinance covers noise complaints in residential areas?,REGISTRATIONS_APPLICATIONS
+Do I need to renew my voter registration after moving barangays?,REGISTRATIONS_APPLICATIONS
+Where can I get a copy of a marriage certificate?,REGISTRATIONS_APPLICATIONS
+Is there a scholarship for college students specifically?,EDUCATION_TRAINING
+What is the age requirement for TESDA programs?,EDUCATION_TRAINING
+Saan mag-apply ng livelihood training?,EDUCATION_TRAINING
+Are online classes offered for vocational courses?,EDUCATION_TRAINING
+What documents are needed to enroll in a skills training program?,EDUCATION_TRAINING
+Is there a scholarship renewal requirement every semester?,EDUCATION_TRAINING
+What is the schedule for the next computer literacy seminar?,EDUCATION_TRAINING
+Can out-of-school youth join TESDA for free?,EDUCATION_TRAINING
+Where do I submit my scholarship application form?,EDUCATION_TRAINING
+Does the city offer training for caregiving certification?,EDUCATION_TRAINING
+Paano mag-sign up sa PESO job matching program?,EMPLOYMENT
+What government agencies participate in the Calamba job fair?,EMPLOYMENT
+Can fresh graduates register at PESO?,EMPLOYMENT
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+What is needed to apply for an OFW pre-departure orientation?,EMPLOYMENT
+Does PESO assist with special program for employment of students?,EMPLOYMENT
+How do I get a certificate of employment facilitation?,EMPLOYMENT
+What time does the job fair usually start?,EMPLOYMENT
+Is there an age limit for PESO job placement?,EMPLOYMENT
+Where can I submit my resume for local job openings?,EMPLOYMENT
+What is the process for applying for PhilHealth assistance?,HEALTH
+Paano mag-book ng dental checkup sa health center?,HEALTH
+Are there free medicines available at the barangay health station?,HEALTH
+What is the schedule for the anti-rabies clinic?,HEALTH
+Does the city offer mental health consultation services?,HEALTH
+Where can senior citizens avail of free medical checkups?,HEALTH
+Is there a nutrition program for malnourished children?,HEALTH
+What are the requirements for a medical certificate from the city?,HEALTH
+How do I request an ambulance for an emergency?,HEALTH
+Is there a family planning clinic in Calamba?,HEALTH
+Paano mag-apply ng permit sa pagpapatayo ng bahay?,HOUSING
+What is an occupancy permit and how do I get one?,HOUSING
+Is there an informal settler relocation site in Calamba?,HOUSING
+What documents prove ownership for a housing application?,HOUSING
+How much is the fee for a building permit application?,HOUSING
+Does the city assist with housing loans?,HOUSING
+What is required for a fencing permit?,HOUSING
+Where do I renew an expired building permit?,HOUSING
+Is there a housing program specifically for solo parents?,HOUSING
+Can I appeal a denied building permit application?,HOUSING
+Paano mag-report ng aso na may sakit sa kapitbahay?,VETERINARY
+What is the fee for pet registration renewal?,VETERINARY
+Does the city provide deworming services for pets?,VETERINARY
+How do I get a health certificate for my pet before travel?,VETERINARY
+Is there a livestock vaccination program for farmers?,VETERINARY
+What should I do if I found a stray dog?,VETERINARY
+Where can I surrender an unwanted pet?,VETERINARY
+Are veterinary services available on weekends?,VETERINARY
+Is there a shelter for abandoned animals in Calamba?,VETERINARY
+What is the penalty for not registering a pet?,VETERINARY
+Paano mag-apply ng AICS o assistance to individuals in crisis?,SOCIAL_SERVICES
+What is the process for adopting a child through CSWDO?,SOCIAL_SERVICES
+Are solo parents entitled to any city benefits?,SOCIAL_SERVICES
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+Does the city provide feeding programs for children?,SOCIAL_SERVICES
+Where can victims of abuse get assistance?,SOCIAL_SERVICES
+Is there a livelihood assistance program for indigent families?,SOCIAL_SERVICES
+What is the process for foster care application?,SOCIAL_SERVICES
+Can OFWs avail of social welfare assistance?,SOCIAL_SERVICES
+Where do I renew my PWD ID?,SOCIAL_SERVICES
+Paano mag-apply ng tax amnesty sa Calamba?,TAX
+What is the penalty for late cedula payment?,TAX
+Where can I get a certified true copy of my tax declaration?,TAX
+Is there a senior citizen discount on real property tax?,TAX
+What is needed to transfer a tax declaration to a new owner?,TAX
+How do I check my real property tax balance online?,TAX
+What are the accepted payment methods for real property tax?,TAX
+Is there an installment plan for delinquent property tax?,TAX
+What is the deadline for annual real property tax payment?,TAX
+Where do I pay business tax separately from the business permit?,TAX
+Paano mag-apply ng crop insurance sa Calamba?,AGRICULTURAL
+Is there a livestock dispersal program for farmers?,AGRICULTURAL
+What training is offered for organic farming?,AGRICULTURAL
+Where can farmers get assistance after a typhoon damages crops?,AGRICULTURAL
+Does the city provide farm equipment for rent?,AGRICULTURAL
+What is required to avail of the Rice Farmer Financial Assistance?,AGRICULTURAL
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Where do I renew my RSBSA registration?,AGRICULTURAL
+Does the city help with irrigation system requests?,AGRICULTURAL
+What assistance is available for coconut farmers?,AGRICULTURAL
+Paano makipag-ugnayan sa opisina ng Punong Lungsod?,GENERAL_INFORMATION
+What is the mission of the City Government of Calamba?,GENERAL_INFORMATION
+Where can I find the organizational chart of the city government?,GENERAL_INFORMATION
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the official Facebook page of Calamba City Hall?,GENERAL_INFORMATION
+How do I file a complaint against a city employee?,GENERAL_INFORMATION
+What barangays make up Calamba City?,GENERAL_INFORMATION
+Where can I get a copy of city ordinances?,GENERAL_INFORMATION
+Is there a directory of all barangay captains?,GENERAL_INFORMATION
+What time does City Hall open on weekdays?,GENERAL_INFORMATION
+Do you offer automotive repair courses?,EDUCATION_TRAINING
+Libre ba ang gamot sa barangay health station?,HEALTH
+How can I apply for financial assistance?,SOCIAL_SERVICES
+Libre ba ang bakuna ng pusa?,VETERINARY
+May discount ba sa early payment?,TAX
+Is fire safety inspection required annually?,BUSINESS_TRADE
+How do I register as a farmer under RSBSA?,AGRICULTURAL
+Where do I file for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+What ID is required to claim a barangay clearance?,CERTIFICATES_PERMITS_IDS
+Are there free review classes for college entrance exams?,EDUCATION_TRAINING
+What is organic farming certification?,AGRICULTURAL
+How do I apply for socialized housing?,HOUSING
+Where can I find the city budget report?,GENERAL_INFORMATION
+What is needed to apply for an OFW pre-departure orientation?,EMPLOYMENT
+Saan ang City Health Office?,HEALTH
+What is the penalty for late cedula payment?,TAX
+Is there a housing program specifically for solo parents?,HOUSING
+Where is the City Treasurer's Office?,TAX
+May parking ba sa City Hall?,GENERAL_INFORMATION
+What government agencies participate in the Calamba job fair?,EMPLOYMENT
+How do I transfer my voter registration to a new barangay?,REGISTRATIONS_APPLICATIONS
+Can I appeal a denied building permit application?,HOUSING
+Where can I apply for a police clearance?,CERTIFICATES_PERMITS_IDS
+What is the city's urban gardening initiative?,AGRICULTURAL
+What is a DSWD referral and how do I get one?,SOCIAL_SERVICES
+What are the requirements for medical assistance from CSWDO?,HEALTH
+Can PESO help me build my resume?,EMPLOYMENT
+What is the city's environmental policy?,GENERAL_INFORMATION
+Saan ang housing office?,HOUSING
+What barangays are prone to flooding in Calamba?,DISASTER_WEATHER
+Are there weather updates posted by the city government?,DISASTER_WEATHER
+Ano ang schedule ng vaccination?,HEALTH
+Is there a vaccination drive for cats this month?,VETERINARY
+Does the city help with irrigation system requests?,AGRICULTURAL
+What should I do if my dog was bitten by a stray animal?,VETERINARY
+Is there a cash-for-work program after a disaster?,DISASTER_WEATHER
+What is the schedule for prenatal checkups?,HEALTH
+Saan ang TESDA office sa Calamba?,EDUCATION_TRAINING
+Are there housing programs for government employees?,HOUSING
+Ano ang RSBSA?,AGRICULTURAL
+Where do I renew my RSBSA registration?,AGRICULTURAL
+Paano mag-report ng aso na may sakit sa kapitbahay?,VETERINARY
+What is the schedule for the next computer literacy seminar?,EDUCATION_TRAINING
+What are the requirements for a business permit?,BUSINESS_TRADE
+What is the process for hospital referral?,HEALTH
+How do I apply for a market stall permit?,REGISTRATIONS_APPLICATIONS
+What documents do I need for a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Can I get help if my house burned down?,SOCIAL_SERVICES
+May tulong ba para sa biktima ng sunog?,SOCIAL_SERVICES
+Are there programs for single mothers?,SOCIAL_SERVICES
+Where can I get a community tax certificate?,TAX
+Where do I file a petition for correction of clerical error?,REGISTRATIONS_APPLICATIONS
+Where do I apply for a relocation program?,HOUSING
+Can out-of-school youth join TESDA for free?,EDUCATION_TRAINING
+Is there a nutrition program for malnourished children?,HEALTH
+Can OFWs avail of social welfare assistance?,SOCIAL_SERVICES
+Libre ba ang pataba?,AGRICULTURAL
+Do you have listings for work-from-home jobs?,EMPLOYMENT
+How do I verify if a lot has no legal issues?,HOUSING
+What is a deed of sale and do I need it?,HOUSING
+Who approves building permits in Calamba?,HOUSING
+What is the process for foster care application?,SOCIAL_SERVICES
+What food items should I stock before a typhoon?,DISASTER_WEATHER
+How do I register as a voter in Calamba?,REGISTRATIONS_APPLICATIONS
+Can informal settlers apply for city housing?,HOUSING
+Pwede bang mag-renew ng business permit online?,BUSINESS_TRADE
+What assistance is available for coconut farmers?,AGRICULTURAL
+Where can I get free condoms and family planning?,HEALTH
+How do I get a copy of my marriage contract?,REGISTRATIONS_APPLICATIONS
+What ordinances apply to street vendors?,REGISTRATIONS_APPLICATIONS
+Is there a grace period for late business permit renewal?,BUSINESS_TRADE
+How do I volunteer for rescue operations?,DISASTER_WEATHER
+What number do I call for the CDRRMO?,DISASTER_WEATHER
+How do I register my pet with the city?,VETERINARY
+Paano mag-enroll sa vocational course?,EDUCATION_TRAINING
+Can senior citizens find jobs through PESO?,EMPLOYMENT
+What health services are available at the barangay health center?,HEALTH
+What is a locational clearance for building permits?,HOUSING
+How much is the fee for a building permit application?,HOUSING
+Saan ang City Agriculture Office?,AGRICULTURAL
+How do I get a police clearance for employment?,EMPLOYMENT
+How do I renew my business permit?,BUSINESS_TRADE
+Paano magpabakuna ng aso laban sa rabies?,VETERINARY
+What documents are needed for passport application?,REGISTRATIONS_APPLICATIONS
+What is a real property tax clearance for housing?,HOUSING
+How long does building permit processing take?,HOUSING
+What should I feed a rescued kitten?,VETERINARY
+What is a tax declaration for land?,HOUSING
+Kailangan ko ng barangay ID para sa passport application.,CERTIFICATES_PERMITS_IDS
+Do I need a barangay endorsement for a community tax certificate?,CERTIFICATES_PERMITS_IDS
+What is the process for closing a business permit?,BUSINESS_TRADE
+Ano ang penalty ng hindi pagbabayad ng buwis?,TAX
+How do I sign up for earthquake drill training?,DISASTER_WEATHER
+Is there a family planning clinic in Calamba?,HEALTH
+Libre ba ang job fair?,EMPLOYMENT
+How do I apply for calamity assistance for crops?,AGRICULTURAL
+Can I apply for multiple business permits under one name?,BUSINESS_TRADE
+Where do I apply for a solo parent ID?,CERTIFICATES_PERMITS_IDS
+How do I file a petition for change of gender?,REGISTRATIONS_APPLICATIONS
+What documents do I need to pay my tax?,TAX
+What ordinances cover tricycle franchises?,REGISTRATIONS_APPLICATIONS
+Saan ang Sangguniang Panlungsod?,GENERAL_INFORMATION
+What is required to avail of the Rice Farmer Financial Assistance?,AGRICULTURAL
+Where is the nearest animal bite treatment center?,VETERINARY
+What is the city's feeding program for kids?,SOCIAL_SERVICES
+How do I get a certificate of no objection?,GENERAL_INFORMATION
+What is needed to transfer a tax declaration to a new owner?,TAX
+How do I get soil testing services?,AGRICULTURAL
+What's the validity period of a police clearance?,CERTIFICATES_PERMITS_IDS
+Can fresh graduates register at PESO?,EMPLOYMENT
+Can I check my business permit application status online?,BUSINESS_TRADE
+What is a tax declaration number?,TAX
+Ano ang kailangan para sa bagong negosyo?,BUSINESS_TRADE
+What are the barangays in Calamba?,GENERAL_INFORMATION
+What ordinance covers noise complaints in residential areas?,REGISTRATIONS_APPLICATIONS
+Who is the city administrator?,GENERAL_INFORMATION
+What is the age limit for scholarship applicants?,EDUCATION_TRAINING
+Is there a housing program for low income families?,HOUSING
+How do I apply for a housing loan?,HOUSING
+What is the fee for pet registration renewal?,VETERINARY
+Are there free medicines available at the barangay health station?,HEALTH
+What is a subdivision plan and where do I get it?,HOUSING
+What happens if I operate without a business permit?,BUSINESS_TRADE
+Can I request a certificate of good moral character online?,CERTIFICATES_PERMITS_IDS
+What happens if I lose my residency certificate?,CERTIFICATES_PERMITS_IDS
+Paano mag-apply ng socialized housing?,HOUSING
+What is the process for public bidding?,GENERAL_INFORMATION
+Can I join a community garden program?,AGRICULTURAL
+Where do I apply for a PWD ID?,SOCIAL_SERVICES
+How do I apply for a mayor's permit?,BUSINESS_TRADE
+Where can I get a vaccination card?,HEALTH
+How much does a business permit cost?,BUSINESS_TRADE
+Can I update my civil registry records online?,REGISTRATIONS_APPLICATIONS
+Is there an age limit for PESO job placement?,EMPLOYMENT
+Who do I contact for stray animal concerns?,VETERINARY
+Can I get my pet microchipped?,VETERINARY
+What calamity assistance is available for farmers?,AGRICULTURAL
+How do I renew my TESDA scholarship?,EDUCATION_TRAINING
+Are there jobs for high school graduates?,EMPLOYMENT
+What are the requirements for voter registration?,REGISTRATIONS_APPLICATIONS
+What are the requirements for a barangay clearance?,CERTIFICATES_PERMITS_IDS
+Where is the human resource management office?,GENERAL_INFORMATION
+Can I get a refund for overpaid taxes?,TAX
+How do I register a birth certificate for my newborn?,REGISTRATIONS_APPLICATIONS
+Ano ang emergency hotline ng Calamba?,DISASTER_WEATHER
+Is there an online application for barangay clearance?,CERTIFICATES_PERMITS_IDS
+What photo size is needed for barangay ID application?,CERTIFICATES_PERMITS_IDS
+What is the emergency hotline number during floods?,DISASTER_WEATHER
+May libreng dental checkup ba?,HEALTH
+Paano mag-register bilang magsasaka?,AGRICULTURAL
+Is pet registration required in Calamba?,VETERINARY
+Saan mag-apply ng marriage license?,REGISTRATIONS_APPLICATIONS
+Pwede bang mag-update ng civil registry records?,REGISTRATIONS_APPLICATIONS
+Paano mag-apply ng bagong business permit?,BUSINESS_TRADE
+Pwede po bang kumuha ng barangay clearance kahit wala sa barangay?,CERTIFICATES_PERMITS_IDS
+What should I prepare in my emergency go-bag?,DISASTER_WEATHER
+Paano kumuha ng sanitary permit para sa negosyo?,BUSINESS_TRADE
+Can I authorize someone to claim my barangay ID?,CERTIFICATES_PERMITS_IDS
+Where can I get a free blood pressure check?,HEALTH
+What is a special assessment for infrastructure?,TAX
+How do I get a medical certificate for travel?,HEALTH
+What is the deadline for annual real property tax payment?,TAX
+How do I file a complaint against a city employee?,GENERAL_INFORMATION
+Can I authorize someone to pay my taxes?,TAX
+What is the city's vision and mission?,GENERAL_INFORMATION
+Where is the Public Employment Service Office located?,EMPLOYMENT
+Is there a shelter for abandoned animals in Calamba?,VETERINARY
+Paano mag-apply ng iskolarship sa Calamba?,EDUCATION_TRAINING
+Does CSWDO help families affected by fire?,SOCIAL_SERVICES
+Where can I get a copy of city ordinances?,GENERAL_INFORMATION
+Is real property tax paid quarterly or annually?,TAX
+Do I need an appointment for a police clearance?,CERTIFICATES_PERMITS_IDS
+How do I schedule an appointment with a department head?,GENERAL_INFORMATION
+Is there a mobile veterinary clinic?,VETERINARY
+Paano magpa-checkup sa health center?,HEALTH
+Libre ba ang wheelchair para sa PWD?,SOCIAL_SERVICES
+What is the NC2 assessment process?,EDUCATION_TRAINING
+Saan ang City Treasurer's Office?,TAX
+Are online modules available for distance learning?,EDUCATION_TRAINING
+Does the city provide farm equipment for rent?,AGRICULTURAL
+Is there a seedling nursery I can visit?,AGRICULTURAL
+Does the city offer dental services?,HEALTH
+Can informal settlers get legal housing?,HOUSING
+What is a job matching program?,EMPLOYMENT
+Ano ang requirements para sa barangay clearance?,CERTIFICATES_PERMITS_IDS
+Where can senior citizens avail of free medical checkups?,HEALTH
+What is the city's program for street children?,SOCIAL_SERVICES
+Are there programs for fisherfolk?,AGRICULTURAL
+What size of business needs a barangay business clearance first?,BUSINESS_TRADE
+Where is Calamba City Hall located?,GENERAL_INFORMATION
+What vaccines are given to infants?,HEALTH
+Pwede bang mag-apply ng housing kahit walang lupa?,HOUSING
+Does PESO assist with special program for employment of students?,EMPLOYMENT
+How do I get a tax clearance certificate?,TAX
+Do senior citizens need a cedula too?,CERTIFICATES_PERMITS_IDS
+How do I check my real property tax balance online?,TAX
+What vaccines does my puppy need?,VETERINARY
+How do I apply for a pet breeding permit?,VETERINARY
+What crops are suitable for our climate?,AGRICULTURAL
+Can I file for voter registration online?,REGISTRATIONS_APPLICATIONS
+What is the RSBSA and why do I need it?,AGRICULTURAL
+Can I apply for housing if I'm renting?,HOUSING
+Is there assistance for fisherfolk in Calamba?,AGRICULTURAL
+What documents prove ownership for a housing application?,HOUSING
+Do I need a fire safety inspection certificate for my permit?,BUSINESS_TRADE
+What should I do during a volcanic eruption?,DISASTER_WEATHER
+Paano po makakuha ng barangay clearance?,CERTIFICATES_PERMITS_IDS
+Can persons with mental illness get assistance?,SOCIAL_SERVICES
+Where is the Business Permits and Licensing Office?,BUSINESS_TRADE
+Saan mag-apply ng livelihood training?,EDUCATION_TRAINING
+What is the dress code for visiting offices?,GENERAL_INFORMATION
+Paano mag-apply ng trabaho sa job fair?,EMPLOYMENT
+Can I transfer my business permit to a new location?,BUSINESS_TRADE
+What are the symptoms that require immediate referral?,HEALTH
+How do I join the city's nutrition program?,HEALTH
+What is the difference between Signal 1 and Signal 3?,DISASTER_WEATHER
+How do I start a small farm in Calamba?,AGRICULTURAL
+What competencies are covered in the dressmaking course?,EDUCATION_TRAINING
+What time does City Hall open on weekdays?,GENERAL_INFORMATION
+What should I do during a strong earthquake?,DISASTER_WEATHER
+How do I get a health clearance for work?,HEALTH
+Paano mag-apply ng AICS o assistance to individuals in crisis?,SOCIAL_SERVICES
+What is the process for late registration of birth?,REGISTRATIONS_APPLICATIONS
+What is the process for new business registration?,BUSINESS_TRADE
+What training programs are available for out-of-school youth?,EDUCATION_TRAINING
+How do I check if my property is properly assessed?,TAX
+How do I check if my area is a danger zone?,DISASTER_WEATHER
+Is there a market assistance program for farmers?,AGRICULTURAL
+Magkano ang real property tax?,TAX
+How do I get a TESDA National Certificate?,EDUCATION_TRAINING
+Can I get a scholarship for graduate studies?,EDUCATION_TRAINING
+What's the process for requesting relief goods after a fire?,DISASTER_WEATHER
+Can you list the departments under the city government?,GENERAL_INFORMATION
+Magkano ang penalty ng late business permit renewal?,BUSINESS_TRADE
+Can I bring my pets to the evacuation center?,DISASTER_WEATHER
+How do I report a dengue outbreak?,HEALTH
+What documents are needed to enroll in a skills training program?,EDUCATION_TRAINING
+What is the waste segregation ordinance about?,REGISTRATIONS_APPLICATIONS
+What are the requirements for RSBSA registration?,AGRICULTURAL
+Are classes suspended due to bad weather?,DISASTER_WEATHER
+Are online classes offered for vocational courses?,EDUCATION_TRAINING
+How do I update my business name on the permit?,BUSINESS_TRADE
+Paano makipag-ugnayan sa opisina ng Punong Lungsod?,GENERAL_INFORMATION
+What companies are hiring in the next job fair?,EMPLOYMENT
+How do I report a flooded area?,DISASTER_WEATHER
+What happens if I renew my business permit late?,BUSINESS_TRADE
+How do I compute my business permit fee?,BUSINESS_TRADE
+Paano mag-request ng tulong medikal?,HEALTH
+What is a tax amnesty program?,TAX
+How do I request a city resolution copy?,GENERAL_INFORMATION
+Paano malaman kung may bagyo?,DISASTER_WEATHER
+Does the city provide deworming services for pets?,VETERINARY
+How do I sell my produce at the city market?,AGRICULTURAL
+What is the process for applying for PhilHealth assistance?,HEALTH
+Are there public WiFi spots in City Hall?,GENERAL_INFORMATION
+What happens if I don't pay my cedula?,TAX
+Is a barangay ID processed on the same day?,CERTIFICATES_PERMITS_IDS
+What assistance is available for indigent families?,SOCIAL_SERVICES
+Paano mag-sign up sa PESO job matching program?,EMPLOYMENT
+Saan pupunta kung kailangan mag-evacuate?,DISASTER_WEATHER
+What should I do if my house is flooded?,DISASTER_WEATHER
+Do I need a zoning clearance before business permit?,BUSINESS_TRADE
+Can I get a clearance without a valid ID?,CERTIFICATES_PERMITS_IDS
+Is there a seminar for computer literacy?,EDUCATION_TRAINING
+What if my NBI clearance application was denied?,CERTIFICATES_PERMITS_IDS
+Libre ba ang review para sa civil service exam?,EDUCATION_TRAINING
+How do I apply for agricultural loan?,AGRICULTURAL
+Can I apply for a business permit online?,BUSINESS_TRADE
+Are there free skills training for adults?,EDUCATION_TRAINING
+How do I contact the city engineer's office?,GENERAL_INFORMATION
+Paano magpa-checkup ng aso?,VETERINARY
+"I need a barangay ID, what do I need to bring?",CERTIFICATES_PERMITS_IDS
+Are there pre-positioned rescue teams during typhoons?,DISASTER_WEATHER
+Magkano ang fee sa marriage license?,REGISTRATIONS_APPLICATIONS
+Can I rent farm equipment from the city?,AGRICULTURAL
+Where can victims of abuse get assistance?,SOCIAL_SERVICES
+Is there a flood advisory today?,DISASTER_WEATHER
+What are the steps to obtain a barangay ID?,CERTIFICATES_PERMITS_IDS
+How can I find a job through PESO?,EMPLOYMENT
+Where do I renew my PWD ID?,SOCIAL_SERVICES
+Paano mag-apply ng marriage license?,REGISTRATIONS_APPLICATIONS
+Is Calamba under a landslide-prone area advisory?,DISASTER_WEATHER
+Is there an installment plan for delinquent property tax?,TAX
+What is a farm-to-market road program?,AGRICULTURAL
+Is there a scholarship renewal requirement every semester?,EDUCATION_TRAINING
+What is the quarantine period for new pets?,VETERINARY
+Can I pay taxes at the barangay hall?,TAX
+Does the city offer mental health consultation services?,HEALTH
+How do I apply for a 4Ps program?,SOCIAL_SERVICES
+What are the office hours during holidays?,GENERAL_INFORMATION
+What is a tax declaration number?,TAX
+Are laboratory tests free at the health center?,HEALTH
+What is a barangay business clearance used for?,BUSINESS_TRADE
+Do I need to renew my voter registration after moving barangays?,REGISTRATIONS_APPLICATIONS
+How do I get a certificate of eligibility?,EMPLOYMENT
+How do I apply for burial assistance?,SOCIAL_SERVICES
+What is the schedule for the anti-rabies clinic?,HEALTH
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+What services does PESO offer for unemployed?,EMPLOYMENT
+What diseases are covered in the vaccination program?,VETERINARY
+Is there a penalty for abandoning pets?,VETERINARY
+How do I enroll in a TESDA welding course?,EDUCATION_TRAINING
+What do I need to bring to pay my cedula?,TAX
+How do I apply for a study grant?,EDUCATION_TRAINING
+What documents are needed for a building permit application?,HOUSING
+What is the process for land titling?,HOUSING
+How do I get to City Hall from the highway?,GENERAL_INFORMATION
+Does the city give free vegetable seeds?,AGRICULTURAL
+How do I report illegal construction?,HOUSING
+What is the TESDA-PESO partnership program?,EMPLOYMENT
+How do I report a rabies case?,VETERINARY
+Where do I renew an expired building permit?,HOUSING
+What is the deadline for voter registration?,REGISTRATIONS_APPLICATIONS
+What is an annotation on a birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the city's disaster risk reduction plan?,DISASTER_WEATHER
+How do I update my property's assessed value?,TAX
+How do I report crop damage from typhoons?,AGRICULTURAL
+What courses are offered at the city training center?,EDUCATION_TRAINING
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the processing time for a new business permit?,BUSINESS_TRADE
+What skills are in demand locally?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+Where can I get free seedlings for my garden?,AGRICULTURAL
+What is a CENOMAR and where do I get it?,REGISTRATIONS_APPLICATIONS
+Ano ang mga barangay sa Calamba?,GENERAL_INFORMATION
+Can you help me get a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Are there subsidies for irrigation?,AGRICULTURAL
+Saan ang BPLO sa City Hall?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+How much is the fee for a residency certificate?,CERTIFICATES_PERMITS_IDS
+Are there shelters for abused women?,SOCIAL_SERVICES
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+Are there free eye checkups for students?,HEALTH
+Can a foreigner apply for a business permit in Calamba?,BUSINESS_TRADE
+How do I request an ambulance for an emergency?,HEALTH
+What is the process for legal guardianship?,SOCIAL_SERVICES
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+How do I transfer tax declaration to heir?,TAX
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+What is a labor market information report?,EMPLOYMENT
+What is a storm surge and how do I prepare?,DISASTER_WEATHER
+How do I get a social case study report?,SOCIAL_SERVICES
+How do I contact the City Health Office?,GENERAL_INFORMATION
+May training ba para sa organic farming?,AGRICULTURAL
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Where do I pay business tax separately from the business permit?,TAX
+Can working students apply for city scholarship?,EDUCATION_TRAINING
+Where is the social welfare office located?,SOCIAL_SERVICES
+Paano mag-donate ng tulong sa disaster response?,DISASTER_WEATHER
+Can I get a cedula even if I'm not a resident?,CERTIFICATES_PERMITS_IDS
+How do I close my business and cancel the permit?,BUSINESS_TRADE
+"My cat is not eating, where can I bring it?",VETERINARY
+What are the office hours of City Hall?,GENERAL_INFORMATION
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+Is there an informal settler relocation site in Calamba?,HOUSING
+May relief goods ba para sa biktima ng baha?,DISASTER_WEATHER
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Are there part-time jobs available?,EMPLOYMENT
+Paano mag-apply ng financial assistance?,SOCIAL_SERVICES
+Can I get a pet travel permit?,VETERINARY
+Paano mag-hanap ng trabaho sa PESO?,EMPLOYMENT
+What is the difference between cedula and real property tax?,TAX
+What is the duration of the dressmaking course?,EDUCATION_TRAINING
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Ano ang requirements para sa OFW application?,EMPLOYMENT
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+How do I apply for a correction of entry?,REGISTRATIONS_APPLICATIONS
+Does the city help with overseas job applications?,EMPLOYMENT
+What is the penalty for not registering a pet?,VETERINARY
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+Are there tax incentives for new businesses?,TAX
+Can I get a certificate after completing the seminar?,EDUCATION_TRAINING
+Where can I get a birth certificate from the health office?,HEALTH
+Saan ang CSWDO office?,SOCIAL_SERVICES
+What is the schedule for the next barista training?,EDUCATION_TRAINING
+How do I adopt a pet from the city pound?,VETERINARY
+What is a certificate of occupancy?,HOUSING
+Is a sanitary permit included in the business permit?,BUSINESS_TRADE
+Are there programs for stray animal control?,VETERINARY
+Paano mag-apply ng pabahay?,HOUSING
+What documents do I need for a job application?,EMPLOYMENT
+Does the city offer subsidized fertilizer for farmers?,AGRICULTURAL
+Does the city offer training for caregiving certification?,EDUCATION_TRAINING
+How do I file a complaint against my employer?,EMPLOYMENT
+How do I apply for a demolition permit?,HOUSING
+Can I get a fitness certificate for sports?,HEALTH
+Ano ang requirements para sa skills training?,EDUCATION_TRAINING
+How do I report a fallen tree blocking the road?,DISASTER_WEATHER
+Where can I get sandbags before a typhoon?,DISASTER_WEATHER
+Ano ang gagawin kung kinagat ng aso?,VETERINARY
+Is there a senior citizen discount on real property tax?,TAX
+What taxes do I pay with my business permit?,BUSINESS_TRADE
+How do I apply for a PhilHealth ID?,HEALTH
+What are the requirements for a senior citizen ID?,SOCIAL_SERVICES
+Can I get burial assistance from the city?,SOCIAL_SERVICES
+What is the schedule for the anti-rabies clinic?,HEALTH
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+What services does PESO offer for unemployed?,EMPLOYMENT
+What diseases are covered in the vaccination program?,VETERINARY
+Is there a penalty for abandoning pets?,VETERINARY
+How do I enroll in a TESDA welding course?,EDUCATION_TRAINING
+What do I need to bring to pay my cedula?,TAX
+How do I apply for a study grant?,EDUCATION_TRAINING
+What documents are needed for a building permit application?,HOUSING
+What is the process for land titling?,HOUSING
+How do I get to City Hall from the highway?,GENERAL_INFORMATION
+Does the city give free vegetable seeds?,AGRICULTURAL
+How do I report illegal construction?,HOUSING
+What is the TESDA-PESO partnership program?,EMPLOYMENT
+How do I report a rabies case?,VETERINARY
+Where do I renew an expired building permit?,HOUSING
+What is the deadline for voter registration?,REGISTRATIONS_APPLICATIONS
+What is an annotation on a birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the city's disaster risk reduction plan?,DISASTER_WEATHER
+How do I update my property's assessed value?,TAX
+How do I report crop damage from typhoons?,AGRICULTURAL
+What courses are offered at the city training center?,EDUCATION_TRAINING
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the processing time for a new business permit?,BUSINESS_TRADE
+What skills are in demand locally?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+Where can I get free seedlings for my garden?,AGRICULTURAL
+What is a CENOMAR and where do I get it?,REGISTRATIONS_APPLICATIONS
+Ano ang mga barangay sa Calamba?,GENERAL_INFORMATION
+Can you help me get a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Are there subsidies for irrigation?,AGRICULTURAL
+Saan ang BPLO sa City Hall?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+How much is the fee for a residency certificate?,CERTIFICATES_PERMITS_IDS
+Are there shelters for abused women?,SOCIAL_SERVICES
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+Are there free eye checkups for students?,HEALTH
+Can a foreigner apply for a business permit in Calamba?,BUSINESS_TRADE
+How do I request an ambulance for an emergency?,HEALTH
+What is the process for legal guardianship?,SOCIAL_SERVICES
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+How do I transfer tax declaration to heir?,TAX
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+What is a labor market information report?,EMPLOYMENT
+What is a storm surge and how do I prepare?,DISASTER_WEATHER
+How do I get a social case study report?,SOCIAL_SERVICES
+How do I contact the City Health Office?,GENERAL_INFORMATION
+May training ba para sa organic farming?,AGRICULTURAL
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Where do I pay business tax separately from the business permit?,TAX
+Can working students apply for city scholarship?,EDUCATION_TRAINING
+Where is the social welfare office located?,SOCIAL_SERVICES
+Paano mag-donate ng tulong sa disaster response?,DISASTER_WEATHER
+Can I get a cedula even if I'm not a resident?,CERTIFICATES_PERMITS_IDS
+How do I close my business and cancel the permit?,BUSINESS_TRADE
+"My cat is not eating, where can I bring it?",VETERINARY
+What are the office hours of City Hall?,GENERAL_INFORMATION
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+Is there an informal settler relocation site in Calamba?,HOUSING
+May relief goods ba para sa biktima ng baha?,DISASTER_WEATHER
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Are there part-time jobs available?,EMPLOYMENT
+Paano mag-apply ng financial assistance?,SOCIAL_SERVICES
+Can I get a pet travel permit?,VETERINARY
+Paano mag-hanap ng trabaho sa PESO?,EMPLOYMENT
+What is the difference between cedula and real property tax?,TAX
+What is the duration of the dressmaking course?,EDUCATION_TRAINING
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Ano ang requirements para sa OFW application?,EMPLOYMENT
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+How do I apply for a correction of entry?,REGISTRATIONS_APPLICATIONS
+Does the city help with overseas job applications?,EMPLOYMENT
+What is the penalty for not registering a pet?,VETERINARY
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+Are there tax incentives for new businesses?,TAX
+Can I get a certificate after completing the seminar?,EDUCATION_TRAINING
+Where can I get a birth certificate from the health office?,HEALTH
+Saan ang CSWDO office?,SOCIAL_SERVICES
+What is the schedule for the next barista training?,EDUCATION_TRAINING
+How do I adopt a pet from the city pound?,VETERINARY
+What is a certificate of occupancy?,HOUSING
+Is a sanitary permit included in the business permit?,BUSINESS_TRADE
+Are there programs for stray animal control?,VETERINARY
+Paano mag-apply ng pabahay?,HOUSING
+What documents do I need for a job application?,EMPLOYMENT
+Does the city offer subsidized fertilizer for farmers?,AGRICULTURAL
+Does the city offer training for caregiving certification?,EDUCATION_TRAINING
+How do I file a complaint against my employer?,EMPLOYMENT
+How do I apply for a demolition permit?,HOUSING
+Can I get a fitness certificate for sports?,HEALTH
+Ano ang requirements para sa skills training?,EDUCATION_TRAINING
+How do I report a fallen tree blocking the road?,DISASTER_WEATHER
+Where can I get sandbags before a typhoon?,DISASTER_WEATHER
+Ano ang gagawin kung kinagat ng aso?,VETERINARY
+Is there a senior citizen discount on real property tax?,TAX
+What taxes do I pay with my business permit?,BUSINESS_TRADE
+How do I apply for a PhilHealth ID?,HEALTH
+What are the requirements for a senior citizen ID?,SOCIAL_SERVICES
+Can I get burial assistance from the city?,SOCIAL_SERVICES
+What is the schedule for the anti-rabies clinic?,HEALTH
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+What services does PESO offer for unemployed?,EMPLOYMENT
+What diseases are covered in the vaccination program?,VETERINARY
+Is there a penalty for abandoning pets?,VETERINARY
+How do I enroll in a TESDA welding course?,EDUCATION_TRAINING
+What do I need to bring to pay my cedula?,TAX
+How do I apply for a study grant?,EDUCATION_TRAINING
+What documents are needed for a building permit application?,HOUSING
+What is the process for land titling?,HOUSING
+How do I get to City Hall from the highway?,GENERAL_INFORMATION
+Does the city give free vegetable seeds?,AGRICULTURAL
+How do I report illegal construction?,HOUSING
+What is the TESDA-PESO partnership program?,EMPLOYMENT
+How do I report a rabies case?,VETERINARY
+Where do I renew an expired building permit?,HOUSING
+What is the deadline for voter registration?,REGISTRATIONS_APPLICATIONS
+What is an annotation on a birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the city's disaster risk reduction plan?,DISASTER_WEATHER
+How do I update my property's assessed value?,TAX
+How do I report crop damage from typhoons?,AGRICULTURAL
+What courses are offered at the city training center?,EDUCATION_TRAINING
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the processing time for a new business permit?,BUSINESS_TRADE
+What skills are in demand locally?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+Where can I get free seedlings for my garden?,AGRICULTURAL
+What is a CENOMAR and where do I get it?,REGISTRATIONS_APPLICATIONS
+Ano ang mga barangay sa Calamba?,GENERAL_INFORMATION
+Can you help me get a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Are there subsidies for irrigation?,AGRICULTURAL
+Saan ang BPLO sa City Hall?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+How much is the fee for a residency certificate?,CERTIFICATES_PERMITS_IDS
+Are there shelters for abused women?,SOCIAL_SERVICES
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+Are there free eye checkups for students?,HEALTH
+Can a foreigner apply for a business permit in Calamba?,BUSINESS_TRADE
+How do I request an ambulance for an emergency?,HEALTH
+What is the process for legal guardianship?,SOCIAL_SERVICES
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+How do I transfer tax declaration to heir?,TAX
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+What is a labor market information report?,EMPLOYMENT
+What is a storm surge and how do I prepare?,DISASTER_WEATHER
+How do I get a social case study report?,SOCIAL_SERVICES
+How do I contact the City Health Office?,GENERAL_INFORMATION
+May training ba para sa organic farming?,AGRICULTURAL
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Where do I pay business tax separately from the business permit?,TAX
+Can working students apply for city scholarship?,EDUCATION_TRAINING
+Where is the social welfare office located?,SOCIAL_SERVICES
+Paano mag-donate ng tulong sa disaster response?,DISASTER_WEATHER
+Can I get a cedula even if I'm not a resident?,CERTIFICATES_PERMITS_IDS
+How do I close my business and cancel the permit?,BUSINESS_TRADE
+"My cat is not eating, where can I bring it?",VETERINARY
+What are the office hours of City Hall?,GENERAL_INFORMATION
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+Is there an informal settler relocation site in Calamba?,HOUSING
+May relief goods ba para sa biktima ng baha?,DISASTER_WEATHER
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Are there part-time jobs available?,EMPLOYMENT
+Paano mag-apply ng financial assistance?,SOCIAL_SERVICES
+Can I get a pet travel permit?,VETERINARY
+Paano mag-hanap ng trabaho sa PESO?,EMPLOYMENT
+What is the difference between cedula and real property tax?,TAX
+What is the duration of the dressmaking course?,EDUCATION_TRAINING
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Ano ang requirements para sa OFW application?,EMPLOYMENT
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+How do I apply for a correction of entry?,REGISTRATIONS_APPLICATIONS
+Does the city help with overseas job applications?,EMPLOYMENT
+What is the penalty for not registering a pet?,VETERINARY
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+Are there tax incentives for new businesses?,TAX
+Can I get a certificate after completing the seminar?,EDUCATION_TRAINING
+Where can I get a birth certificate from the health office?,HEALTH
+Saan ang CSWDO office?,SOCIAL_SERVICES
+What is the schedule for the next barista training?,EDUCATION_TRAINING
+How do I adopt a pet from the city pound?,VETERINARY
+What is a certificate of occupancy?,HOUSING
+Is a sanitary permit included in the business permit?,BUSINESS_TRADE
+Are there programs for stray animal control?,VETERINARY
+Paano mag-apply ng pabahay?,HOUSING
+What documents do I need for a job application?,EMPLOYMENT
+Does the city offer subsidized fertilizer for farmers?,AGRICULTURAL
+Does the city offer training for caregiving certification?,EDUCATION_TRAINING
+How do I file a complaint against my employer?,EMPLOYMENT
+How do I apply for a demolition permit?,HOUSING
+Can I get a fitness certificate for sports?,HEALTH
+Ano ang requirements para sa skills training?,EDUCATION_TRAINING
+How do I report a fallen tree blocking the road?,DISASTER_WEATHER
+Where can I get sandbags before a typhoon?,DISASTER_WEATHER
+Ano ang gagawin kung kinagat ng aso?,VETERINARY
+Is there a senior citizen discount on real property tax?,TAX
+What taxes do I pay with my business permit?,BUSINESS_TRADE
+How do I apply for a PhilHealth ID?,HEALTH
+What are the requirements for a senior citizen ID?,SOCIAL_SERVICES
+Can I get burial assistance from the city?,SOCIAL_SERVICES
+What is the schedule for the anti-rabies clinic?,HEALTH
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+What services does PESO offer for unemployed?,EMPLOYMENT
+What diseases are covered in the vaccination program?,VETERINARY
+Is there a penalty for abandoning pets?,VETERINARY
+How do I enroll in a TESDA welding course?,EDUCATION_TRAINING
+What do I need to bring to pay my cedula?,TAX
+How do I apply for a study grant?,EDUCATION_TRAINING
+What documents are needed for a building permit application?,HOUSING
+What is the process for land titling?,HOUSING
+How do I get to City Hall from the highway?,GENERAL_INFORMATION
+Does the city give free vegetable seeds?,AGRICULTURAL
+How do I report illegal construction?,HOUSING
+What is the TESDA-PESO partnership program?,EMPLOYMENT
+How do I report a rabies case?,VETERINARY
+Where do I renew an expired building permit?,HOUSING
+What is the deadline for voter registration?,REGISTRATIONS_APPLICATIONS
+What is an annotation on a birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the city's disaster risk reduction plan?,DISASTER_WEATHER
+How do I update my property's assessed value?,TAX
+How do I report crop damage from typhoons?,AGRICULTURAL
+What courses are offered at the city training center?,EDUCATION_TRAINING
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the processing time for a new business permit?,BUSINESS_TRADE
+What skills are in demand locally?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+Where can I get free seedlings for my garden?,AGRICULTURAL
+What is a CENOMAR and where do I get it?,REGISTRATIONS_APPLICATIONS
+Ano ang mga barangay sa Calamba?,GENERAL_INFORMATION
+Can you help me get a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Are there subsidies for irrigation?,AGRICULTURAL
+Saan ang BPLO sa City Hall?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+How much is the fee for a residency certificate?,CERTIFICATES_PERMITS_IDS
+Are there shelters for abused women?,SOCIAL_SERVICES
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+Are there free eye checkups for students?,HEALTH
+Can a foreigner apply for a business permit in Calamba?,BUSINESS_TRADE
+How do I request an ambulance for an emergency?,HEALTH
+What is the process for legal guardianship?,SOCIAL_SERVICES
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+How do I transfer tax declaration to heir?,TAX
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+What is a labor market information report?,EMPLOYMENT
+What is a storm surge and how do I prepare?,DISASTER_WEATHER
+How do I get a social case study report?,SOCIAL_SERVICES
+How do I contact the City Health Office?,GENERAL_INFORMATION
+May training ba para sa organic farming?,AGRICULTURAL
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Where do I pay business tax separately from the business permit?,TAX
+Can working students apply for city scholarship?,EDUCATION_TRAINING
+Where is the social welfare office located?,SOCIAL_SERVICES
+Paano mag-donate ng tulong sa disaster response?,DISASTER_WEATHER
+Can I get a cedula even if I'm not a resident?,CERTIFICATES_PERMITS_IDS
+How do I close my business and cancel the permit?,BUSINESS_TRADE
+"My cat is not eating, where can I bring it?",VETERINARY
+What are the office hours of City Hall?,GENERAL_INFORMATION
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+Is there an informal settler relocation site in Calamba?,HOUSING
+May relief goods ba para sa biktima ng baha?,DISASTER_WEATHER
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Are there part-time jobs available?,EMPLOYMENT
+Paano mag-apply ng financial assistance?,SOCIAL_SERVICES
+Can I get a pet travel permit?,VETERINARY
+Paano mag-hanap ng trabaho sa PESO?,EMPLOYMENT
+What is the difference between cedula and real property tax?,TAX
+What is the duration of the dressmaking course?,EDUCATION_TRAINING
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Ano ang requirements para sa OFW application?,EMPLOYMENT
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+How do I apply for a correction of entry?,REGISTRATIONS_APPLICATIONS
+Does the city help with overseas job applications?,EMPLOYMENT
+What is the penalty for not registering a pet?,VETERINARY
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+Are there tax incentives for new businesses?,TAX
+Can I get a certificate after completing the seminar?,EDUCATION_TRAINING
+Where can I get a birth certificate from the health office?,HEALTH
+Saan ang CSWDO office?,SOCIAL_SERVICES
+What is the schedule for the next barista training?,EDUCATION_TRAINING
+How do I adopt a pet from the city pound?,VETERINARY
+What is a certificate of occupancy?,HOUSING
+Is a sanitary permit included in the business permit?,BUSINESS_TRADE
+Are there programs for stray animal control?,VETERINARY
+Paano mag-apply ng pabahay?,HOUSING
+What documents do I need for a job application?,EMPLOYMENT
+Does the city offer subsidized fertilizer for farmers?,AGRICULTURAL
+Does the city offer training for caregiving certification?,EDUCATION_TRAINING
+How do I file a complaint against my employer?,EMPLOYMENT
+How do I apply for a demolition permit?,HOUSING
+Can I get a fitness certificate for sports?,HEALTH
+Ano ang requirements para sa skills training?,EDUCATION_TRAINING
+How do I report a fallen tree blocking the road?,DISASTER_WEATHER
+Where can I get sandbags before a typhoon?,DISASTER_WEATHER
+Ano ang gagawin kung kinagat ng aso?,VETERINARY
+Is there a senior citizen discount on real property tax?,TAX
+What taxes do I pay with my business permit?,BUSINESS_TRADE
+How do I apply for a PhilHealth ID?,HEALTH
+What are the requirements for a senior citizen ID?,SOCIAL_SERVICES
+Can I get burial assistance from the city?,SOCIAL_SERVICES
+What is the schedule for the anti-rabies clinic?,HEALTH
+Is there a curfew during red alert typhoon signals?,DISASTER_WEATHER
+What services does PESO offer for unemployed?,EMPLOYMENT
+What diseases are covered in the vaccination program?,VETERINARY
+Is there a penalty for abandoning pets?,VETERINARY
+How do I enroll in a TESDA welding course?,EDUCATION_TRAINING
+What do I need to bring to pay my cedula?,TAX
+How do I apply for a study grant?,EDUCATION_TRAINING
+What documents are needed for a building permit application?,HOUSING
+What is the process for land titling?,HOUSING
+How do I get to City Hall from the highway?,GENERAL_INFORMATION
+Does the city give free vegetable seeds?,AGRICULTURAL
+How do I report illegal construction?,HOUSING
+What is the TESDA-PESO partnership program?,EMPLOYMENT
+How do I report a rabies case?,VETERINARY
+Where do I renew an expired building permit?,HOUSING
+What is the deadline for voter registration?,REGISTRATIONS_APPLICATIONS
+What is an annotation on a birth certificate?,REGISTRATIONS_APPLICATIONS
+What is the city's disaster risk reduction plan?,DISASTER_WEATHER
+How do I update my property's assessed value?,TAX
+How do I report crop damage from typhoons?,AGRICULTURAL
+What courses are offered at the city training center?,EDUCATION_TRAINING
+What is the penalty for not segregating waste?,REGISTRATIONS_APPLICATIONS
+Where do I claim my processed barangay ID?,CERTIFICATES_PERMITS_IDS
+Is there a citizen's charter I can download?,GENERAL_INFORMATION
+What is the processing time for a new business permit?,BUSINESS_TRADE
+What skills are in demand locally?,EMPLOYMENT
+How do I get a job referral from the city?,EMPLOYMENT
+Where can I get free seedlings for my garden?,AGRICULTURAL
+What is a CENOMAR and where do I get it?,REGISTRATIONS_APPLICATIONS
+Ano ang mga barangay sa Calamba?,GENERAL_INFORMATION
+Can you help me get a good moral character certificate?,CERTIFICATES_PERMITS_IDS
+Are there subsidies for irrigation?,AGRICULTURAL
+Saan ang BPLO sa City Hall?,BUSINESS_TRADE
+Paano mag-volunteer sa disaster response ng Calamba?,DISASTER_WEATHER
+How much is the fee for a residency certificate?,CERTIFICATES_PERMITS_IDS
+Are there shelters for abused women?,SOCIAL_SERVICES
+Where do I get an application form for a barangay ID?,REGISTRATIONS_APPLICATIONS
+Are there free eye checkups for students?,HEALTH
+Can a foreigner apply for a business permit in Calamba?,BUSINESS_TRADE
+How do I request an ambulance for an emergency?,HEALTH
+What is the process for legal guardianship?,SOCIAL_SERVICES
+What taxes are included in the business permit fee?,BUSINESS_TRADE
+How do I transfer tax declaration to heir?,TAX
+Where do I submit my business permit renewal requirements?,BUSINESS_TRADE
+What is a labor market information report?,EMPLOYMENT
+What is a storm surge and how do I prepare?,DISASTER_WEATHER
+How do I get a social case study report?,SOCIAL_SERVICES
+How do I contact the City Health Office?,GENERAL_INFORMATION
+May training ba para sa organic farming?,AGRICULTURAL
+What benefits does a PWD ID give?,SOCIAL_SERVICES
+What is the difference between a business permit and a DTI certificate?,BUSINESS_TRADE
+Where do I pay business tax separately from the business permit?,TAX
+Can working students apply for city scholarship?,EDUCATION_TRAINING
+Where is the social welfare office located?,SOCIAL_SERVICES
+Paano mag-donate ng tulong sa disaster response?,DISASTER_WEATHER
+Can I get a cedula even if I'm not a resident?,CERTIFICATES_PERMITS_IDS
+How do I close my business and cancel the permit?,BUSINESS_TRADE
+"My cat is not eating, where can I bring it?",VETERINARY
+What are the office hours of City Hall?,GENERAL_INFORMATION
+Is there an online portal for job applications through PESO?,EMPLOYMENT
+Is there an informal settler relocation site in Calamba?,HOUSING
+May relief goods ba para sa biktima ng baha?,DISASTER_WEATHER
+Is there a program for urban gardening in barangays?,AGRICULTURAL
+Are there part-time jobs available?,EMPLOYMENT
+Paano mag-apply ng financial assistance?,SOCIAL_SERVICES
+Can I get a pet travel permit?,VETERINARY
+Paano mag-hanap ng trabaho sa PESO?,EMPLOYMENT
+What is the difference between cedula and real property tax?,TAX
+What is the duration of the dressmaking course?,EDUCATION_TRAINING
+What is the email address of the City Treasury?,GENERAL_INFORMATION
+Ano ang requirements para sa OFW application?,EMPLOYMENT
+What documents are needed for a certificate of indigency?,SOCIAL_SERVICES
+How do I apply for a correction of entry?,REGISTRATIONS_APPLICATIONS
+Does the city help with overseas job applications?,EMPLOYMENT
+What is the penalty for not registering a pet?,VETERINARY
+How can I get in touch with the Sangguniang Panlungsod?,GENERAL_INFORMATION
+Are there tax incentives for new businesses?,TAX
+Can I get a certificate after completing the seminar?,EDUCATION_TRAINING
+Where can I get a birth certificate from the health office?,HEALTH
+Saan ang CSWDO office?,SOCIAL_SERVICES
+What is the schedule for the next barista training?,EDUCATION_TRAINING
+How do I adopt a pet from the city pound?,VETERINARY
+What is a certificate of occupancy?,HOUSING
+Is a sanitary permit included in the business permit?,BUSINESS_TRADE
+Are there programs for stray animal control?,VETERINARY
+Paano mag-apply ng pabahay?,HOUSING
+free computer classes here?,EDUCATION_TRAINING
+pano mag TESDA,EDUCATION_TRAINING
+libreng training po ba,EDUCATION_TRAINING
+seminar for out of school youth,EDUCATION_TRAINING
+how to join skills training,EDUCATION_TRAINING
+saan magpa-enroll ng NC2,EDUCATION_TRAINING
+any free tutorial classes for students,EDUCATION_TRAINING
+scholarship for college,EDUCATION_TRAINING
+TESDA schedule this month,EDUCATION_TRAINING
+"gusto ko mag-aral ng cooking course, san po",EDUCATION_TRAINING
+training center malapit dito,EDUCATION_TRAINING
+can adults join TESDA courses too,EDUCATION_TRAINING
+libreng seminar sa barangay,EDUCATION_TRAINING
+requirements sa vocational training,EDUCATION_TRAINING
+is there a welding course,EDUCATION_TRAINING
+libreng bakuna po ba,HEALTH
+free checkup schedule,HEALTH
+saan pwede magpabakuna ng baby,HEALTH
+covid vaccine schedule,HEALTH
+anong oras bukas ang health center,HEALTH
+pwede po ba magpatingin ng libre,HEALTH
+schedule ng free circumcision,HEALTH
+paano kumuha ng health card,HEALTH
+free medicine available ba,HEALTH
+pabakuna ng anak ko saan,HEALTH
+anong requirements sa CSWDO medical assistance,HEALTH
+health center malapit dito,HEALTH
+libreng dental check up,HEALTH
+schedule ng family planning,HEALTH
+paano makakuha ng ayuda,SOCIAL_SERVICES
+tulong po para sa senior citizen,SOCIAL_SERVICES
+may cash assistance ba ngayon,SOCIAL_SERVICES
+paano mag-apply ng AICS,SOCIAL_SERVICES
+tulong sa nasunugan,SOCIAL_SERVICES
+financial help for solo parent,SOCIAL_SERVICES
+paano makuha ang burial assistance,SOCIAL_SERVICES
+libreng gamot para sa matanda,SOCIAL_SERVICES
+how to avail medical assistance dswd,SOCIAL_SERVICES
+tulong para sa nawalan ng trabaho,SOCIAL_SERVICES
+pwede po ba humingi ng tulong sa pagkain,SOCIAL_SERVICES
+is there aid for typhoon victims,SOCIAL_SERVICES
+saan mag-apply ng solo parent id,SOCIAL_SERVICES
+libreng antirabis ba,VETERINARY
+paano magpakastrate ng pusa,VETERINARY
+free spay and neuter,VETERINARY
+anong gagawin kapag kinagat ng aso,VETERINARY
+pano magparehistro ng alagang hayop,VETERINARY
+schedule ng bakuna sa aso,VETERINARY
+may free deworming ba,VETERINARY
+veterinary clinic malapit dito,VETERINARY
+paano mag-report ng away ng aso,VETERINARY
+is pet registration required,VETERINARY
+schedule po ng rabies vaccination,VETERINARY
+libreng gamot para sa hayop,VETERINARY
+magkano ang cedula,TAX
+paano magbayad ng amilyar,TAX
+saan magbayad ng real property tax,TAX
+discount po ba pag maaga magbayad,TAX
+penalty sa late na pagbabayad ng tax,TAX
+paano kumuha ng tax clearance,TAX
+requirements sa pagbabayad ng buwis,TAX
+deadline ng real property tax,TAX
+pwede po ba magbayad online ng tax,TAX
+anong oras bukas ang treasurer office,TAX
+how much is community tax certificate,TAX
+late payment penalty amilyar,TAX
+paano mag-renew ng permit,BUSINESS_TRADE
+requirements sa bagong negosyo,BUSINESS_TRADE
+magkano ang business permit,BUSINESS_TRADE
+deadline ng renewal ng permit,BUSINESS_TRADE
+paano magsara ng negosyo,BUSINESS_TRADE
+fire safety inspection schedule,BUSINESS_TRADE
+saan kumuha ng business permit,BUSINESS_TRADE
+can i renew business permit online,BUSINESS_TRADE
+requirements sa pagpapatayo ng tindahan,BUSINESS_TRADE
+sanitary permit paano kumuha,BUSINESS_TRADE
+how to get mayor's permit,BUSINESS_TRADE
+penalty sa late renewal ng business permit,BUSINESS_TRADE
+paano magparehistro sa RSBSA,AGRICULTURAL
+libreng binhi ba meron,AGRICULTURAL
+tulong sa magsasaka,AGRICULTURAL
+schedule ng seedling distribution,AGRICULTURAL
+paano kumuha ng farmer id,AGRICULTURAL
+organic farming training schedule,AGRICULTURAL
+may insurance ba ang mga magsasaka,AGRICULTURAL
+irrigation assistance paano mag-apply,AGRICULTURAL
+requirements ng RSBSA renewal,AGRICULTURAL
+tulong sa mangingisda,AGRICULTURAL
+libreng fertilizer meron ba,AGRICULTURAL
+urban gardening program saan,AGRICULTURAL
+paano kumuha ng barangay clearance,CERTIFICATES_PERMITS_IDS
+requirements sa police clearance,CERTIFICATES_PERMITS_IDS
+saan kumuha ng cedula,CERTIFICATES_PERMITS_IDS
+paano magpagawa ng good moral,CERTIFICATES_PERMITS_IDS
+kailangan ko ng clearance para sa trabaho,CERTIFICATES_PERMITS_IDS
+how to get NBI clearance requirements,CERTIFICATES_PERMITS_IDS
+barangay id paano kumuha,CERTIFICATES_PERMITS_IDS
+requirements sa certificate of indigency,CERTIFICATES_PERMITS_IDS
+paano humingi ng certificate of residency,CERTIFICATES_PERMITS_IDS
+saan pumunta para sa police clearance,CERTIFICATES_PERMITS_IDS
+what do i need for barangay certification,CERTIFICATES_PERMITS_IDS
+requirements sa community tax certificate,CERTIFICATES_PERMITS_IDS
+paano mag-apply ng socialized housing,HOUSING
+libreng bahay ba meron,HOUSING
+relocation program paano sumali,HOUSING
+requirements sa housing program,HOUSING
+saan mag-apply ng pabahay,HOUSING
+tulong sa mga informal settlers,HOUSING
+paano kumuha ng lot sa resettlement,HOUSING
+is there housing assistance for the poor,HOUSING
+housing office saan matatagpuan,HOUSING
+requirements sa building permit appeal,HOUSING
+programa para sa mga walang bahay,HOUSING
+anong oras bukas ang city hall,GENERAL_INFORMATION
+saan ang city hall,GENERAL_INFORMATION
+contact number ng city hall,GENERAL_INFORMATION
+anong mga barangay meron sa calamba,GENERAL_INFORMATION
+paano makipag ugnayan sa mayor's office,GENERAL_INFORMATION
+website ng calamba city,GENERAL_INFORMATION
+holiday ba ngayon sa opisina,GENERAL_INFORMATION
+what time does city hall open,GENERAL_INFORMATION
+facebook page ng city government,GENERAL_INFORMATION
+schedule ng flag ceremony,GENERAL_INFORMATION
+saan pwede magreklamo,GENERAL_INFORMATION
+address ng city hall,GENERAL_INFORMATION
+may bakante ba sa PESO,EMPLOYMENT
+paano mag-apply sa job fair,EMPLOYMENT
+libreng job fair kailan,EMPLOYMENT
+tulong sa paghahanap ng trabaho,EMPLOYMENT
+requirements sa work abroad orientation,EMPLOYMENT
+paano kumuha ng resume assistance,EMPLOYMENT
+is there a job fair this month,EMPLOYMENT
+trabaho for senior citizen meron ba,EMPLOYMENT
+paano mag-apply as ofw,EMPLOYMENT
+peso office schedule,EMPLOYMENT
+tulong sa mga fresh graduate maghanap ng trabaho,EMPLOYMENT
+paano magparehistro bilang botante,REGISTRATIONS_APPLICATIONS
+saan magpalit ng address sa voter registration,REGISTRATIONS_APPLICATIONS
+requirements sa marriage license,REGISTRATIONS_APPLICATIONS
+paano kumuha ng copy ng birth certificate,REGISTRATIONS_APPLICATIONS
+market stall paano mag-apply,REGISTRATIONS_APPLICATIONS
+paano magparehistro ng negosyo sa vendors,REGISTRATIONS_APPLICATIONS
+saan magpadala ng petition,REGISTRATIONS_APPLICATIONS
+requirements sa pagbabago ng pangalan,REGISTRATIONS_APPLICATIONS
+how to register a tricycle,REGISTRATIONS_APPLICATIONS
+paano kumuha ng transcript ng marriage contract,REGISTRATIONS_APPLICATIONS
+requirements to register as a vendor,REGISTRATIONS_APPLICATIONS
+baha ba ngayon sa calamba,DISASTER_WEATHER
+saan ang evacuation center,DISASTER_WEATHER
+anong number tatawagan pag may sunog,DISASTER_WEATHER
+update sa bagyo ngayon,DISASTER_WEATHER
+paano mag-volunteer sa rescue,DISASTER_WEATHER
+mayroon bang relief goods ngayon,DISASTER_WEATHER
+anong lugar madalas bahain,DISASTER_WEATHER
+hotline ng CDRRMO,DISASTER_WEATHER
+is there a storm signal today,DISASTER_WEATHER
+paano humingi ng tulong sa baha,DISASTER_WEATHER
+anong gagawin pag lindol,DISASTER_WEATHER
+how do i get a copy of cctv footage,SECURITY_SAFETY
+i want to request cctv footage from an incident,SECURITY_SAFETY
+how do i view cctv recordings,SECURITY_SAFETY
+paano makakuha ng cctv footage,SECURITY_SAFETY
+how do i redeem my confiscated license,SECURITY_SAFETY
+how do i get my confiscated driver's license back,SECURITY_SAFETY
+"my license was confiscated for a traffic violation, how do i claim it",SECURITY_SAFETY
+paano makuha ang nakumpiskang lisensya,SECURITY_SAFETY
+how do i redeem confiscated drivers licence,SECURITY_SAFETY
+i got flagged for a traffic violation and they took my license,SECURITY_SAFETY
+how do i request peace and order assistance for an event,SECURITY_SAFETY
+"we're holding a barangay event, how do i request police presence",SECURITY_SAFETY
+how do i request road obstruction clearing,SECURITY_SAFETY
+"there's an obstruction blocking our road, who do i contact",SECURITY_SAFETY
+paano mag request ng clearing ng kalsada,SECURITY_SAFETY
+how do i request a public order and safety training session,SECURITY_SAFETY
+can pos conduct a safety seminar in our barangay,SECURITY_SAFETY
+how do i schedule a skills training for our school,SECURITY_SAFETY
+how do i request maintenance of peace and order,SECURITY_SAFETY
+who do i contact about a road blockage,SECURITY_SAFETY
+how to get cctv video copy for a case,SECURITY_SAFETY
+where do i go to claim my confiscated license,SECURITY_SAFETY
+requirements for redeeming a confiscated license,SECURITY_SAFETY
+how do i file a request for traffic assistance during our parade,SECURITY_SAFETY
+paano humingi ng tulong sa traffic enforcement,SECURITY_SAFETY
+how do i get building permit for low cost housing,HOUSING_SETTLEMENTS
+paano kumuha ng building permit para sa low cost housing,HOUSING_SETTLEMENTS
+requirements for bp 220 building permit,HOUSING_SETTLEMENTS
+how do i apply for socialized housing,HOUSING_SETTLEMENTS
+i want to apply for the socialized housing and land program,HOUSING_SETTLEMENTS
+paano mag apply ng socialized housing,HOUSING_SETTLEMENTS
+am i qualified for socialized housing,HOUSING_SETTLEMENTS
+how do i get a certificate of final electrical inspection for low cost housing,HOUSING_SETTLEMENTS
+how do i get cfei for my housing unit,HOUSING_SETTLEMENTS
+paano makakuha ng certificate of final electrical inspection,HOUSING_SETTLEMENTS
+how do i get an occupancy certification,HOUSING_SETTLEMENTS
+i need occupancy certification to connect electricity,HOUSING_SETTLEMENTS
+paano kumuha ng occupancy certification,HOUSING_SETTLEMENTS
+how do i get occupancy permit for low cost housing,HOUSING_SETTLEMENTS
+requirements for occupancy permit low cost housing,HOUSING_SETTLEMENTS
+how do i apply for a housing program in calamba,HOUSING_SETTLEMENTS
+"im an informal settler, how do i apply for housing",HOUSING_SETTLEMENTS
+housing and settlements department requirements,HOUSING_SETTLEMENTS
+how do i get a lot from the socialized housing program,HOUSING_SETTLEMENTS
+paano kumuha ng lupa sa socialized housing,HOUSING_SETTLEMENTS
+requirements for low cost housing occupancy certificate,HOUSING_SETTLEMENTS
+who qualifies for socialized housing and land program,HOUSING_SETTLEMENTS
+how do i request an investigation of a government office,GOVERNMENT_LEGAL
+how do i file a request for an audit of a city transaction,GOVERNMENT_LEGAL
+paano mag request ng audit sa isang opisina,GOVERNMENT_LEGAL
+how do i file an administrative case against a government employee,GOVERNMENT_LEGAL
+i want to file a complaint against a city official,GOVERNMENT_LEGAL
+paano magsampa ng kaso laban sa isang government employee,GOVERNMENT_LEGAL
+how do i get certified copies of sangguniang panlungsod documents,GOVERNMENT_LEGAL
+how do i request a copy of a city council resolution,GOVERNMENT_LEGAL
+paano makakuha ng sertipikadong kopya ng dokumento ng sanggunian,GOVERNMENT_LEGAL
+how do i request a review of a specific city transaction,GOVERNMENT_LEGAL
+where do i file a complaint against a barangay official,GOVERNMENT_LEGAL
+how do i get archived city council documents,GOVERNMENT_LEGAL
+requirements for filing an administrative case,GOVERNMENT_LEGAL
+how do i request an internal audit investigation,GOVERNMENT_LEGAL
+paano humingi ng kopya ng ordinansa ng lungsod,GOVERNMENT_LEGAL
+how do i apply for a city livelihood development fund loan,FINANCE_LOANS
+paano mag apply ng cldf loan,FINANCE_LOANS
+requirements for city livelihood loan,FINANCE_LOANS
+i want to loan money for my small business from the city,FINANCE_LOANS
+how do i get a livelihood loan for my cooperative,FINANCE_LOANS
+does the city offer loans for entrepreneurs,FINANCE_LOANS
+paano humiram ng puhunan sa lungsod,FINANCE_LOANS
+how do i apply for cldd livelihood fund,FINANCE_LOANS
+where do i apply for a small business loan from the city government,FINANCE_LOANS
+requirements for cooperative loan application,FINANCE_LOANS
+how do i request repair of office equipment,FACILITIES_EQUIPMENT
+"we need our equipment fixed, how do i request maintenance",FACILITIES_EQUIPMENT
+paano mag request ng repair ng equipment,FACILITIES_EQUIPMENT
+how do i request gso for equipment repair,FACILITIES_EQUIPMENT
+"our agency needs equipment maintenance, who do we contact",FACILITIES_EQUIPMENT
+how do i file a request for building maintenance,FACILITIES_EQUIPMENT
+requirements for requesting equipment repair from gso,FACILITIES_EQUIPMENT
+paano humingi ng tulong sa pag aayos ng kagamitan,FACILITIES_EQUIPMENT

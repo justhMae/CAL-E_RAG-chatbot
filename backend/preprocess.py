@@ -1,15 +1,52 @@
 import re
 import difflib
+from pathlib import Path
+from spellchecker import SpellChecker
 from backend.config import CHUNK_SIZE, CHUNK_OVERLAP, STRUCTURED_DOC_MAX_CHARS
+
+_spell = SpellChecker(language="en")
 
 
 def build_domain_vocabulary(collection) -> set[str]:
     all_data = collection.get()
     vocab = set()
     for meta in all_data.get("metadatas", []):
-        for field in (meta.get("title", ""), meta.get("category", "")):
+        for field in (
+            meta.get("title", ""),
+            meta.get("category", ""),
+            meta.get("title_filipino", ""),
+        ):
             vocab.update(w.lower() for w in field.split() if len(w) > 3)
     return vocab
+
+
+TAGALOG_WORDLIST_PATH: Path | None = None
+
+TAGALOG_PROTECTED_WORDS = {
+    "kamusta", "kumusta", "magandang", "umaga", "tanghali", "hapon", "gabi",
+    "paano", "ano", "saan", "san", "kailan", "sino", "bakit", "pwede",
+    "puwede", "bilang", "botante", "negosyo", "opo", "ito", "yan", "yun",
+    "mag", "nang", "ang", "mga", "hindi", "oo", "salamat", "po", "paalam",
+    "ngayon", "bukas", "kahapon", "dito", "doon", "ganito", "ganyan",
+    "magparehistro",
+}
+
+_general_vocab: set[str] | None = None
+
+
+def build_general_vocabulary() -> set[str]:
+    global _general_vocab
+    if _general_vocab is not None:
+        return _general_vocab
+
+    vocab = set(TAGALOG_PROTECTED_WORDS)
+    if TAGALOG_WORDLIST_PATH and TAGALOG_WORDLIST_PATH.is_file():
+        with open(TAGALOG_WORDLIST_PATH, "r", encoding="utf-8") as f:
+            vocab.update(line.strip().lower() for line in f if line.strip())
+
+    _general_vocab = vocab
+    return _general_vocab
+
 
 _TYPO_CORRECTION_STOPWORDS = {
     "a", "an", "the", "is", "are", "was", "were", "be", "been", "being",
@@ -21,34 +58,76 @@ _TYPO_CORRECTION_STOPWORDS = {
     "not", "no", "yes", "please", "give", "get", "list", "all", "under",
 }
 
+_SHORT_WORD_OVERRIDES = {
+    "yu": "you", "u": "you", "ur": "your", "thx": "thanks",
+    "dis": "this", "dat": "that", "d": "the", "n": "and",
+}
 
-def correct_typos(text: str, vocabulary: set[str]) -> str:
+_DOMAIN_TERM_OVERRIDES = {
+    "bisness": "business",
+}
+
+_CASUAL_GREETING_RE = re.compile(
+    r"^(hi+|he+l+o+|he+y+|yo+|su+p+|ok(ay)?|thanks?)$", re.IGNORECASE
+)
+
+
+def correct_typos(text: str, domain_vocabulary: set[str]) -> str:
+    tagalog_vocabulary = build_general_vocabulary()
     words = text.split()
     corrected = []
     for w in words:
         stripped = w.strip(".,?!:;\"'")
         lw = stripped.lower()
-        if len(lw) <= 3 or lw in _TYPO_CORRECTION_STOPWORDS or lw in vocabulary:
+
+        if lw in _SHORT_WORD_OVERRIDES:
+            corrected.append(_SHORT_WORD_OVERRIDES[lw])
+            continue
+
+        if _CASUAL_GREETING_RE.match(lw):
             corrected.append(w)
             continue
-        match = difflib.get_close_matches(lw, vocabulary, n=1, cutoff=0.85)
-        corrected.append(match[0] if match else w)
+
+        if len(lw) <= 2 or lw in _TYPO_CORRECTION_STOPWORDS:
+            corrected.append(w)
+            continue
+
+        if lw in domain_vocabulary or lw in tagalog_vocabulary:
+            corrected.append(w)
+            continue
+
+        if lw in _DOMAIN_TERM_OVERRIDES:
+            corrected.append(_DOMAIN_TERM_OVERRIDES[lw])
+            continue
+
+        domain_match = difflib.get_close_matches(lw, domain_vocabulary, n=1, cutoff=0.85)
+        if domain_match:
+            corrected.append(domain_match[0])
+            continue
+
+        if _spell.known([lw]):
+            corrected.append(w)
+            continue
+
+        correction = _spell.correction(lw)
+        corrected.append(correction if correction else w)
     return " ".join(corrected)
 
 
-def clean_text(text: str) -> str:
-    """Basic cleanup: collapse whitespace, strip stray control characters."""
+def clean_text(text) -> str:
+    if not isinstance(text, str):
+        return ""
     text = text.replace("\r", " ").replace("\n", " ")
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
 
 _GREETING_PATTERNS = [
-    r"(hi|hello|hey|yo|sup)( there| po| guys| everyone)?",
+    r"(hi+|hello+|he+y+|yo+|su+p+)( there| po| guys| everyone)?",
     r"good (morning|afternoon|evening)( po)?",
     r"(kumusta|kamusta)( po| ka)?",
     r"magandang (umaga|tanghali|hapon|gabi)( po)?",
-    r"(hi|hello)(,)? how are you",
+    r"(hi+|hello+)(,)? how are you",
     r"thank(s| you)( po| so much)?",
     r"(ok|okay|alright)( thanks| po)?",
 ]
@@ -58,12 +137,10 @@ _GREETING_RE = re.compile(
 
 
 def is_greeting(text: str) -> bool:
-    """True if the message is only a greeting/pleasantry, nothing else."""
     return bool(_GREETING_RE.fullmatch(clean_text(text)))
 
 
 def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> list[str]:
-    """Split text into overlapping character-based chunks."""
     text = clean_text(text)
     if len(text) <= chunk_size:
         return [text]
@@ -89,7 +166,6 @@ TERM_ALIASES: dict[str, list[str]] = {
 
 
 def flatten_structured_document(doc: dict) -> str:
-    """Render a structured Citizen's Charter entry into one readable text blob."""
     lines = [doc["title"]]
     aliases = TERM_ALIASES.get(doc.get("id"))
     if aliases:
@@ -136,7 +212,6 @@ def flatten_structured_document(doc: dict) -> str:
 
 
 def preprocess_document(doc: dict) -> list[dict]:
-    """Turn one document dict into a list of chunk dicts ready for embedding."""
     is_structured = "process_flow" in doc or "requirements" in doc
     full_text = flatten_structured_document(doc) if is_structured else doc["text"]
 
@@ -158,15 +233,5 @@ def preprocess_document(doc: dict) -> list[dict]:
 
 
 def basic_tokenize(text: str) -> list[str]:
-    """Lightweight tokenizer used for quick inspection / debugging."""
     text = clean_text(text).lower()
     return re.findall(r"[a-zA-Z']+", text)
-
-
-def clean_text(text) -> str:
-    """Basic cleanup: collapse whitespace, strip stray control characters."""
-    if not isinstance(text, str):
-        return ""
-    text = text.replace("\r", " ").replace("\n", " ")
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
