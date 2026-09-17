@@ -157,11 +157,14 @@ def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVE
     return [c for c in chunks if c]
 
 
+# hard fix for semantic mismatch/cross-lingual mismatch
+# these docs are written in Filipino, so the multilingual model fails when user query is English
 TERM_ALIASES: dict[str, list[str]] = {
     "doc_tax_001": ["amilyar"],
     "doc_vet_010": ["magpabakuna", "bakuna sa aso", "pet vaccination"],
     "doc_bus_009": ["isara ang negosyo", "cancel business permit", "close down business"],
     "doc_general_001": ["san ang city hall", "oras ng city hall", "city hall address", "city hall hours"],
+    "doc_reg_039": ["request a bus for an event", "borrow a coaster", "vehicle loan", "city vehicle for event", "humiram ng sasakyan"],
 }
 
 

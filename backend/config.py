@@ -28,7 +28,7 @@ CHUNK_OVERLAP = 80
 STRUCTURED_DOC_MAX_CHARS = 2200 
 
 # Retrieval
-TOP_K = 3 # number of chunks to retrieve per query
+TOP_K = 6 # number of chunks to retrieve per query
 MIN_SIMILARITY = 0.28  # below this cosine similarity, a chunk is treated as unrelated and dropped
 FORMS_MIN_SIMILARITY = 0.45  # a chunk must clear THIS higher bar before its attached forms get shown alongside an answer
 
