@@ -23,7 +23,9 @@ SYSTEM_INSTRUCTION = (
     "or office name as-is (e.g. \"Barangay Clearance\", \"Cedula\") since those "
     "are proper nouns, not translated prose. Do not switch to Tagalog even if "
     "the user writes entirely in Tagalog. "
-    "Keep answers concise and friendly."
+    "Keep answers concise and friendly, but always list every item in full when "
+    "the question asks for a complete list (e.g. all officials, all requirements) "
+    "do not abbreviate or cut off enumerations."
 )
 
 
@@ -65,6 +67,7 @@ def generate_answer(question: str, retrieved_chunks: list[dict], history: list[d
                 "options": {
                     "temperature": 0.2,
                     "num_ctx": 8192,
+                    "num_predict": 768,
                 },
             },
             timeout=120,

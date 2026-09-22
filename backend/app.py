@@ -4,15 +4,16 @@ from werkzeug.utils import secure_filename
 import secrets
 
 from backend.rag_pipeline import answer_question
-from backend.config import FORMS_DIR
+from backend.config import FORMS_DIR, DOCUMENTS_PATH, CATEGORIES
+import json
 
 app = Flask(
     __name__,
     template_folder="../frontend/templates",
     static_folder="../frontend/static",
 )
-app.secret_key = secrets.token_hex(16)  # needed for session cookies to work
-CORS(app, supports_credentials=True)     # supports_credentials so cookies are sent cross-origin (ngrok)
+app.secret_key = secrets.token_hex(16) # needed for session cookies to work
+CORS(app, supports_credentials=True) # supports_credentials so cookies are sent cross-origin (ngrok)
 
 
 @app.route("/")
@@ -44,6 +45,42 @@ def chat():
 def reset_chat():
     session.pop("history", None)
     return jsonify({"status": "reset"})
+
+
+_categories_cache = None
+
+
+@app.route("/api/categories")
+def categories():
+    """
+    Returns every category with the list of services (document titles) filed
+    under it, so the front end can show "what's offered" when a category
+    chip is tapped.
+    """
+    global _categories_cache
+    if _categories_cache is None:
+        with open(DOCUMENTS_PATH, "r", encoding="utf-8") as f:
+            documents = json.load(f)
+
+        services_by_cat = {}
+        for doc in documents:
+            services_by_cat.setdefault(doc["category"], []).append({
+                "id": doc["id"],
+                "title": doc["title"],
+                "office": doc.get("office", ""),
+            })
+        for services in services_by_cat.values():
+            services.sort(key=lambda s: s["title"])
+
+        _categories_cache = [
+            {
+                "key": key,
+                "label": label,
+                "services": services_by_cat.get(key, []),
+            }
+            for key, label in CATEGORIES.items()
+        ]
+    return jsonify(_categories_cache)
 
 
 @app.route("/api/forms/<path:filename>")

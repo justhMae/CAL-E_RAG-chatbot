@@ -25,7 +25,8 @@ OLLAMA_MODEL = "qwen2.5:7b-instruct"
 # chunking
 CHUNK_SIZE = 400
 CHUNK_OVERLAP = 80 
-STRUCTURED_DOC_MAX_CHARS = 2200 
+STRUCTURED_DOC_MAX_CHARS = 2200
+UNSTRUCTURED_DOC_WHOLE_CHUNK_MAX_CHARS = 4000 # in order to prevent cutting of enumerated lists
 
 # Retrieval
 TOP_K = 6 # number of chunks to retrieve per query

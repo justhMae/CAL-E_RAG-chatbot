@@ -2,7 +2,12 @@ import re
 import difflib
 from pathlib import Path
 from spellchecker import SpellChecker
-from backend.config import CHUNK_SIZE, CHUNK_OVERLAP, STRUCTURED_DOC_MAX_CHARS
+from backend.config import (
+    CHUNK_SIZE,
+    CHUNK_OVERLAP,
+    STRUCTURED_DOC_MAX_CHARS,
+    UNSTRUCTURED_DOC_WHOLE_CHUNK_MAX_CHARS,
+)
 
 _spell = SpellChecker(language="en")
 
@@ -141,19 +146,43 @@ def is_greeting(text: str) -> bool:
 
 
 def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> list[str]:
+    """Split text into overlapping chunks without cutting a word in half.
+
+    A boundary is picked at or before `chunk_size` (preferring a
+    semicolon/period, then a space) so items in enumerated lists
+    (names, emails, etc.) are never sliced mid-token.
+    """
     text = clean_text(text)
     if len(text) <= chunk_size:
         return [text]
 
+    def find_boundary(s: str, target: int) -> int:
+        window_start = max(0, target - 60)
+        window = s[window_start:target]
+        for sep in ("; ", ". ", ", ", " "):
+            pos = window.rfind(sep)
+            if pos != -1:
+                return window_start + pos + len(sep)
+        return target
+
     chunks = []
     start = 0
-    while start < len(text):
-        end = start + chunk_size
+    n = len(text)
+    while start < n:
+        tentative_end = start + chunk_size
+        if tentative_end >= n:
+            end = n
+        else:
+            end = find_boundary(text, tentative_end)
+            if end <= start:  # safety net against zero/negative progress
+                end = tentative_end
         chunk = text[start:end]
         chunks.append(chunk.strip())
-        if end >= len(text):
+        if end >= n:
             break
-        start = end - overlap
+        next_start = end - overlap
+        # ensure forward progress even with a small chunk_size/overlap combo
+        start = next_start if next_start > start else end
     return [c for c in chunks if c]
 
 
@@ -218,7 +247,7 @@ def preprocess_document(doc: dict) -> list[dict]:
     is_structured = "process_flow" in doc or "requirements" in doc
     full_text = flatten_structured_document(doc) if is_structured else doc["text"]
 
-    if is_structured:
+    if is_structured or len(clean_text(full_text)) <= UNSTRUCTURED_DOC_WHOLE_CHUNK_MAX_CHARS:
         chunks = [clean_text(full_text)]
     else:
         chunks = chunk_text(full_text)
