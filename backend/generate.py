@@ -1,5 +1,5 @@
 import requests
-from backend.config import OLLAMA_BASE_URL, OLLAMA_MODEL
+from backend.config import GROQ_API_KEY, GROQ_MODEL
 
 SYSTEM_INSTRUCTION = (
     "You are a helpful assistant for the Calamba City Government website. "
@@ -25,13 +25,30 @@ SYSTEM_INSTRUCTION = (
     "the user writes entirely in Tagalog. "
     "Keep answers concise and friendly, but always list every item in full when "
     "the question asks for a complete list (e.g. all officials, all requirements) "
-    "do not abbreviate or cut off enumerations."
+    "do not abbreviate or cut off enumerations. "
+    "Write like a helpful staff member explaining this in person, not like you're "
+    "copy-pasting a government form: use natural sentences to introduce and connect "
+    "information, rather than opening directly with a heading and bullet dump. "
+    "You may still use short bullet lists for genuinely list-like content (e.g. a "
+    "requirements checklist), but frame them with a sentence or two first, and skip "
+    "restating rigid form-field labels (like 'Classification: Simple' or 'Type of "
+    "Transaction: G2C') unless the user specifically asks about that classification "
+    "detail -- lead with what the user actually needs to know or do."
 )
 
 
+PROMPT_CHUNK_CHAR_LIMIT = 2200
+HISTORY_TURNS_IN_PROMPT = 4  # set to 4 to help control total request size
+
+
 def build_prompt(question: str, retrieved_chunks: list[dict], history: list[dict] | None = None) -> str:
+    def _trim(text: str) -> str:
+        if len(text) <= PROMPT_CHUNK_CHAR_LIMIT:
+            return text
+        return text[:PROMPT_CHUNK_CHAR_LIMIT].rstrip() + " ...[truncated]"
+
     context_block = "\n\n".join(
-        f"[{c['title']} | category: {c['category']}]\n{c['text']}"
+        f"[{c['title']} | category: {c['category']}]\n{_trim(c['text'])}"
         for c in retrieved_chunks
     ) or "No relevant context was found."
 
@@ -39,7 +56,7 @@ def build_prompt(question: str, retrieved_chunks: list[dict], history: list[dict
     if history:
         turns = "\n".join(
             f"{'User' if turn['role'] == 'user' else 'Assistant'}: {turn['content']}"
-            for turn in history[-6:]
+            for turn in history[-HISTORY_TURNS_IN_PROMPT:]
         )
         history_block = f"PREVIOUS CONVERSATION:\n{turns}\n\n"
 
@@ -53,37 +70,39 @@ def build_prompt(question: str, retrieved_chunks: list[dict], history: list[dict
     )
 
 
-def generate_answer(question: str, retrieved_chunks: list[dict], history: list[dict] | None = None) -> str:
+def generate_answer(question, retrieved_chunks, history=None):
     prompt = build_prompt(question, retrieved_chunks, history)
 
     try:
         response = requests.post(
-            f"{OLLAMA_BASE_URL}/api/generate",
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers={"Authorization": f"Bearer {GROQ_API_KEY}"},
             json={
-                "model": OLLAMA_MODEL,
-                "system": SYSTEM_INSTRUCTION,
-                "prompt": prompt,
-                "stream": False,
-                "options": {
-                    "temperature": 0.2,
-                    "num_ctx": 8192,
-                    "num_predict": 768,
-                },
+                "model": GROQ_MODEL,
+                "messages": [
+                    {"role": "system", "content": SYSTEM_INSTRUCTION},
+                    {"role": "user", "content": prompt},
+                ],
+                "temperature": 0.2,
+                "max_tokens": 2048,  # raised this much to accommodate long structured docs with
+                "reasoning_format": "hidden", 
             },
-            timeout=120,
+            timeout=60,
         )
     except requests.exceptions.ConnectionError:
-        raise RuntimeError(
-            f"Could not reach Ollama at {OLLAMA_BASE_URL}. Make sure Ollama is "
-            f"running (`ollama serve`) and the model is pulled "
-            f"(`ollama pull {OLLAMA_MODEL}`)."
-        )
+        raise RuntimeError("Could not reach Groq API. Check your internet connection.")
 
-    if response.status_code == 404:
+    if response.status_code == 401:
+        raise RuntimeError("Groq API key is missing or invalid. Check GROQ_API_KEY in your .env file.")
+    if response.status_code == 413:
         raise RuntimeError(
-            f"Ollama can't find model '{OLLAMA_MODEL}'. Run: ollama pull {OLLAMA_MODEL}"
+            "That question pulled in too much context for a single request "
+            "(Groq's free-tier size limit). Try asking a more specific "
+            "question, or reduce TOP_K in config.py further."
         )
+    if response.status_code == 429:
+        raise RuntimeError("Groq's free-tier rate limit was hit. Wait a moment and try again.")
     response.raise_for_status()
 
     data = response.json()
-    return data["response"].strip()
+    return data["choices"][0]["message"]["content"].strip()

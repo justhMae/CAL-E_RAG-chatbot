@@ -1,4 +1,4 @@
-/* ---------- Design tokens (original palette) ---------- */
+/* design tokens (original palette) */
 :root {
   --navy: #0F188D;
   --blue: #1388F5;
@@ -106,7 +106,7 @@ body {
   transform: scale(0.97);
 }
 
-/* ---------- Chat screen (main view) ---------- */
+/* chat screen (main view) */
 .chat-screen {
   height: 100%;
   display: flex;
@@ -114,7 +114,7 @@ body {
   background: white;
 }
 
-/* Header */
+/* header */
 .app-header {
   background: var(--grad-header);
   color: var(--white);
@@ -165,7 +165,7 @@ body {
   stroke: #fff;
 }
 
-/* Chat window / hero */
+/* chat window / hero */
 .chat-window {
   flex: 1;
   overflow-y: auto;
@@ -224,7 +224,7 @@ body {
   max-width: 320px;
 }
 
-/* Messages */
+/* messages */
 .messages {
   display: flex;
   flex-direction: column;
@@ -263,6 +263,54 @@ body {
   border-bottom-left-radius: 4px;
 }
 
+.message.bot .bubble p {
+  margin: 0 0 8px 0;
+}
+
+.message.bot .bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.message.bot .bubble ul,
+.message.bot .bubble ol {
+  margin: 0 0 8px 0;
+  padding-left: 1.4em;
+}
+
+.message.bot .bubble li {
+  margin-bottom: 2px;
+}
+
+.message.bot .bubble strong {
+  font-weight: 600;
+}
+
+.message.bot .bubble .table-wrap {
+  overflow-x: auto;
+  margin: 0 0 8px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.message.bot .bubble table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+  font-size: 0.92em;
+}
+
+.message.bot .bubble th,
+.message.bot .bubble td {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.message.bot .bubble th {
+  background: rgba(0, 0, 0, 0.04);
+  font-weight: 600;
+}
+
 .message.user .bubble {
   background: var(--navy-2);
   color: var(--white);
@@ -270,7 +318,7 @@ body {
   box-shadow: 0 4px 12px rgba(15, 24, 141, 0.3);
 }
 
-/* Briefly highlighted when jumped to from the chat-history drawer */
+/* briefly highlighted when jumped to from the chat-history drawer */
 @keyframes jump-flash {
 
   0%,
@@ -359,7 +407,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* Services list (shown when a category chip is tapped) */
+/* services list (shown when a category chip is tapped) */
 .services-card {
   max-width: 86%;
   background: var(--bot-chat);
@@ -417,7 +465,7 @@ body {
   padding: 4px;
 }
 
-/* ---------- Bottom bar: chips + input ---------- */
+/* bottom bar: chips + input */
 .bottom-bar {
   flex-shrink: 0;
   padding: 10px 0 16px;
@@ -548,7 +596,7 @@ body {
   transform: none;
 }
 
-/* ---------- Drawer + scrim ---------- */
+/* drawer + scrim */
 .scrim {
   position: absolute;
   inset: 0;
@@ -633,6 +681,30 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.history-search-wrap {
+  margin-bottom: 14px;
+}
+
+.history-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 0.88rem;
+  padding: 9px 10px;
+  outline: none;
+}
+
+.history-search-input::placeholder {
+  color: #A9C4EC;
+}
+
+.history-search-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
 .drawer-section-label {
   font-size: 0.72rem;
   font-weight: 700;
@@ -674,7 +746,7 @@ body {
   padding: 10px 4px;
 }
 
-/* Scrollbar polish */
+/* scrollbar polish */
 .chat-window::-webkit-scrollbar {
   width: 6px;
 }

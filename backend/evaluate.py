@@ -63,7 +63,7 @@ def evaluate_intent_classifier():
         f.write(f"F1-score (macro):  {f1:.3f}\n\n")
         f.write(report)
 
-    # Confusion matrix plot
+    # confusion matrix plot
     labels = sorted(y_test.unique())
     cm = confusion_matrix(y_test, y_pred, labels=labels)
     fig, ax = plt.subplots(figsize=(9, 9))
@@ -75,7 +75,7 @@ def evaluate_intent_classifier():
     plt.close()
     print(f"Saved confusion matrix to {EVAL_OUTPUT_DIR / 'confusion_matrix.png'}")
 
-    # Error analysis
+    # error analysis
     errors = []
     for text, true_label, pred_label in zip(X_test, y_test, y_pred):
         if true_label != pred_label:
@@ -127,4 +127,4 @@ if __name__ == "__main__":
     if args.rag:
         run_sample_conversations()
     else:
-        print("\nSkipped RAG sample conversations (run with --rag once Ollama is running).")
+        print("\nSkipped RAG sample conversations")

@@ -1,4 +1,3 @@
-# Intent classification: sentence embeddings (all-MiniLM-L6-v2) -> Logistic Regression
 import joblib
 import numpy as np
 import pandas as pd

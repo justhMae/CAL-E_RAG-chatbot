@@ -146,12 +146,6 @@ def is_greeting(text: str) -> bool:
 
 
 def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> list[str]:
-    """Split text into overlapping chunks without cutting a word in half.
-
-    A boundary is picked at or before `chunk_size` (preferring a
-    semicolon/period, then a space) so items in enumerated lists
-    (names, emails, etc.) are never sliced mid-token.
-    """
     text = clean_text(text)
     if len(text) <= chunk_size:
         return [text]
@@ -174,14 +168,13 @@ def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVE
             end = n
         else:
             end = find_boundary(text, tentative_end)
-            if end <= start:  # safety net against zero/negative progress
+            if end <= start:
                 end = tentative_end
         chunk = text[start:end]
         chunks.append(chunk.strip())
         if end >= n:
             break
         next_start = end - overlap
-        # ensure forward progress even with a small chunk_size/overlap combo
         start = next_start if next_start > start else end
     return [c for c in chunks if c]
 
@@ -197,7 +190,7 @@ TERM_ALIASES: dict[str, list[str]] = {
 }
 
 
-def flatten_structured_document(doc: dict) -> str:
+def flatten_structured_document_core(doc: dict) -> str:
     lines = [doc["title"]]
     aliases = TERM_ALIASES.get(doc.get("id"))
     if aliases:
@@ -218,36 +211,129 @@ def flatten_structured_document(doc: dict) -> str:
         for req in doc["requirements"]:
             lines.append(f"- {req['requirement']} (secure from: {req['where_to_secure']})")
 
-    if doc.get("process_flow"):
-        lines.append("Process Flow:")
-        for i, step in enumerate(doc["process_flow"], start=1):
-            parts = []
-            if step.get("client_step"):
-                parts.append(f"Client step: {step['client_step']}")
-            if step.get("agency_action"):
-                parts.append(f"Agency action: {step['agency_action']}")
-            if step.get("fee"):
-                parts.append(f"Fee: {step['fee']}")
-            if step.get("processing_time"):
-                parts.append(f"Processing time: {step['processing_time']}")
-            if step.get("person_responsible"):
-                parts.append(f"Person responsible: {step['person_responsible']}")
-            lines.append(f"{i}. " + "; ".join(parts))
+    return "\n".join(lines)
 
-    if doc.get("total_fee") or doc.get("total_processing_time"):
-        lines.append(
-            f"Total fee: {doc.get('total_fee', 'N/A')}; "
-            f"Total processing time: {doc.get('total_processing_time', 'N/A')}"
-        )
+
+def flatten_structured_document_summary(doc: dict) -> str | None:
+    if not (doc.get("total_fee") or doc.get("total_processing_time")):
+        return None
+    return (
+        f"{doc['title']}\n"
+        f"Total fee: {doc.get('total_fee', 'N/A')}\n"
+        f"Total processing time: {doc.get('total_processing_time', 'N/A')}"
+    )
+
+
+def flatten_structured_document_steps(doc: dict) -> str | None:
+    if not doc.get("process_flow"):
+        return None
+
+    lines = [doc["title"], "Process Flow (step-by-step):"]
+    for i, step in enumerate(doc["process_flow"], start=1):
+        parts = []
+        if step.get("client_step"):
+            parts.append(f"Client step: {step['client_step']}")
+        if step.get("agency_action"):
+            parts.append(f"Agency action: {step['agency_action']}")
+        if step.get("fee"):
+            parts.append(f"Fee: {step['fee']}")
+        if step.get("processing_time"):
+            parts.append(f"Processing time: {step['processing_time']}")
+        if step.get("person_responsible"):
+            parts.append(f"Person responsible: {step['person_responsible']}")
+        lines.append(f"{i}. " + "; ".join(parts))
 
     return "\n".join(lines)
 
 
-def preprocess_document(doc: dict) -> list[dict]:
-    is_structured = "process_flow" in doc or "requirements" in doc
-    full_text = flatten_structured_document(doc) if is_structured else doc["text"]
+def flatten_structured_document(doc: dict) -> str:
+    parts = [flatten_structured_document_core(doc)]
+    summary = flatten_structured_document_summary(doc)
+    if summary:
+        parts.append(summary)
+    steps = flatten_structured_document_steps(doc)
+    if steps:
+        parts.append(steps)
+    return "\n".join(parts)
 
-    if is_structured or len(clean_text(full_text)) <= UNSTRUCTURED_DOC_WHOLE_CHUNK_MAX_CHARS:
+
+def flatten_office_contact(doc: dict) -> str:
+    d = doc.get("office_directory_details", {})
+    lines = [doc["title"]]
+    if d.get("department_head"):
+        head_line = f"Department Head: {d['department_head']}"
+        if d.get("designation") and d["designation"] != "Department Head":
+            head_line += f" ({d['designation']})"
+        lines.append(head_line)
+    if d.get("location"):
+        lines.append(f"Location: {d['location']}")
+    for num in d.get("office_numbers", []):
+        lines.append(f"Phone: {num}")
+    for label, ext in (d.get("extensions") or {}).items():
+        lines.append(f"  - {label.replace('_', ' ').title()}: {ext}")
+    if d.get("email_address"):
+        lines.append(f"Email: {d['email_address']}")
+    if d.get("facebook_page"):
+        lines.append(f"Facebook: {d['facebook_page']}")
+    if d.get("functional_statement"):
+        lines.append(f"About this office: {d['functional_statement']}")
+    return "\n".join(lines)
+
+
+def preprocess_document(doc: dict) -> list[dict]:
+    is_office_directory = "office_directory_details" in doc
+    is_structured = "process_flow" in doc or "requirements" in doc
+    office = doc.get("office")
+
+    if is_office_directory:
+        return [{
+            "chunk_id": f"{doc['id']}_chunk0",
+            "doc_id": doc["id"],
+            "category": doc["category"],
+            "title": doc["title"],
+            "office": None,
+            "text": clean_text(flatten_office_contact(doc)),
+        }]
+
+    if is_structured:
+        out = []
+
+        def _add_chunks(text: str, suffix: str) -> None:
+            text = clean_text(text)
+            pieces = [text] if len(text) <= STRUCTURED_DOC_MAX_CHARS else chunk_text(text)
+            for i, piece in enumerate(pieces):
+                out.append({
+                    "chunk_id": f"{doc['id']}{suffix}{i}",
+                    "doc_id": doc["id"],
+                    "category": doc["category"],
+                    "title": doc["title"],
+                    "office": office,
+                    "text": piece,
+                })
+
+        _add_chunks(flatten_structured_document_core(doc), "_chunk")
+
+        summary_text = flatten_structured_document_summary(doc)
+        if summary_text:
+            out.append({
+                "chunk_id": f"{doc['id']}_summary_chunk0",
+                "doc_id": doc["id"],
+                "category": doc["category"],
+                "title": doc["title"],
+                "office": office,
+                "text": clean_text(summary_text),
+            })
+
+        steps_text = flatten_structured_document_steps(doc)
+        if steps_text:
+            _add_chunks(steps_text, "_steps_chunk")
+
+        return out
+
+    # use to simulate the title of the document; there are some documents that have title in the category that are not the title in the document
+    # but the title (category) is mentioned inside the document
+    full_text = f"{doc['title']}\n{doc['text']}"
+    if len(clean_text(full_text)) <= UNSTRUCTURED_DOC_WHOLE_CHUNK_MAX_CHARS:
         chunks = [clean_text(full_text)]
     else:
         chunks = chunk_text(full_text)
@@ -259,6 +345,7 @@ def preprocess_document(doc: dict) -> list[dict]:
             "doc_id": doc["id"],
             "category": doc["category"],
             "title": doc["title"],
+            "office": office,
             "text": chunk,
         })
     return out

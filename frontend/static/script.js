@@ -14,26 +14,30 @@ const scrim = document.getElementById("scrim");
 const newChatBtn = document.getElementById("new-chat-btn");
 const historyList = document.getElementById("history-list");
 const chipsRow = document.getElementById("chips-row");
+const drawerSearchBtn = document.getElementById("drawer-search-btn");
+const historySearchWrap = document.getElementById("history-search-wrap");
+const historySearchInput = document.getElementById("history-search-input");
 
 let categories = [];        // [{ key, label, services: [{id, title, office}] }]
 let historyEntries = [];    // [{ id, text, turnEl }], most recent first
-let currentServicesTurn = null; // DOM node of the currently-visible services card
+let currentServicesTurn = null;
+let historyQuery = "";
 
-/* ---------- Splash / welcome screen ---------- */
+/* splash / welcome screen */
 startChatBtn.addEventListener("click", () => {
   splash.classList.add("hidden");
   chatScreen.classList.remove("hidden");
   chatInput.focus();
 });
 
-/* ---------- Chips: let mouse-wheel scroll horizontally too ---------- */
+/* chips; let mouse-wheel scroll horizontally too */
 chipsRow.addEventListener("wheel", (e) => {
   if (e.deltaY === 0) return;
   e.preventDefault();
   chipsRow.scrollLeft += e.deltaY;
 }, { passive: false });
 
-/* ---------- Drawer open/close ---------- */
+/* drawer open/close */
 function openDrawer() {
   drawer.classList.add("open");
   scrim.classList.add("visible");
@@ -42,26 +46,31 @@ function openDrawer() {
 function closeDrawer() {
   drawer.classList.remove("open");
   scrim.classList.remove("visible");
+  closeHistorySearch();
 }
 
 menuBtn.addEventListener("click", openDrawer);
 scrim.addEventListener("click", closeDrawer);
 
-/* ---------- Chat history (drawer) ---------- */
-// The chat is one continuous transcript. Every question the user sends
-// gets logged here, and clicking a logged entry jumps back up to that
-// exact message in the transcript above (scroll + brief highlight) —
-// it does not swap out the conversation.
+/* chat history */
 function renderHistory() {
   historyList.innerHTML = "";
-  if (historyEntries.length === 0) {
+
+  const query = historyQuery.trim().toLowerCase();
+  const visibleEntries = query
+    ? historyEntries.filter((entry) => entry.text.toLowerCase().includes(query))
+    : historyEntries;
+
+  if (visibleEntries.length === 0) {
     const empty = document.createElement("li");
     empty.className = "history-empty";
-    empty.textContent = "No chats yet";
+    empty.textContent = historyEntries.length === 0
+      ? "No chats yet"
+      : "No matching chats";
     historyList.appendChild(empty);
     return;
   }
-  historyEntries.forEach((entry) => {
+  visibleEntries.forEach((entry) => {
     const li = document.createElement("li");
     li.className = "history-item";
     li.textContent = entry.text;
@@ -69,6 +78,29 @@ function renderHistory() {
     historyList.appendChild(li);
   });
 }
+
+/* chat history search */
+function closeHistorySearch() {
+  historySearchWrap.classList.add("hidden");
+  historySearchInput.value = "";
+  historyQuery = "";
+  renderHistory();
+}
+
+drawerSearchBtn.addEventListener("click", () => {
+  const isHidden = historySearchWrap.classList.contains("hidden");
+  if (isHidden) {
+    historySearchWrap.classList.remove("hidden");
+    historySearchInput.focus();
+  } else {
+    closeHistorySearch();
+  }
+});
+
+historySearchInput.addEventListener("input", () => {
+  historyQuery = historySearchInput.value;
+  renderHistory();
+});
 
 function addToHistory(text, turnEl) {
   historyEntries.unshift({ id: `h${Date.now()}${Math.random().toString(16).slice(2)}`, text, turnEl });
@@ -79,8 +111,6 @@ function jumpToMessage(entry) {
   closeDrawer();
   if (!entry.turnEl || !entry.turnEl.isConnected) return;
 
-  // Wait for the drawer's close transition so scrollIntoView measures
-  // the chat window at its final (drawer-closed) size.
   setTimeout(() => {
     entry.turnEl.scrollIntoView({ behavior: "smooth", block: "center" });
     entry.turnEl.classList.add("jump-highlight");
@@ -90,7 +120,7 @@ function jumpToMessage(entry) {
 
 renderHistory();
 
-/* ---------- New chat ---------- */
+/* new chat */
 newChatBtn.addEventListener("click", () => {
   messagesEl.innerHTML = "";
   hero.classList.remove("hidden");
@@ -103,7 +133,7 @@ newChatBtn.addEventListener("click", () => {
   chatInput.focus();
 });
 
-/* ---------- Category chips ---------- */
+/* category chips */
 async function loadCategories() {
   try {
     const res = await fetch("/api/categories");
@@ -216,6 +246,8 @@ function showServicesForCategory(category) {
       }
       li.addEventListener("click", () => {
         chatInput.value = service.title;
+        chatInput.dataset.categoryHint = category.key;
+        chatInput.dataset.docIdHint = service.id;
         chatForm.requestSubmit();
       });
       list.appendChild(li);
@@ -233,7 +265,112 @@ function showServicesForCategory(category) {
 
 loadCategories();
 
-/* ---------- Messages ---------- */
+/* lightweight markdown-to-HTML for bot replies */
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function renderMarkdownLite(text) {
+  const escaped = escapeHtml(text);
+  const lines = escaped.split("\n");
+  const htmlParts = [];
+  let listBuffer = [];
+  let listType = null; // "ul" | "ol"
+
+  function flushList() {
+    if (listBuffer.length > 0) {
+      htmlParts.push(`<${listType}>` + listBuffer.join("") + `</${listType}>`);
+      listBuffer = [];
+      listType = null;
+    }
+  }
+
+  function inline(str) {
+    let out = str.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    out = out.replace(/\*(.+?)\*/g, "<em>$1</em>");
+    return out;
+  }
+  function isTableRow(line) {
+    return line.startsWith("|") && line.endsWith("|") && line.length > 1;
+  }
+  function isTableSeparatorRow(line) {
+    return isTableRow(line) && /^\|[\s:|-]+\|$/.test(line);
+  }
+  function splitTableRow(line) {
+    return line.slice(1, -1).split("|").map((cell) => cell.trim());
+  }
+
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i].trim();
+
+    if (line === "") {
+      flushList();
+      i++;
+      continue;
+    }
+
+    if (isTableRow(line) && i + 1 < lines.length && isTableSeparatorRow(lines[i + 1].trim())) {
+      flushList();
+      const headerCells = splitTableRow(line);
+      i += 2;
+      const bodyRows = [];
+      while (i < lines.length && isTableRow(lines[i].trim())) {
+        bodyRows.push(splitTableRow(lines[i].trim()));
+        i++;
+      }
+      const thead = "<thead><tr>" +
+        headerCells.map((c) => `<th>${inline(c)}</th>`).join("") +
+        "</tr></thead>";
+      const tbody = "<tbody>" +
+        bodyRows.map((row) =>
+          "<tr>" + row.map((c) => `<td>${inline(c)}</td>`).join("") + "</tr>"
+        ).join("") +
+        "</tbody>";
+      htmlParts.push(`<div class="table-wrap"><table>${thead}${tbody}</table></div>`);
+      continue;
+    }
+
+    const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+    if (headingMatch) {
+      flushList();
+      const level = Math.min(headingMatch[1].length + 2, 4);
+      htmlParts.push(`<h${level}>${inline(headingMatch[2])}</h${level}>`);
+      i++;
+      continue;
+    }
+
+    const bulletMatch = line.match(/^[-*]\s+(.*)$/);
+    const numberedMatch = line.match(/^\d+\.\s+(.*)$/);
+
+    if (bulletMatch) {
+      if (listType !== "ul") flushList();
+      listType = "ul";
+      listBuffer.push(`<li>${inline(bulletMatch[1])}</li>`);
+      i++;
+      continue;
+    }
+    if (numberedMatch) {
+      if (listType !== "ol") flushList();
+      listType = "ol";
+      listBuffer.push(`<li>${inline(numberedMatch[1])}</li>`);
+      i++;
+      continue;
+    }
+
+    flushList();
+    htmlParts.push(`<p>${inline(line)}</p>`);
+    i++;
+  }
+  flushList();
+
+  return htmlParts.join("");
+}
+
+/* messages */
 function addMessage(text, sender, meta, forms) {
   hero.classList.add("hidden");
 
@@ -245,7 +382,11 @@ function addMessage(text, sender, meta, forms) {
 
   const bubble = document.createElement("div");
   bubble.className = "bubble";
-  bubble.textContent = text;
+  if (sender === "bot") {
+    bubble.innerHTML = renderMarkdownLite(text);
+  } else {
+    bubble.textContent = text;
+  }
   wrapper.appendChild(bubble);
 
   turn.appendChild(wrapper);
@@ -302,6 +443,11 @@ chatForm.addEventListener("submit", async (e) => {
   const message = chatInput.value.trim();
   if (!message) return;
 
+  const categoryHint = chatInput.dataset.categoryHint || null;
+  const docIdHint = chatInput.dataset.docIdHint || null;
+  delete chatInput.dataset.categoryHint;
+  delete chatInput.dataset.docIdHint;
+
   const userTurn = addMessage(message, "user");
   addToHistory(message, userTurn);
   chatInput.value = "";
@@ -313,7 +459,7 @@ chatForm.addEventListener("submit", async (e) => {
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, category_hint: categoryHint, doc_id_hint: docIdHint }),
     });
     const data = await res.json();
 

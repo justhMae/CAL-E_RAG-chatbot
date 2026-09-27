@@ -1,15 +1,17 @@
-# all-MiniLM-L6-v2 (sentence-transformers) -> vectors -> ChromaDB.
 import chromadb
 from sentence_transformers import SentenceTransformer
 
 from backend.config import (
     EMBEDDING_MODEL_NAME,
-    CHROMA_PERSIST_DIR,
     CHROMA_COLLECTION_NAME,
     MIN_SIMILARITY,
 )
 
 _model = None
+
+
+_chroma_client = None
+_collection = None
 
 
 def get_embedding_model() -> SentenceTransformer:
@@ -20,14 +22,14 @@ def get_embedding_model() -> SentenceTransformer:
 
 
 def embed_text(text: str) -> list[float]:
-    """Embed a single piece of text (used for the user's question)."""
+    # embed a single piece of text (used for the user's question)
     model = get_embedding_model()
     vector = model.encode(text, normalize_embeddings=True)
     return vector.tolist()
 
 
 def embed_texts(texts: list[str]) -> list[list[float]]:
-    """Embed many texts at once (used when building the index)."""
+    # embed many texts at once (used when building the index)
     model = get_embedding_model()
     vectors = model.encode(
         texts, normalize_embeddings=True, batch_size=32, show_progress_bar=True
@@ -36,16 +38,18 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
 
 
 def get_chroma_collection():
-    chroma_client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
-    collection = chroma_client.get_or_create_collection(
-        name=CHROMA_COLLECTION_NAME,
-        metadata={"hnsw:space": "cosine"},
-    )
-    return collection
+    global _chroma_client, _collection
+    if _collection is None:
+        _chroma_client = chromadb.Client()  # in-memory
+        _collection = _chroma_client.get_or_create_collection(
+            name=CHROMA_COLLECTION_NAME,
+            metadata={"hnsw:space": "cosine"},
+        )
+    return _collection
 
 
 def index_chunks(chunks: list[dict]) -> None:
-    """Embed a list of preprocessed chunks (in one batch) and store them in ChromaDB."""
+    # embed a list of preprocessed chunks (in one batch) and store them in ChromaDB
     collection = get_chroma_collection()
 
     texts = [c["text"] for c in chunks]
@@ -67,13 +71,8 @@ def index_chunks(chunks: list[dict]) -> None:
 
 
 def retrieve(question: str, top_k: int = 3, category_filter: str | None = None) -> list[dict]:
-    """
-    Embed the user's question, run a similarity search against ChromaDB,
-    and drop any hit below MIN_SIMILARITY -- ChromaDB always returns its
-    top_k nearest neighbors even when none of them are actually related
-    to the query, so without this a greeting or off-topic message would
-    still get handed 3 "closest by chance" chunks as if they were relevant.
-    """
+    # embed the user's question, run a similarity search against ChromaDB, and drop any hit below MIN_SIMILARITY
+    
     collection = get_chroma_collection()
     query_vector = embed_text(question)
 
@@ -85,14 +84,16 @@ def retrieve(question: str, top_k: int = 3, category_filter: str | None = None) 
     )
 
     hits = []
+    ids = results.get("ids", [[]])[0]
     docs = results.get("documents", [[]])[0]
     metas = results.get("metadatas", [[]])[0]
     dists = results.get("distances", [[]])[0]
-    for doc, meta, dist in zip(docs, metas, dists):
+    for chunk_id, doc, meta, dist in zip(ids, docs, metas, dists):
         similarity = 1 - dist
         if similarity < MIN_SIMILARITY:
             continue
         hits.append({
+            "chunk_id": chunk_id,
             "text": doc,
             "title": meta.get("title"),
             "category": meta.get("category"),
@@ -102,13 +103,52 @@ def retrieve(question: str, top_k: int = 3, category_filter: str | None = None) 
     return hits
 
 
+def get_chunks_by_doc_id(doc_id: str) -> list[dict]:
+    # fetch every chunk belonging to one document directly by doc_id, bypassing similarity search
+    # used only when the caller already knows exactly which document is needed
+
+    collection = get_chroma_collection()
+    result = collection.get(where={"doc_id": doc_id})
+    hits = []
+    ids = result.get("ids", [])
+    docs = result.get("documents", [])
+    metas = result.get("metadatas", [])
+    for chunk_id, doc, meta in zip(ids, docs, metas):
+        hits.append({
+            "chunk_id": chunk_id,
+            "text": doc,
+            "title": meta.get("title"),
+            "category": meta.get("category"),
+            "doc_id": meta.get("doc_id"),
+            "similarity": None,  # not from a similarity search; fetched directly
+        })
+    return hits
+
+
+def get_chunk_by_id(chunk_id: str) -> dict | None:
+    # fetch one specific chunk directly by its ID, bypassing similarity search
+    # used to deterministically pull in a document's short summary (total fee or total processing time) 
+    
+    collection = get_chroma_collection()
+    result = collection.get(ids=[chunk_id])
+    docs = result.get("documents", [])
+    if not docs:
+        return None
+    meta = result.get("metadatas", [{}])[0]
+    return {
+        "chunk_id": chunk_id,
+        "text": docs[0],
+        "title": meta.get("title"),
+        "category": meta.get("category"),
+        "doc_id": meta.get("doc_id"),
+        "similarity": None,
+    }
+
+
 def retrieve_all_in_category(category: str) -> list[dict]:
-    """
-    Returns every chunk tagged with this category, no similarity ranking,
-    no top_k cap. Used for enumeration queries ("list all X") where a
-    vector similarity search would silently drop chunks that are
-    correct but not among the top-k nearest to the query embedding.
-    """
+    # returns every chunk tagged with this category, no similarity ranking, no top_k cap
+    # used for enumeration queries like for example: "list all barangays"
+    
     collection = get_chroma_collection()
     results = collection.get(where={"category": category})
 

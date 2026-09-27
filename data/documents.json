@@ -20015,5 +20015,469 @@
     ],
     "total_fee": "None",
     "total_processing_time": "15 minuto"
+  },
+  {
+    "id": "doc_office_city_budget_management_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Budget Management Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8205/8206"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "To provide technical staff services to the Local Chief Executive and other local officials on budgeting based on principles that were expressive of the plans and policies of the local government unit and acceptable to the constituents of the city.",
+      "department_head": "Ms. Gregoria J. Alcantara"
+    }
+  },
+  {
+    "id": "doc_office_city_civil_registry_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Civil Registry Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Left Wing, Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8115/8117"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "Responsible for the civil registration program of the local government unit, pursuant to Civil Registry Law, the Civil Codes, and other pertinent laws, rules, and regulations issued to implement them.",
+      "department_head": "Ms. Ednalina S. Masongsong"
+    }
+  },
+  {
+    "id": "doc_office_city_engineering_and_infrastructure_development_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Engineering And Infrastructure Development Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8211/8212/8214"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "Assist the City Mayor and the Sangguniang Panlungsod in promoting general progress through the implementation of different development infrastructure projects.",
+      "department_head": "Engr. Irwin M. Pacada",
+      "aliases": [
+        "Tanggapan ng Inhinyeriyang Panlungsod at Tagapagsulong ng Imprastraktura"
+      ]
+    }
+  },
+  {
+    "id": "doc_office_city_environment_and_natural_resources_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Environment And Natural Resources Office - Contact Information",
+    "office_directory_details": {
+      "designation": "CENR Officer",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8217/8218"
+      ],
+      "email_address": "cenro@calambacity.gov.ph",
+      "facebook_page": null,
+      "aliases": [
+        "CENRO"
+      ],
+      "functional_statement": "Formulate, implement and supervise the implementation of the national, provincial, and city's policies, plans and programs pertaining to the management, conservation, development, use and replenishment of the city's natural resources.",
+      "department_head": "Mr. Joseph Arlan O. Llorente"
+    }
+  },
+  {
+    "id": "doc_office_city_general_services_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City General Services Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Warehouse Building, Cityhall Compound, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8205/8206"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "Formulate measures for the consideration of the Sanggunian Panlungsod and provide technical assistance and support to the Mayor in carrying out measures to ensure the delivery of the basic services and provision on adequate facilities pursuant to Section 17 of this code and which require general services expertise and technical support services.",
+      "department_head": "Ms. Concepion R. Herrera",
+      "aliases": [
+        "GSO"
+      ]
+    }
+  },
+  {
+    "id": "doc_office_city_health_services_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Health Services Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Left Wing, Lower Ground Floor, New City Hall of Calamba; Main Health Center: Brgy. VII, Barreto St., Poblacion, Calamba City",
+      "office_numbers": [
+        "(049) 545-6789 loc 8015/8016",
+        "Main Health Center: (049) 545-1697"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "To assist the City Mayor and Sangguniang Panlungsod in the effective and economical implementation of health related projects and activities of the Local Government Unit.",
+      "department_head": "Dr. Rodrigo B. Esguerra"
+    }
+  },
+  {
+    "id": "doc_office_city_human_resource_and_management_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Human Resource And Management Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Officer-in-Charge",
+      "location": "Left Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8219/8220"
+      ],
+      "email_address": "chrmo@calambacity.gov.ph",
+      "facebook_page": null,
+      "aliases": [
+        "CHRMO"
+      ],
+      "functional_statement": "The basic function of the City Human Resource Management Office (CHRMO) is to assist the Chief Executive in the formulation and implementation of policies, rules and regulations as mandated by Civil Service Laws concerning the over-all personnel management of city government.",
+      "department_head": "Ms. Raysen B. Estabillo"
+    }
+  },
+  {
+    "id": "doc_office_city_planning_and_development_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Planning And Development Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8208/8209/8210"
+      ],
+      "email_address": "cpdo@calambacity.gov.ph",
+      "facebook_page": null,
+      "aliases": [
+        "CPDO"
+      ],
+      "functional_statement": "To provide technical services to the Local Chief Executive, Sangguniang Panlungsod and city officials in the formulation of development plans and policies for consideration of the City Development Council.",
+      "department_head": "Mr. Dennis R. Lanzanas"
+    }
+  },
+  {
+    "id": "doc_office_city_legal_services_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Legal Services Office - Contact Information",
+    "office_directory_details": {
+      "designation": "City Legal Officer",
+      "location": "Left Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8222/8221"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "The City Legal Office is tasked to provide legal, technical, staff services and support to the Local Chief Executive and other local officials to the formulation and execution of legal measures relative to the development plans and policies of the local government.",
+      "department_head": "Atty. Angelita Bantatua-Alonzo"
+    }
+  },
+  {
+    "id": "doc_office_city_treasury_management_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Treasury Management Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Acting City Treasurer",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8110/8111/8112/8114"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "Pursuant to Sec. 470 otherwise known as the Local Government Code of 1991, the City Treasurer shall be under the administrative supervision of the City Mayor, takes charge of the city treasury, and shall undertake tax collection and fund management duties for the City.",
+      "department_head": "Ms. Anita C. Almeria"
+    }
+  },
+  {
+    "id": "doc_office_cultural_affairs_tourism_and_sports_development_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "Cultural Affairs, Tourism And Sports Development Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Left Wing, Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8331/8332"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "To administer and implement various cultural and community affairs programs, to provide integrated tourism and sports development programs.",
+      "department_head": "Ms. Maolen Karla M. Boholano"
+    }
+  },
+  {
+    "id": "doc_office_city_population_management_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Population Management Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8329"
+      ],
+      "email_address": null,
+      "facebook_page": "Cpmo Calamba",
+      "functional_statement": "The City Population Management Office (CPMO) is geared towards the improvement of individual welfare and well-being, increasing family awareness regarding development, and promoting cooperation among the people through a development approach.",
+      "department_head": "Ms. Raysen B. Estabillo"
+    }
+  },
+  {
+    "id": "doc_office_city_social_services_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Social Services Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, Lower Ground Floor, New City Hall of Calamba; Manpower Devt.: Old Municipal Site, Brgy. VII, Poblacion",
+      "office_numbers": [
+        "(049) 545-6789 loc 8120",
+        "Manpower Devt.: (049) 545-4834/4980"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "To care, protect, rehabilitate individuals and groups (families, women, youths, children, elderly, persons with disabilities, drug dependents, distressed individuals) needing social welfare and development interventions.",
+      "department_head": "Ms. Celina D. Manabat"
+    }
+  },
+  {
+    "id": "doc_office_cooperatives_and_livelihood_development_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "Cooperatives And Livelihood Development Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, Lower Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8018/8019"
+      ],
+      "email_address": "cccldd@yahoo.com",
+      "facebook_page": null,
+      "aliases": [
+        "CLDD"
+      ],
+      "functional_statement": "The City of Calamba Cooperatives and Livelihood Development Department promotes a culture of entrepreneurship among Calambeños and strengthens the cooperative movement in the city, facilitating cooperative organization and development through markets, training, facilities, technology and funds.",
+      "department_head": "Mr. Leonardo F. Opulencia Sr."
+    }
+  },
+  {
+    "id": "doc_office_housing_and_settlements_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "Housing And Settlements Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Left Wing, Lower Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8020/8021"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "Provide technical and staff services to the Local Chief Executive and other local officials in the formulation and implementation of housing and settlements programs in the City of Calamba.",
+      "department_head": "Mr. Ronaldo M. Dela Cruz"
+    }
+  },
+  {
+    "id": "doc_office_information_investment_promotions_and_employment_services_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "Information, Investment Promotions And Employment Services Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Lower Ground Floor, Left Wing, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 local 8011/8012/8014"
+      ],
+      "email_address": "iipeso@calambacity.gov.ph",
+      "facebook_page": "iipeso calamba",
+      "aliases": [
+        "IIPESO"
+      ],
+      "functional_statement": "To provide relevant, adequate and timely information to the City and its residents, and furnish information and data affecting the development and programs of its local government. This office is in charge of employment facilitation programs and investment promotions.",
+      "department_head": "Ms. Noemi E. Talatala"
+    }
+  },
+  {
+    "id": "doc_office_sangguniang_panlungsod_legislative_services_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "Sangguniang Panlungsod - Legislative Services Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 3rd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8312/8314"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "aliases": [
+        "Sangguniang Panlungsod",
+        "SP",
+        "LSO"
+      ],
+      "functional_statement": "To provide legislative support to the Sangguniang Panlungsod as stated in Section 469 of the Local Government Code of 1991.",
+      "department_head": "Atty. Noel M. Villanueva"
+    }
+  },
+  {
+    "id": "doc_office_public_order_and_safety_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "Public Order And Safety Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "2nd Floor, CDRRM Bldg., New City Hall Compound",
+      "office_numbers": [
+        "(049) 545-6789 loc 8024/8025/8026"
+      ],
+      "email_address": "poso@calambacity.gov.ph",
+      "facebook_page": null,
+      "functional_statement": "For the purpose of providing effective traffic and transportation management, enforcing national laws and local ordinances (including City Ordinance No. 511, S. 2011, the 2011 Calamba City Traffic Code) to promote a disciplined society and safe environment.",
+      "department_head": "Mr. Edwin A. Nuñez"
+    }
+  },
+  {
+    "id": "doc_office_veterinary_services_and_slaughterhouse_management_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "Veterinary Services And Slaughterhouse Management Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, Lower Ground Flr., New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8003/8004"
+      ],
+      "email_address": null,
+      "facebook_page": "City Veterinary Office of Calamba",
+      "aliases": [
+        "CVSSMD"
+      ],
+      "functional_statement": "For an effective delivery of the basic services being offered by the City Veterinary and Slaughterhouse Management Department to clients from the City of Calamba, through research, training, and public seminars promoting self-reliance.",
+      "department_head": "Dr. Sheila A. Matibag"
+    }
+  },
+  {
+    "id": "doc_office_city_college_of_calamba",
+    "category": "GENERAL_INFORMATION",
+    "title": "City College Of Calamba - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Old Municipal Site, Brgy. VII, Poblacion, Calamba City",
+      "office_numbers": [
+        "(049) 545-0160/545-0555/502-0677"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "aliases": [
+        "CCC"
+      ],
+      "functional_statement": "The City College of Calamba serves as the city's local higher education institution, providing accessible tertiary education to Calambeño residents.",
+      "department_head": "Dr. Ronald A. Gonzales"
+    }
+  },
+  {
+    "id": "doc_office_city_administration_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Administration Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 3rd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8300/8301/8302/8303"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "aliases": [
+        "CAO"
+      ],
+      "functional_statement": "Exercise general supervision and control over all programs, projects, services and activities of the City Government; formulate measures for the Sangguniang Panlungsod; provide support to the Mayor; establish and maintain a sound personnel program for the Local Government Unit.",
+      "department_head": "Mr. Johnny R. Pamuspusan"
+    }
+  },
+  {
+    "id": "doc_office_business_permits_and_tricycle_franchising_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "Business Permits And Tricycle Franchising Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789"
+      ],
+      "extensions": {
+        "business_permits": "loc 8101",
+        "working_permits": "loc 8104",
+        "tricycle_franchising": "loc 8102"
+      },
+      "email_address": "lgucalambabptfo@gmail.com",
+      "facebook_page": null,
+      "aliases": [
+        "BPTFO"
+      ],
+      "functional_statement": "Responsible for the processing and issuance of Business and Working Permits and Tricycle Franchises, monitoring and inspection of all business establishments and tricycle units operating within the city, and for the assessment and imposition of proper business taxes and regulatory fees.",
+      "department_head": "Ms. Bernadette D. Opulencia"
+    }
+  },
+  {
+    "id": "doc_office_city_accounting_internal_control_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Accounting & Internal Control Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Left Wing, 2nd Floor, New City of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8203/8204"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "To take charge of the accounting and internal audit services of the local government unit.",
+      "department_head": "Ms. Editha M. Malabanan"
+    }
+  },
+  {
+    "id": "doc_office_buildings_regulatory_services_department",
+    "category": "GENERAL_INFORMATION",
+    "title": "Buildings Regulatory Services Department - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, 2nd Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8030/8031"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "Created pursuant to P.D. 1096, otherwise known as the National Building Code of the Philippines, and has primary jurisdiction on matters relevant to and defined under P.D. 1096.",
+      "department_head": "Engr. Joselito Guevarra",
+      "aliases": [
+        "Tanggapan ng Pamantayan para sa Gusali at Istraktura"
+      ]
+    }
+  },
+  {
+    "id": "doc_office_city_agricultural_services_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Agricultural Services Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, Lower Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc 8001/8002"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "The Department is mandated to develop/implement plans and programs relative to agriculture and aquaculture that will ensure maximum assistance to farmers, including subsidized inputs, technology transfer, and technical assistance.",
+      "department_head": "Ms. Ruby V. Arenas"
+    }
+  },
+  {
+    "id": "doc_office_city_assessment_office",
+    "category": "GENERAL_INFORMATION",
+    "title": "City Assessment Office - Contact Information",
+    "office_directory_details": {
+      "designation": "Department Head",
+      "location": "Right Wing, Ground Floor, New City Hall of Calamba",
+      "office_numbers": [
+        "(049) 545-6789 loc. 8107/8108/8109"
+      ],
+      "email_address": null,
+      "facebook_page": null,
+      "functional_statement": "To generate local revenues through real property tax by means of new assessment and re-assessment within the jurisdiction of Calamba City, rendering prompt, efficient, friendly and courteous public service.",
+      "department_head": "Mr. Graciano G. Aldabe"
+    }
   }
 ]

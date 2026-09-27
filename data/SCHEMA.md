@@ -86,7 +86,7 @@ add a matching entry to `manifest.json` too.
 
 A form doesn't have to be attached to a specific document. If nothing in
 `documents.json` matches it closely enough, leave it out of every `forms`
-array — `backend/forms_lookup.get_other_forms()` treats any manifest entry
+array, `backend/forms_lookup.get_other_forms()` treats any manifest entry
 that isn't referenced by some document's `forms` list as an "other"
 downloadable file. `rag_pipeline.py` detects general questions like "what
 other forms can I download?" and answers with that list (grouped by

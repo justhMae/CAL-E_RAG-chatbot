@@ -25,6 +25,9 @@ def index():
 def chat():
     data = request.get_json(silent=True) or {}
     question = (data.get("message") or "").strip()
+    # if user choose from the categories, it passes the category hint and doc id hint then bypass the intent classifier
+    category_hint = (data.get("category_hint") or "").strip() or None
+    doc_id_hint = (data.get("doc_id_hint") or "").strip() or None
 
     if not question:
         return jsonify({"error": "message is required"}), 400
@@ -32,7 +35,7 @@ def chat():
     history = session.get("history", [])
 
     try:
-        result = answer_question(question, history)
+        result = answer_question(question, history, category_hint=category_hint, doc_id_hint=doc_id_hint)
         session["history"] = result["history"]
         return jsonify(result)
     except RuntimeError as e:
@@ -52,11 +55,6 @@ _categories_cache = None
 
 @app.route("/api/categories")
 def categories():
-    """
-    Returns every category with the list of services (document titles) filed
-    under it, so the front end can show "what's offered" when a category
-    chip is tapped.
-    """
     global _categories_cache
     if _categories_cache is None:
         with open(DOCUMENTS_PATH, "r", encoding="utf-8") as f:

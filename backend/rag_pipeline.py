@@ -1,10 +1,17 @@
 import re
+import json
 from backend.preprocess import clean_text, is_greeting, correct_typos, build_domain_vocabulary
 from backend.intent_classifier import predict_intent
-from backend.embeddings import retrieve, retrieve_all_in_category, get_chroma_collection
+from backend.embeddings import retrieve, retrieve_all_in_category, get_chroma_collection, get_chunk_by_id, get_chunks_by_doc_id
 from backend.generate import generate_answer
+from backend.contextualize import contextualize_question
+from backend.debug_log import log
 from backend.forms_lookup import get_forms_for_doc_ids, get_other_forms
-from backend.config import TOP_K, CATEGORIES, FORMS_MIN_SIMILARITY
+from backend.config import TOP_K, CATEGORIES, FORMS_MIN_SIMILARITY, DOCUMENTS_PATH
+from backend.office_directory import build_office_lookup, find_office_doc_id
+
+_office_lookup_cache = None
+
 
 GREETING_RESPONSE = (
     "Hello! I'm the virtual assistant for the City Government of Calamba. "
@@ -60,7 +67,12 @@ def is_forms_availability_query(question: str) -> bool:
     return bool(FORMS_AVAILABILITY_PATTERN.search(question))
 
 
-def answer_question(question: str, history: list[dict] | None = None) -> dict:
+def answer_question(
+    question: str,
+    history: list[dict] | None = None,
+    category_hint: str | None = None,
+    doc_id_hint: str | None = None,
+) -> dict:
     global _vocab
     question = clean_text(question)
     history = history or []
@@ -131,12 +143,50 @@ def answer_question(question: str, history: list[dict] | None = None) -> dict:
             ],
         }
 
-    # 1. Intent classification
-    intent_result = predict_intent(question)
-    category_filter = intent_result["intent"] if intent_result["confident"] else None
+    # when user clicks the service from the category, it skips the contextualize, intent classification, and embedding-based retrieval entirely,
+    # and just fetch every chunk of that document directly
+    if doc_id_hint is not None:
+        retrieved = get_chunks_by_doc_id(doc_id_hint)
+        log(f"[retrieval] doc_id_hint={doc_id_hint!r} -> "
+            f"{[c.get('chunk_id') for c in retrieved]}")
+        if retrieved:
+            answer = generate_answer(question, retrieved, history=history)
+            topic = retrieved[0]["title"]
+            log(f"[topic] stored for next turn: {topic!r}")
+            doc_ids = [doc_id_hint] if not is_refusal(answer) else []
+            forms = get_forms_for_doc_ids(doc_ids)
+            category_label = CATEGORIES.get(category_hint, category_hint) if category_hint else topic
+            return {
+                "question": question,
+                "predicted_intent": category_hint,
+                "intent_label": category_label,
+                "intent_confidence": 1.0,
+                "retrieved_chunks": retrieved,
+                "answer": answer,
+                "forms": forms,
+                "history": history + [
+                    {"role": "user", "content": question},
+                    {"role": "assistant", "content": answer, "topic": topic},
+                ],
+            }
+        # if ever doc_id_hint somehow matches nothing (stale id, etc.), fall through to the normal pipeline below rather than dead-ending
+        log(f"[retrieval] doc_id_hint={doc_id_hint!r} found no chunks, falling back to normal retrieval")
 
-    # 2. Retrieval
-    if is_enumeration_query(question) and category_filter is not None:
+
+    if category_hint is not None:
+        search_query = question
+    else:
+        search_query = contextualize_question(question, history)
+
+    # intent classification
+    intent_result = predict_intent(search_query)
+    if category_hint is not None:
+        category_filter = category_hint
+    else:
+        category_filter = intent_result["intent"] if intent_result["confident"] else None
+
+    # retrieval
+    if is_enumeration_query(search_query) and category_filter is not None:
         retrieved = retrieve_all_in_category(category_filter)
         titles = sorted(set(c["title"] for c in retrieved if c.get("title")))
         category_label = CATEGORIES.get(category_filter, category_filter)
@@ -146,11 +196,14 @@ def answer_question(question: str, history: list[dict] | None = None) -> dict:
         doc_ids = [c["doc_id"] for c in retrieved if c.get("doc_id")]
         forms = get_forms_for_doc_ids(doc_ids)
 
+        shown_intent = category_hint if category_hint is not None else intent_result["intent"]
+        shown_confidence = 1.0 if category_hint is not None else round(intent_result["confidence"], 3)
+
         return {
             "question": question,
-            "predicted_intent": intent_result["intent"],
+            "predicted_intent": shown_intent,
             "intent_label": category_label,
-            "intent_confidence": round(intent_result["confidence"], 3),
+            "intent_confidence": shown_confidence,
             "retrieved_chunks": retrieved,
             "answer": answer,
             "forms": forms,
@@ -160,12 +213,12 @@ def answer_question(question: str, history: list[dict] | None = None) -> dict:
             ],
         }
 
-    unfiltered = retrieve(question, top_k=TOP_K, category_filter=None)
+    unfiltered = retrieve(search_query, top_k=TOP_K, category_filter=None)
     if category_filter is not None:
-        filtered = retrieve(question, top_k=TOP_K, category_filter=category_filter)
+        filtered = retrieve(search_query, top_k=TOP_K, category_filter=category_filter)
         merged: dict[str, dict] = {}
         for chunk in filtered + unfiltered:
-            key = chunk.get("doc_id") or chunk["title"]
+            key = chunk.get("chunk_id") or chunk.get("doc_id") or chunk["title"]
             if key not in merged or chunk["similarity"] > merged[key]["similarity"]:
                 merged[key] = chunk
         retrieved = sorted(
@@ -174,10 +227,27 @@ def answer_question(question: str, history: list[dict] | None = None) -> dict:
     else:
         retrieved = unfiltered
 
-    # 3. Generation
+    log(f"[retrieval] search_query={search_query!r} -> "
+        f"{[(c.get('chunk_id'), round(c.get('similarity', 0), 3)) for c in retrieved]}")
+
+    if retrieved:
+        top_doc_id = retrieved[0].get("doc_id")
+        if top_doc_id:
+            summary_chunk_id = f"{top_doc_id}_summary_chunk0"
+            already_have = any(c.get("chunk_id") == summary_chunk_id for c in retrieved)
+            if not already_have:
+                summary_chunk = get_chunk_by_id(summary_chunk_id)
+                if summary_chunk:
+                    retrieved = retrieved + [summary_chunk]
+                    log(f"[retrieval] attached summary chunk for top doc: {summary_chunk_id!r}")
+
+    # generation
     answer = generate_answer(question, retrieved, history=history)
 
-    # 4. Attach downloadable forms
+    topic = retrieved[0]["title"] if retrieved else None
+    log(f"[topic] stored for next turn: {topic!r}")
+
+    # attach downloadable forms
     doc_ids = [
         c["doc_id"] for c in retrieved
         if c.get("doc_id") and c.get("similarity") is not None
@@ -187,16 +257,23 @@ def answer_question(question: str, history: list[dict] | None = None) -> dict:
         doc_ids = []
     forms = get_forms_for_doc_ids(doc_ids)
 
+    shown_intent = category_hint if category_hint is not None else intent_result["intent"]
+    shown_label = (
+        CATEGORIES.get(category_hint, category_hint) if category_hint is not None
+        else CATEGORIES.get(intent_result["intent"], intent_result["intent"])
+    )
+    shown_confidence = 1.0 if category_hint is not None else round(intent_result["confidence"], 3)
+
     return {
         "question": question,
-        "predicted_intent": intent_result["intent"],
-        "intent_label": CATEGORIES.get(intent_result["intent"], intent_result["intent"]),
-        "intent_confidence": round(intent_result["confidence"], 3),
+        "predicted_intent": shown_intent,
+        "intent_label": shown_label,
+        "intent_confidence": shown_confidence,
         "retrieved_chunks": retrieved,
         "answer": answer,
         "forms": forms,
         "history": history + [
             {"role": "user", "content": question},
-            {"role": "assistant", "content": answer},
+            {"role": "assistant", "content": answer, "topic": topic},
         ],
     }

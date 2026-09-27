@@ -1,0 +1,39 @@
+# Sensitive Credentials & Environment Files
+backend/.env
+data/credentials.txt
+.env
+.env.*
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Database / Vector Store Caches
+chroma_db/
+.chroma/
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
