@@ -18,9 +18,19 @@ EVAL_OUTPUT_DIR = BASE_DIR / "evaluation"
 # embedding model (sentence-transformers)
 EMBEDDING_MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 
-# generation model 
+# main generation model then the fallback if the limit is reached
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = "openai/gpt-oss-120b"
+
+GROQ_FALLBACK_MODELS = [
+    "openai/gpt-oss-20b",
+    "qwen/qwen3.8-27b",
+]
+
+# different provider fallback if Groq is rate-limited or down account-wide
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
 
 # lightweight model used only for rewriting follow-up questions into standalone ones before retrieval
 CONTEXTUALIZE_MODEL = os.getenv("CONTEXTUALIZE_MODEL", "openai/gpt-oss-20b")
