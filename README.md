@@ -43,38 +43,6 @@ is unusually long, see `STRUCTURED_DOC_MAX_CHARS` in `config.py`).
 
 ---
 
-## 📂 Repository Structure
-
-```
-calamba-chatbot/
-├── colab/                                   # notebooks to run everything on Colab
-├── data/
-│   ├── documents.json                       # RAG knowledge base (services + office directory)
-│   ├── intent_training_data.csv             # labeled questions for the classifier
-│   ├── forms/                               # downloadable form PDFs + manifest.json
-│   └── SCHEMA.md                            # documents.json field reference
-├── backend/
-│   ├── config.py                            # paths, model names, categories, thresholds
-│   ├── preprocess.py                        # cleaning + chunking + office metadata
-│   ├── embeddings.py                        # MiniLM embeddings + ChromaDB
-│   ├── contextualize.py                     # rewrites follow-up questions before retrieval
-│   ├── generate.py                          # prompt + Groq API call
-│   ├── intent_classifier.py                 # TF-IDF + Logistic Regression
-│   ├── office_directory.py                  # office name/alias lookup + fuzzy match
-│   ├── forms_lookup.py                      # doc_id -> downloadable forms
-│   ├── build_index.py                       # script: build the vector index
-│   ├── rag_pipeline.py                      # ties it all together
-│   ├── evaluate.py                          # metrics, confusion matrix, sample convos
-│   └── app.py                               # Flask app (API + serves frontend + form downloads)
-├── frontend/
-│   ├── templates/index.html
-│   └── static/{style.css, script.js, assets/}
-├── evaluation/                              # generated results land here
-└── requirements.txt
-```
-
----
-
 ## 🚀 Getting Started
 
 ### Run it in Google Colab (recommended if your laptop can't run this locally)
