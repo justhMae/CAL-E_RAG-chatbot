@@ -6,11 +6,35 @@ from backend.embeddings import retrieve, retrieve_all_in_category, get_chroma_co
 from backend.generate import generate_answer
 from backend.contextualize import contextualize_question
 from backend.debug_log import log
-from backend.forms_lookup import get_forms_for_doc_ids, get_other_forms
+from backend.forms_lookup import get_forms_for_office, get_all_forms
 from backend.config import TOP_K, CATEGORIES, FORMS_MIN_SIMILARITY, DOCUMENTS_PATH
 from backend.office_directory import build_office_lookup, find_office_doc_id
 
 _office_lookup_cache = None
+
+
+def _get_office_lookup() -> dict:
+    global _office_lookup_cache
+    if _office_lookup_cache is None:
+        with open(DOCUMENTS_PATH, "r", encoding="utf-8") as f:
+            _office_lookup_cache = build_office_lookup(json.load(f))
+    return _office_lookup_cache
+
+
+def _attach_office_contact(retrieved: list[dict], office: str | None) -> list[dict]:
+    if not office:
+        return retrieved
+    office_doc_id = find_office_doc_id(office, _get_office_lookup())
+    if not office_doc_id:
+        return retrieved
+    office_chunk_id = f"{office_doc_id}_chunk0"
+    if any(c.get("chunk_id") == office_chunk_id for c in retrieved):
+        return retrieved
+    office_chunk = get_chunk_by_id(office_chunk_id)
+    if not office_chunk:
+        return retrieved
+    log(f"[retrieval] attached office contact info: {office!r} -> {office_chunk_id!r}")
+    return retrieved + [office_chunk]
 
 
 GREETING_RESPONSE = (
@@ -39,8 +63,7 @@ FORMS_AVAILABILITY_PATTERN = re.compile(
 )
 
 NO_MATCHING_FORMS_ANSWER = (
-    "All of our downloadable forms are already linked to their matching "
-    "service above -- there aren't any extra standalone files right now."
+    "I don't have any downloadable forms on file right now."
 )
 
 REFUSAL_PATTERN = re.compile(
@@ -114,7 +137,7 @@ def answer_question(
         }
 
     if is_forms_availability_query(question):
-        others = get_other_forms()
+        others = get_all_forms()
         if others:
             by_office: dict[str, list[dict]] = {}
             for form in others:
@@ -124,15 +147,15 @@ def answer_question(
                 lines = "\n".join(f"- {f['name']}" for f in office_forms)
                 sections.append(f"**{office}**\n{lines}")
             answer = (
-                "Here are other downloadable forms that aren't tied to a "
-                "specific service above:\n\n" + "\n\n".join(sections)
+                "Here are the downloadable forms I have on file, grouped by "
+                "the office they come from:\n\n" + "\n\n".join(sections)
             )
         else:
             answer = NO_MATCHING_FORMS_ANSWER
         return {
             "question": question,
             "predicted_intent": "FORMS_AVAILABILITY",
-            "intent_label": "Other Downloadable Forms",
+            "intent_label": "Downloadable Forms",
             "intent_confidence": 1.0,
             "retrieved_chunks": [],
             "answer": answer,
@@ -150,11 +173,13 @@ def answer_question(
         log(f"[retrieval] doc_id_hint={doc_id_hint!r} -> "
             f"{[c.get('chunk_id') for c in retrieved]}")
         if retrieved:
+            top_office = next((c.get("office") for c in retrieved if c.get("office")), None)
+            retrieved = _attach_office_contact(retrieved, top_office)
             answer = generate_answer(question, retrieved, history=history)
             topic = retrieved[0]["title"]
             log(f"[topic] stored for next turn: {topic!r}")
-            doc_ids = [doc_id_hint] if not is_refusal(answer) else []
-            forms = get_forms_for_doc_ids(doc_ids)
+            # forms are shown per office
+            forms = get_forms_for_office(top_office) if not is_refusal(answer) else []
             category_label = CATEGORIES.get(category_hint, category_hint) if category_hint else topic
             return {
                 "question": question,
@@ -193,8 +218,7 @@ def answer_question(
         listing = "\n".join(f"- {t}" for t in titles)
         answer = f"Here are the services under {category_label}:\n\n{listing}"
 
-        doc_ids = [c["doc_id"] for c in retrieved if c.get("doc_id")]
-        forms = get_forms_for_doc_ids(doc_ids)
+        forms = [] 
 
         shown_intent = category_hint if category_hint is not None else intent_result["intent"]
         shown_confidence = 1.0 if category_hint is not None else round(intent_result["confidence"], 3)
@@ -230,6 +254,7 @@ def answer_question(
     log(f"[retrieval] search_query={search_query!r} -> "
         f"{[(c.get('chunk_id'), round(c.get('similarity', 0), 3)) for c in retrieved]}")
 
+    top_office = None
     if retrieved:
         top_doc_id = retrieved[0].get("doc_id")
         if top_doc_id:
@@ -240,6 +265,8 @@ def answer_question(
                 if summary_chunk:
                     retrieved = retrieved + [summary_chunk]
                     log(f"[retrieval] attached summary chunk for top doc: {summary_chunk_id!r}")
+        top_office = retrieved[0].get("office")
+        retrieved = _attach_office_contact(retrieved, top_office)
 
     # generation
     answer = generate_answer(question, retrieved, history=history)
@@ -247,15 +274,14 @@ def answer_question(
     topic = retrieved[0]["title"] if retrieved else None
     log(f"[topic] stored for next turn: {topic!r}")
 
-    # attach downloadable forms
-    doc_ids = [
-        c["doc_id"] for c in retrieved
-        if c.get("doc_id") and c.get("similarity") is not None
-        and c["similarity"] >= FORMS_MIN_SIMILARITY
-    ]
-    if is_refusal(answer):
-        doc_ids = []
-    forms = get_forms_for_doc_ids(doc_ids)
+    # attach downloadable forms per office
+    show_forms = (
+        bool(retrieved)
+        and not is_refusal(answer)
+        and retrieved[0].get("similarity") is not None
+        and retrieved[0]["similarity"] >= FORMS_MIN_SIMILARITY
+    )
+    forms = get_forms_for_office(top_office) if show_forms else []
 
     shown_intent = category_hint if category_hint is not None else intent_result["intent"]
     shown_label = (

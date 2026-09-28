@@ -58,7 +58,9 @@ def index_chunks(chunks: list[dict]) -> None:
 
     ids = [c["chunk_id"] for c in chunks]
     metadatas = [
-        {"doc_id": c["doc_id"], "category": c["category"], "title": c["title"]}
+        {"doc_id": c["doc_id"], "category": c["category"], "title": c["title"],
+         # ChromaDB rejects None metadata values, so store "" for docs with no office
+         "office": c.get("office") or ""}
         for c in chunks
     ]
 
@@ -97,6 +99,7 @@ def retrieve(question: str, top_k: int = 3, category_filter: str | None = None) 
             "text": doc,
             "title": meta.get("title"),
             "category": meta.get("category"),
+            "office": meta.get("office") or None,
             "doc_id": meta.get("doc_id"),
             "similarity": similarity,
         })
@@ -119,6 +122,7 @@ def get_chunks_by_doc_id(doc_id: str) -> list[dict]:
             "text": doc,
             "title": meta.get("title"),
             "category": meta.get("category"),
+            "office": meta.get("office") or None,
             "doc_id": meta.get("doc_id"),
             "similarity": None,  # not from a similarity search; fetched directly
         })
@@ -140,6 +144,7 @@ def get_chunk_by_id(chunk_id: str) -> dict | None:
         "text": docs[0],
         "title": meta.get("title"),
         "category": meta.get("category"),
+        "office": meta.get("office") or None,
         "doc_id": meta.get("doc_id"),
         "similarity": None,
     }
@@ -160,6 +165,7 @@ def retrieve_all_in_category(category: str) -> list[dict]:
             "text": doc,
             "title": meta.get("title"),
             "category": meta.get("category"),
+            "office": meta.get("office") or None,
             "doc_id": meta.get("doc_id"),
             "similarity": None,
         })

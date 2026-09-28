@@ -394,6 +394,11 @@ function addMessage(text, sender, meta, forms) {
   if (forms && forms.length > 0) {
     const formsEl = document.createElement("div");
     formsEl.className = "forms";
+
+    const label = document.createElement("div");
+    label.className = "forms-label";
+    label.textContent = "You may find these forms from the relevant office useful:";
+    formsEl.appendChild(label);
     forms.forEach((form) => {
       const link = document.createElement("a");
       link.href = form.download_url;

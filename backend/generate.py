@@ -36,7 +36,14 @@ SYSTEM_INSTRUCTION = (
     "requirements checklist), but frame them with a sentence or two first, and skip "
     "restating rigid form-field labels (like 'Classification: Simple' or 'Type of "
     "Transaction: G2C') unless the user specifically asks about that classification "
-    "detail -- lead with what the user actually needs to know or do."
+    "detail -- lead with what the user actually needs to know or do. "
+    "If the CONTEXT includes a chunk with an office's contact details (phone "
+    "number, email, or location), and your answer directs the user to contact "
+    "that office, ALWAYS include those actual details in your answer -- never "
+    "just say \"contact them directly\" or \"visit the office\" without giving "
+    "the real phone number/email/location that was provided in the CONTEXT. "
+    "Only fall back to a generic \"contact the appropriate office\" instruction "
+    "when no contact details for that specific office are present in the CONTEXT."
 )
 
 
