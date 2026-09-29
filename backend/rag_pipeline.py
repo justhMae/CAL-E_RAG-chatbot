@@ -45,7 +45,7 @@ GREETING_RESPONSE = (
 )
 
 ENUMERATION_PATTERNS = re.compile(
-    r"\b(all|list|every|what are the)\b.*\b(services?|requirements?|programs?|documents?)\b",
+    r"\b(all|list|every|what are the)\b.*\b(services?|programs?)\b",
     re.IGNORECASE,
 )
 
