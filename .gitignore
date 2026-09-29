@@ -25,6 +25,7 @@ ENV/
 
 # Database / Vector Store Caches
 chroma_db/
+chroma_store/
 .chroma/
 
 # IDE & Editor Files

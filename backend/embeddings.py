@@ -40,7 +40,8 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
 def get_chroma_collection():
     global _chroma_client, _collection
     if _collection is None:
-        _chroma_client = chromadb.Client()  # in-memory
+        from backend.config import CHROMA_PERSIST_DIR
+        _chroma_client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
         _collection = _chroma_client.get_or_create_collection(
             name=CHROMA_COLLECTION_NAME,
             metadata={"hnsw:space": "cosine"},
