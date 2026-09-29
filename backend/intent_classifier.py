@@ -1,9 +1,10 @@
 import joblib
 import numpy as np
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split, StratifiedKFold, cross_validate
+from sklearn.pipeline import FeatureUnion, Pipeline
+from sklearn.model_selection import train_test_split
 
 from backend.config import INTENT_DATA_PATH, INTENT_MODEL_PATH
 from backend.preprocess import clean_text
@@ -12,14 +13,32 @@ from backend.embedding_transformer import EmbeddingTransformer
 
 def load_intent_data() -> pd.DataFrame:
     df = pd.read_csv(INTENT_DATA_PATH)
-    df = df.dropna(subset=["text"]) # drop rows with missing text
+    df = df.dropna(subset=["text"])  # drop rows with missing text
     df["text"] = df["text"].apply(clean_text)
     return df
 
 
-def build_pipeline() -> Pipeline:
+def _tfidf() -> TfidfVectorizer:
+    return TfidfVectorizer(ngram_range=(1, 2), sublinear_tf=True, min_df=1)
+
+
+def build_pipeline(mode: str = "union",
+                   tfidf_weight: float = 1.0,
+                   embed_weight: float = 1.0) -> Pipeline:
+    if mode == "tfidf":
+        features = _tfidf()
+    elif mode == "embedding":
+        features = EmbeddingTransformer()
+    elif mode == "union":
+        features = FeatureUnion(
+            [("tfidf", _tfidf()), ("embed", EmbeddingTransformer())],
+            transformer_weights={"tfidf": tfidf_weight, "embed": embed_weight},
+        )
+    else:
+        raise ValueError(f"unknown mode: {mode!r}")
+
     return Pipeline([
-        ("embed", EmbeddingTransformer()),
+        ("features", features),
         ("clf", LogisticRegression(
             max_iter=2000,
             C=1.0,
@@ -28,23 +47,6 @@ def build_pipeline() -> Pipeline:
         )),
     ])
 
-
-def load_intent_data() -> pd.DataFrame:
-    df = pd.read_csv(INTENT_DATA_PATH)
-    df["text"] = df["text"].apply(clean_text)
-    return df
-
-
-def build_pipeline() -> Pipeline:
-    return Pipeline([
-        ("embed", EmbeddingTransformer()),
-        ("clf", LogisticRegression(
-            max_iter=2000,
-            C=1.0, 
-            class_weight="balanced",
-            solver="lbfgs",
-        )),
-    ])
 
 def train_and_save(test_size: float = 0.2, random_state: int = 42):
     df = load_intent_data()

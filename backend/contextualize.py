@@ -1,4 +1,4 @@
-# rewrites a follow-up question into a standalone question before retrieval, so that RETRIEVAL has the full context of what is being asked previously
+# rewrites a follow-up question into a standalone question before retrieval, so that retrieval has the full context of what is being asked previously
 # important for follow up questions because it rewrites pronouns and vague references into explicit references
 
 import re
