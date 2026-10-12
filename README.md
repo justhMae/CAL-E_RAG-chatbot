@@ -101,9 +101,6 @@ either feature set alone. Re-run this step after editing the CSV or
 changing the pipeline, since the saved `.joblib` file holds the trained
 model.
 
-Optional: `python -m backend.compare_intent_models` cross-validates TF-IDF
-only, embeddings only, and the union (at a few TF-IDF weightings) on the
-de-duplicated questions, so you can see what each feature set contributes.
 
 #### 5. Run the chatbot
 
@@ -139,20 +136,11 @@ Produces, in `evaluation/`:
   the "other downloadable forms" flow in `rag_pipeline.py`.
 - **Office directory aliases** — abbreviations and Filipino-language
   office names that don't literally overlap with a department's English
-  name are mapped in `backend/office_directory.py`. If you add a new
-  department whose office field is a pure abbreviation, add an alias
-  there rather than assuming fuzzy matching will catch it.
+  name are mapped in `backend/office_directory.py`. 
 - **`data/intent_training_data.csv`** — training examples for the intent
   classifier (2,500 unique questions across 18 intents, English and
   Filipino/Taglish paraphrases). Format: a `text,intent` header line, then
-  one `question,INTENT` row per line. Keep every question unique: repeated
-  rows leak between the train and test splits and inflate the accuracy
-  figures. Expand it as new service categories are added or if a category's
-  phrasing coverage looks thin in `evaluate.py`'s output. The intents that
-  overlap most in meaning are `HOUSING` / `HOUSING_SETTLEMENTS`, `HEALTH` /
-  `SOCIAL_SERVICES`, and `GOVERNMENT_LEGAL` / `GENERAL_INFORMATION`, so add
-  examples that clearly separate them.
+  one `question,INTENT` row per line.
 - **Intent classifier results** — with the current data, stratified 5-fold
   cross-validation gives about 0.81 test accuracy and 0.81 macro-F1
-  (`python -m backend.evaluate`). Re-run it after changing the data or
-  model and update these figures.
+  (`python -m backend.evaluate`). 
