@@ -1,9 +1,3 @@
-# builds the static vector store that ships with the deployment.
-# run locally BEFORE pushing to Git (needs GEMINI_API_KEY):  python -m backend.build_index
-# outputs (read-only at runtime):
-#   data/vector_store.npz   -> "embeddings": (n_chunks, 768) L2-normalized float32 matrix
-#   data/chunks_meta.json   -> chunk texts + metadata, row i matches embeddings row i
-
 import json
 from pathlib import Path
 

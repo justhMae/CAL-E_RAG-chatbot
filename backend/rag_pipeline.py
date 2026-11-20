@@ -17,11 +17,6 @@ from backend.config import (
 from backend.office_directory import build_office_lookup, find_office_doc_id
 
 
-# ---------------------------------------------------------------------------
-# static vector store: loaded into memory ONCE at module import (cold start),
-# never written to at runtime (Vercel's filesystem is read-only)
-# ---------------------------------------------------------------------------
-
 def _load_vector_store():
     if not VECTOR_STORE_PATH.is_file() or not CHUNKS_META_PATH.is_file():
         raise RuntimeError(
