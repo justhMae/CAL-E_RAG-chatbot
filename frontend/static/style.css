@@ -516,17 +516,28 @@ body {
 
 .chips-row {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  gap: 10px;
+  gap: 8px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0 16px 10px;
+  padding: 2px 16px 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
   user-select: none;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x;
+}
+
+.chips-subrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
 }
 
 .chips-row::-webkit-scrollbar {
@@ -538,7 +549,8 @@ body {
 }
 
 .chip {
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  width: fit-content;
   scroll-snap-align: start;
   background: var(--blue);
   color: var(--white);
@@ -909,18 +921,7 @@ body:has(.app.desktop-view) {
 }
 
 .app.desktop-view .chips-row {
-  display: grid;
-  grid-template-rows: repeat(2, auto);
-  grid-auto-flow: column;
-  gap: 8px;
   padding: 4px 2px 12px;
-  overflow-x: auto;
-  overflow-y: visible;
-}
-
-.app.desktop-view .chip {
-  justify-self: start;
-  width: fit-content;
 }
 
 .app.desktop-view .chat-form {

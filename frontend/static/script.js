@@ -190,13 +190,22 @@ async function loadCategories() {
 
 function renderChips() {
   chipsRow.innerHTML = "";
-  categories.forEach((cat) => {
-    const chip = document.createElement("button");
-    chip.className = "chip";
-    chip.type = "button";
-    chip.dataset.key = cat.key;
-    chip.textContent = cat.label;
-    chipsRow.appendChild(chip);
+  const mid = Math.ceil(categories.length / 2);
+  const rows = [categories.slice(0, mid), categories.slice(mid)];
+
+  rows.forEach((group) => {
+    if (group.length === 0) return;
+    const subrow = document.createElement("div");
+    subrow.className = "chips-subrow";
+    group.forEach((cat) => {
+      const chip = document.createElement("button");
+      chip.className = "chip";
+      chip.type = "button";
+      chip.dataset.key = cat.key;
+      chip.textContent = cat.label;
+      subrow.appendChild(chip);
+    });
+    chipsRow.appendChild(subrow);
   });
 }
 
