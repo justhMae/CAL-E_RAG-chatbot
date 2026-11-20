@@ -17,6 +17,41 @@ const chipsRow = document.getElementById("chips-row");
 const drawerSearchBtn = document.getElementById("drawer-search-btn");
 const historySearchWrap = document.getElementById("history-search-wrap");
 const historySearchInput = document.getElementById("history-search-input");
+const appEl = document.querySelector(".app");
+const viewToggleBtn = document.getElementById("view-toggle-btn");
+
+const VIEW_STORAGE_KEY = "cal-e-view-mode";
+
+function isDesktopView() {
+  return appEl.classList.contains("desktop-view");
+}
+
+function applyViewMode(mode) {
+  const desktop = mode === "desktop";
+  appEl.classList.toggle("desktop-view", desktop);
+  if (desktop) {
+    drawer.classList.remove("open");
+    scrim.classList.remove("visible");
+  }
+  if (viewToggleBtn) {
+    viewToggleBtn.setAttribute("aria-label", desktop ? "Switch to mobile view" : "Switch to desktop view");
+    viewToggleBtn.setAttribute("title", desktop ? "Switch to mobile view" : "Switch to desktop view");
+    viewToggleBtn.innerHTML = desktop
+      ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="2" width="10" height="20" rx="2" stroke="white" stroke-width="2"/><path d="M11 18h2" stroke="white" stroke-width="2" stroke-linecap="round"/></svg><span>Mobile</span>`
+      : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2" stroke="white" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg><span>Desktop</span>`;
+  }
+}
+
+const savedView = localStorage.getItem(VIEW_STORAGE_KEY);
+applyViewMode(savedView || (window.innerWidth >= 860 ? "desktop" : "mobile"));
+
+if (viewToggleBtn) {
+  viewToggleBtn.addEventListener("click", () => {
+    const next = isDesktopView() ? "mobile" : "desktop";
+    localStorage.setItem(VIEW_STORAGE_KEY, next);
+    applyViewMode(next);
+  });
+}
 
 let categories = [];        // [{ key, label, services: [{id, title, office}] }]
 let historyEntries = [];    // [{ id, text, turnEl }], most recent first
@@ -108,12 +143,12 @@ function addToHistory(text, turnEl) {
 }
 
 function jumpToMessage(entry) {
-  if (window.innerWidth < 860) {
+  if (!isDesktopView()) {
     closeDrawer();
   }
   if (!entry.turnEl || !entry.turnEl.isConnected) return;
 
-  const delay = window.innerWidth < 860 ? 260 : 40;
+  const delay = isDesktopView() ? 40 : 260;
   setTimeout(() => {
     entry.turnEl.scrollIntoView({ behavior: "smooth", block: "center" });
     entry.turnEl.classList.add("jump-highlight");

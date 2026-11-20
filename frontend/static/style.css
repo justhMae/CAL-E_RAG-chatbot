@@ -156,6 +156,29 @@ body {
   height: 34px;
 }
 
+.view-toggle-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.view-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+}
+
 #menu-btn {
   background: transparent;
   border: 1.5px solid #fff;
@@ -781,116 +804,134 @@ body {
   }
 }
 
-/* Desktop view: docked AI sidebar + centered chat column */
-@media (min-width: 860px) {
-  body {
-    background: var(--white);
+/* Desktop view (toggled via .desktop-view on .app): docked AI sidebar + wide centered chat column */
+body:has(.app.desktop-view) {
+  background: var(--white);
+}
+
+.app.desktop-view {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+}
+
+.app.desktop-view .splash {
+  width: 100%;
+  padding: 36px 48px 64px;
+}
+
+.app.desktop-view .splash-mascot {
+  width: 240px;
+}
+
+/* hide docked sidebar while splash screen is visible */
+.app.desktop-view .splash:not(.hidden) ~ .drawer {
+  display: none;
+}
+
+.app.desktop-view .scrim {
+  display: none !important;
+}
+
+.app.desktop-view .drawer {
+  position: relative;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+  flex-shrink: 0;
+  transform: none;
+  transition: none;
+  padding: 20px 16px;
+  box-shadow: 2px 0 16px rgba(15, 24, 141, 0.12);
+}
+
+.app.desktop-view .new-chat-btn {
+  align-self: stretch;
+  justify-content: center;
+}
+
+.app.desktop-view .chat-screen {
+  flex: 1;
+  min-width: 0;
+}
+
+.app.desktop-view #menu-btn {
+  display: none;
+}
+
+.app.desktop-view .app-header {
+  padding: 14px 28px;
+}
+
+.app.desktop-view .chat-window {
+  padding: 16px 32px 12px;
+}
+
+.app.desktop-view .hero-mascot {
+  width: 132px;
+}
+
+.app.desktop-view .hero-greeting {
+  font-size: 1.12rem;
+  max-width: 480px;
+}
+
+.app.desktop-view .messages {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+.app.desktop-view .bubble {
+  max-width: 78%;
+  font-size: 0.95rem;
+}
+
+.app.desktop-view .services-card {
+  max-width: 84%;
+}
+
+.app.desktop-view .forms {
+  max-width: 78%;
+}
+
+.app.desktop-view .bottom-bar {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 10px 32px 22px;
+}
+
+.app.desktop-view .chips-row {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 8px;
+  padding: 4px 2px 12px;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.app.desktop-view .chat-form {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .app.desktop-view .drawer {
+    width: 210px;
+    min-width: 210px;
+    max-width: 210px;
   }
 
-  .app {
-    max-width: 100%;
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    display: flex;
-  }
-
-  .splash {
-    width: 100%;
-    padding: 36px 48px 64px;
-  }
-
-  .splash-mascot {
-    width: 240px;
-  }
-
-  /* hide docked sidebar while splash screen is visible */
-  .splash:not(.hidden) ~ .drawer {
-    display: none;
-  }
-
-  .scrim {
-    display: none !important;
-  }
-
-  .drawer {
-    position: relative;
-    top: auto;
-    left: auto;
-    bottom: auto;
-    width: 280px;
-    min-width: 280px;
-    max-width: 280px;
-    flex-shrink: 0;
-    transform: none;
-    transition: none;
-    padding: 20px 16px;
-    box-shadow: 2px 0 16px rgba(15, 24, 141, 0.12);
-  }
-
-  .new-chat-btn {
-    align-self: stretch;
-    justify-content: center;
-  }
-
-  .chat-screen {
-    flex: 1;
-    min-width: 0;
-  }
-
-  #menu-btn {
-    display: none;
-  }
-
-  .app-header {
-    padding: 14px 28px;
-  }
-
-  .chat-window {
-    padding: 16px 24px 12px;
-  }
-
-  .hero-mascot {
-    width: 132px;
-  }
-
-  .hero-greeting {
-    font-size: 1.12rem;
-    max-width: 460px;
-  }
-
-  .messages {
-    width: 100%;
-    max-width: 780px;
-    margin: 0 auto;
-    padding-top: 12px;
-  }
-
-  .bubble {
-    max-width: 76%;
-    font-size: 0.95rem;
-  }
-
-  .services-card {
-    max-width: 82%;
-  }
-
-  .forms {
-    max-width: 76%;
-  }
-
-  .bottom-bar {
-    width: 100%;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 8px 24px 22px;
-  }
-
-  .chips-row {
-    padding: 0 0 12px;
-  }
-
-  .chat-form {
-    margin: 0;
+  .app.desktop-view .chat-window,
+  .app.desktop-view .bottom-bar {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
