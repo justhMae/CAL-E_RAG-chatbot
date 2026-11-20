@@ -776,6 +776,121 @@ body {
 
 @media (max-width: 480px) {
   .app {
+    border-radius: 0;
     box-shadow: none;
+  }
+}
+
+/* Desktop view: docked AI sidebar + centered chat column */
+@media (min-width: 860px) {
+  body {
+    background: var(--white);
+  }
+
+  .app {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+  }
+
+  .splash {
+    width: 100%;
+    padding: 36px 48px 64px;
+  }
+
+  .splash-mascot {
+    width: 240px;
+  }
+
+  /* hide docked sidebar while splash screen is visible */
+  .splash:not(.hidden) ~ .drawer {
+    display: none;
+  }
+
+  .scrim {
+    display: none !important;
+  }
+
+  .drawer {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    flex-shrink: 0;
+    transform: none;
+    transition: none;
+    padding: 20px 16px;
+    box-shadow: 2px 0 16px rgba(15, 24, 141, 0.12);
+  }
+
+  .new-chat-btn {
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  .chat-screen {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #menu-btn {
+    display: none;
+  }
+
+  .app-header {
+    padding: 14px 28px;
+  }
+
+  .chat-window {
+    padding: 16px 24px 12px;
+  }
+
+  .hero-mascot {
+    width: 132px;
+  }
+
+  .hero-greeting {
+    font-size: 1.12rem;
+    max-width: 460px;
+  }
+
+  .messages {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-top: 12px;
+  }
+
+  .bubble {
+    max-width: 76%;
+    font-size: 0.95rem;
+  }
+
+  .services-card {
+    max-width: 82%;
+  }
+
+  .forms {
+    max-width: 76%;
+  }
+
+  .bottom-bar {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 8px 24px 22px;
+  }
+
+  .chips-row {
+    padding: 0 0 12px;
+  }
+
+  .chat-form {
+    margin: 0;
   }
 }

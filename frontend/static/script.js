@@ -108,14 +108,17 @@ function addToHistory(text, turnEl) {
 }
 
 function jumpToMessage(entry) {
-  closeDrawer();
+  if (window.innerWidth < 860) {
+    closeDrawer();
+  }
   if (!entry.turnEl || !entry.turnEl.isConnected) return;
 
+  const delay = window.innerWidth < 860 ? 260 : 40;
   setTimeout(() => {
     entry.turnEl.scrollIntoView({ behavior: "smooth", block: "center" });
     entry.turnEl.classList.add("jump-highlight");
     setTimeout(() => entry.turnEl.classList.remove("jump-highlight"), 1400);
-  }, 260);
+  }, delay);
 }
 
 renderHistory();
