@@ -1,6 +1,5 @@
 import argparse
 import json
-import joblib
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import (
@@ -10,14 +9,13 @@ from sklearn.metrics import (
 from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_split
 
 from backend.config import INTENT_MODEL_PATH, EVAL_OUTPUT_DIR
-from backend.intent_classifier import load_intent_data, build_pipeline
+from backend.intent_classifier import load_intent_data, build_pipeline, save_pipeline
 
 
 def evaluate_intent_classifier():
     EVAL_OUTPUT_DIR.mkdir(exist_ok=True)
 
-    df = load_intent_data()
-    X, y = df["text"], df["intent"]
+    X, y = load_intent_data()
 
     pipeline = build_pipeline()
 
@@ -32,10 +30,7 @@ def evaluate_intent_classifier():
         print(f"{metric:20s} | Train: {train_vals.mean():.3f} (±{train_vals.std():.3f}) | Test: {test_vals.mean():.3f} (±{test_vals.std():.3f})")
 
     pipeline.fit(X, y)
-    joblib.dump(
-        {"pipeline": pipeline, "X": X, "y": y},
-        INTENT_MODEL_PATH,
-    )
+    save_pipeline(pipeline)
     print(f"\nFinal model saved to {INTENT_MODEL_PATH}")
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -64,7 +59,7 @@ def evaluate_intent_classifier():
         f.write(report)
 
     # confusion matrix plot
-    labels = sorted(y_test.unique())
+    labels = sorted(set(y_test))
     cm = confusion_matrix(y_test, y_pred, labels=labels)
     fig, ax = plt.subplots(figsize=(9, 9))
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)

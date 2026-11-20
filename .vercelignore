@@ -1,0 +1,19 @@
+# keep secrets, dev-only tooling and local caches out of the Vercel upload entirely
+backend/.env
+.env
+.env.*
+data/credentials.txt
+*.key
+*.pem
+colab/
+evaluation/
+venv/
+.venv/
+env/
+chroma_store/
+chroma_db/
+__pycache__/
+*.py[cod]
+.git/
+.vscode/
+.idea/

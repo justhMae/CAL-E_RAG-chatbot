@@ -1,0 +1,4 @@
+# local-only extras for evaluation and the Colab/ngrok demo; NOT installed on Vercel
+-r requirements.txt
+matplotlib>=3.9.2
+pyngrok==7.2.0

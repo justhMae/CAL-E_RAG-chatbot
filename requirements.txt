@@ -1,13 +1,11 @@
+# runtime dependencies deployed to Vercel (no torch / sentence-transformers / chromadb)
 flask==3.0.3
 flask-cors==4.0.1
-pyngrok==7.2.0
-sentence-transformers==3.3.1
-chromadb==0.5.23
+groq>=0.13.0
+google-genai>=1.0.0
 scikit-learn>=1.5.2
-pandas>=2.2.3
 numpy>=1.26.4
-matplotlib>=3.9.2
+joblib>=1.4.2
 python-dotenv==1.0.1
-requests>=2.32.4
 rapidfuzz>=3.5.0
 pyspellchecker>=0.8.1

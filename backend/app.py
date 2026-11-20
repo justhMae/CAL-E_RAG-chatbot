@@ -1,18 +1,27 @@
+import os
+import secrets
+
 from flask import Flask, request, jsonify, render_template, send_from_directory, abort, session
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-import secrets
 
 from backend.rag_pipeline import answer_question
-from backend.config import FORMS_DIR, DOCUMENTS_PATH, CATEGORIES
+from backend.config import FORMS_DIR, DOCUMENTS_PATH, CATEGORIES, FRONTEND_DIR
 import json
 
+# absolute paths so templates/static resolve the same locally and inside Vercel's serverless runtime
 app = Flask(
     __name__,
-    template_folder="../frontend/templates",
-    static_folder="../frontend/static",
+    template_folder=str(FRONTEND_DIR / "templates"),
+    static_folder=str(FRONTEND_DIR / "static"),
 )
-app.secret_key = secrets.token_hex(16) # needed for session cookies to work
+# serverless instances are short-lived and parallel, so a random per-process key would silently drop
+# chat history between requests; set FLASK_SECRET_KEY in the environment to keep sessions stable
+app.secret_key = os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(16)
+app.config.update(
+    SESSION_COOKIE_SAMESITE="Lax",
+    SESSION_COOKIE_SECURE=bool(os.environ.get("VERCEL")),
+)
 CORS(app, supports_credentials=True) # supports_credentials so cookies are sent cross-origin (ngrok)
 
 

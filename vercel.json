@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60,
+      "includeFiles": "{backend/**,data/documents.json,data/vector_store.npz,data/chunks_meta.json,data/forms/manifest.json,frontend/**}",
+      "excludeFiles": "{colab/**,evaluation/**,venv/**,.venv/**,chroma_store/**,data/forms/*.pdf,data/intent_training_data.csv,data/credentials.txt,backend/.env,**/__pycache__/**,**/*.ipynb}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/forms/:filename", "destination": "/data/forms/:filename" },
+    { "source": "/(.*)", "destination": "/api/index" }
+  ],
+  "headers": [
+    {
+      "source": "/api/forms/(.*)",
+      "headers": [
+        { "key": "Content-Disposition", "value": "attachment" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/data/forms/(.*)",
+      "headers": [
+        { "key": "Content-Disposition", "value": "attachment" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}

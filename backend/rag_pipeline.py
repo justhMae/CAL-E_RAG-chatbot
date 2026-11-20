@@ -1,14 +1,108 @@
 import re
 import json
+
+import numpy as np
+
 from backend.preprocess import clean_text, is_greeting, correct_typos, build_domain_vocabulary
 from backend.intent_classifier import predict_intent
-from backend.embeddings import retrieve, retrieve_all_in_category, get_chroma_collection, get_chunk_by_id, get_chunks_by_doc_id
+from backend.embeddings import embed_query
 from backend.generate import generate_answer
 from backend.contextualize import contextualize_question
 from backend.debug_log import log
 from backend.forms_lookup import get_forms_for_office, get_all_forms
-from backend.config import TOP_K, CATEGORIES, FORMS_MIN_SIMILARITY, DOCUMENTS_PATH
+from backend.config import (
+    TOP_K, CATEGORIES, FORMS_MIN_SIMILARITY, MIN_SIMILARITY, DOCUMENTS_PATH,
+    VECTOR_STORE_PATH, CHUNKS_META_PATH, EMBEDDING_DIM,
+)
 from backend.office_directory import build_office_lookup, find_office_doc_id
+
+
+# ---------------------------------------------------------------------------
+# static vector store: loaded into memory ONCE at module import (cold start),
+# never written to at runtime (Vercel's filesystem is read-only)
+# ---------------------------------------------------------------------------
+
+def _load_vector_store():
+    if not VECTOR_STORE_PATH.is_file() or not CHUNKS_META_PATH.is_file():
+        raise RuntimeError(
+            f"Static vector store not found ({VECTOR_STORE_PATH.name} / {CHUNKS_META_PATH.name}). "
+            "Run `python -m backend.build_index` locally and commit the generated files."
+        )
+    with np.load(VECTOR_STORE_PATH) as npz:
+        embeddings = np.ascontiguousarray(npz["embeddings"], dtype=np.float32)
+    with open(CHUNKS_META_PATH, "r", encoding="utf-8") as f:
+        meta = json.load(f)
+    chunks = meta["chunks"]
+    if embeddings.shape != (len(chunks), EMBEDDING_DIM):
+        raise RuntimeError(
+            f"Vector store shape {embeddings.shape} does not match {len(chunks)} chunks x "
+            f"{EMBEDDING_DIM} dims. Re-run `python -m backend.build_index`."
+        )
+    return embeddings, chunks
+
+
+_EMBEDDINGS, _CHUNKS = _load_vector_store()
+_CHUNK_INDEX = {c["chunk_id"]: i for i, c in enumerate(_CHUNKS)}
+_CATEGORY_ARR = np.array([c["category"] for c in _CHUNKS])
+_DOC_ID_ARR = np.array([c["doc_id"] for c in _CHUNKS])
+
+
+def _hit(i: int, similarity: float | None) -> dict:
+    c = _CHUNKS[i]
+    return {
+        "chunk_id": c["chunk_id"],
+        "text": c["text"],
+        "title": c["title"],
+        "category": c["category"],
+        "office": c.get("office") or None,
+        "doc_id": c["doc_id"],
+        "similarity": similarity,
+    }
+
+
+def retrieve(question: str, top_k: int = 3, category_filter: str | None = None) -> list[dict]:
+    # embed the question, rank chunks by cosine similarity (dot product of unit vectors), drop hits below MIN_SIMILARITY
+    query_vector = embed_query(question)
+    scores = _EMBEDDINGS @ query_vector
+
+    if category_filter:
+        candidates = np.flatnonzero(_CATEGORY_ARR == category_filter)
+    else:
+        candidates = np.arange(len(_CHUNKS))
+    if candidates.size == 0:
+        return []
+
+    cand_scores = scores[candidates]
+    k = min(top_k, candidates.size)
+    top = np.argpartition(-cand_scores, k - 1)[:k]
+    top = top[np.argsort(-cand_scores[top])]
+
+    hits = []
+    for j in top:
+        similarity = float(cand_scores[j])
+        if similarity < MIN_SIMILARITY:
+            continue
+        hits.append(_hit(int(candidates[j]), similarity))
+    return hits
+
+
+def get_chunks_by_doc_id(doc_id: str) -> list[dict]:
+    # every chunk of one document, bypassing similarity search (used when the document is already known)
+    return [_hit(int(i), None) for i in np.flatnonzero(_DOC_ID_ARR == doc_id)]
+
+
+def get_chunk_by_id(chunk_id: str) -> dict | None:
+    # one specific chunk by id, e.g. a document's summary chunk or an office contact chunk
+    i = _CHUNK_INDEX.get(chunk_id)
+    return _hit(i, None) if i is not None else None
+
+
+def retrieve_all_in_category(category: str) -> list[dict]:
+    # every chunk tagged with this category, no ranking, no top_k cap (enumeration queries)
+    return [_hit(int(i), None) for i in np.flatnonzero(_CATEGORY_ARR == category)]
+
+
+_vocab = build_domain_vocabulary(_CHUNKS)
 
 _office_lookup_cache = None
 
@@ -75,8 +169,6 @@ REFUSAL_PATTERN = re.compile(
 def is_refusal(answer: str) -> bool:
     return bool(REFUSAL_PATTERN.search(answer))
 
-_vocab = None
-
 
 def is_enumeration_query(question: str) -> bool:
     return bool(ENUMERATION_PATTERNS.search(question))
@@ -96,12 +188,9 @@ def answer_question(
     category_hint: str | None = None,
     doc_id_hint: str | None = None,
 ) -> dict:
-    global _vocab
     question = clean_text(question)
     history = history or []
 
-    if _vocab is None:
-        _vocab = build_domain_vocabulary(get_chroma_collection())
     question = correct_typos(question, _vocab)
 
     if is_greeting(question):

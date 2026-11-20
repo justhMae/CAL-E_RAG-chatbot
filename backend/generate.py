@@ -1,8 +1,15 @@
-import requests
+import groq
+from groq import Groq
+from google.genai import errors as genai_errors, types as genai_types
+
 from backend.config import (
-    GROQ_API_KEY, GROQ_MODEL, GROQ_FALLBACK_MODELS,
-    GEMINI_API_KEY, GEMINI_MODEL, GEMINI_BASE_URL,
+    GROQ_API_KEYS, GROQ_MODEL, GROQ_FALLBACK_MODELS,
+    GEMINI_API_KEYS, GEMINI_MODEL,
 )
+from backend.embeddings import iter_gemini_clients, advance_gemini_key
+
+_groq_clients: dict[str, Groq] = {}
+_active_groq_idx = 0
 
 SYSTEM_INSTRUCTION = (
     "You are a helpful assistant for the Calamba City Government website. "
@@ -80,62 +87,112 @@ def build_prompt(question: str, retrieved_chunks: list[dict], history: list[dict
     )
 
 
-def _call_openai_compatible(base_url: str, api_key: str, model: str, prompt: str, extra_body: dict | None = None):
-    body = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": SYSTEM_INSTRUCTION},
-            {"role": "user", "content": prompt},
-        ],
-        "temperature": 0.2,
-        "max_tokens": 2048,  # raised this much to accommodate long structured docs
-    }
-    if extra_body:
-        body.update(extra_body)
- 
-    try:
-        response = requests.post(
-            base_url,
-            headers={"Authorization": f"Bearer {api_key}"},
-            json=body,
-            timeout=60,
-        )
-    except requests.exceptions.ConnectionError:
-        raise RuntimeError(f"Could not reach {base_url}. Check your internet connection.")
- 
-    if response.status_code == 401:
-        raise RuntimeError(f"API key for {base_url} is missing or invalid.")
-    if response.status_code == 413:
+def iter_groq_clients(timeout: float = 60.0) -> list[tuple[int, Groq]]:
+    """Return (key_index, Groq client) pairs starting from the currently active key."""
+    if not GROQ_API_KEYS:
         raise RuntimeError(
-            "That question pulled in too much context for a single request. "
-            "Try asking a more specific question, or reduce TOP_K in config.py further."
+            "GROQ_API_KEY / GROQ_API_KEYS is not set. Add it to backend/.env locally, "
+            "or to the Vercel project's Environment Variables."
         )
-    return response
+    n = len(GROQ_API_KEYS)
+    ordered = []
+    for offset in range(n):
+        idx = (_active_groq_idx + offset) % n
+        key = GROQ_API_KEYS[idx]
+        if key not in _groq_clients:
+            _groq_clients[key] = Groq(api_key=key, timeout=timeout, max_retries=0)
+        ordered.append((idx, _groq_clients[key]))
+    return ordered
+
+
+def advance_groq_key(exhausted_idx: int) -> None:
+    """Move the active Groq key pointer past a rate-limited key."""
+    global _active_groq_idx
+    n = len(GROQ_API_KEYS)
+    if n > 1 and _active_groq_idx == exhausted_idx:
+        _active_groq_idx = (exhausted_idx + 1) % n
+
+
+class _RateLimited(Exception):
+    pass
+
+
+def _call_groq(model: str, prompt: str) -> str:
+    clients = iter_groq_clients()
+    for key_idx, client in clients:
+        try:
+            completion = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": SYSTEM_INSTRUCTION},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.2,
+                max_tokens=2048,  # raised this much to accommodate long structured docs
+                extra_body={"reasoning_format": "hidden"},
+            )
+            return (completion.choices[0].message.content or "").strip()
+        except groq.RateLimitError as e:
+            advance_groq_key(key_idx)
+            if len(clients) > 1:
+                print(f"[generate] Groq key #{key_idx + 1} hit rate limit on {model}; trying next key...")
+            last_err = e
+        except groq.APIConnectionError:
+            raise RuntimeError("Could not reach the Groq API. Check your internet connection.")
+        except groq.AuthenticationError:
+            raise RuntimeError(f"GROQ_API_KEY #{key_idx + 1} is missing or invalid.")
+        except groq.APIStatusError as e:
+            if e.status_code == 413:
+                raise RuntimeError(
+                    "That question pulled in too much context for a single request. "
+                    "Try asking a more specific question, or reduce TOP_K in config.py further."
+                )
+            raise
+    raise _RateLimited() from last_err
+
+
+def _call_gemini(prompt: str) -> str:
+    clients = iter_gemini_clients()
+    for key_idx, client in clients:
+        try:
+            response = client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=prompt,
+                config=genai_types.GenerateContentConfig(
+                    system_instruction=SYSTEM_INSTRUCTION,
+                    temperature=0.2,
+                    max_output_tokens=2048,
+                ),
+            )
+            return (response.text or "").strip()
+        except genai_errors.APIError as e:
+            if e.code == 429:
+                advance_gemini_key(key_idx)
+                if len(clients) > 1:
+                    print(f"[generate] Gemini key #{key_idx + 1} hit rate limit; trying next key...")
+                last_err = e
+                continue
+            raise
+    raise _RateLimited() from last_err
 
 
 def generate_answer(question, retrieved_chunks, history=None):
     prompt = build_prompt(question, retrieved_chunks, history)
-    attempts = [
-        (model, "https://api.groq.com/openai/v1/chat/completions", GROQ_API_KEY, model, {"reasoning_format": "hidden"})
-        for model in [GROQ_MODEL] + GROQ_FALLBACK_MODELS
-    ]
-    if GEMINI_API_KEY:
-        attempts.append((GEMINI_MODEL, GEMINI_BASE_URL, GEMINI_API_KEY, GEMINI_MODEL, None))
- 
-    for label, base_url, api_key, model, extra_body in attempts:
-        response = _call_openai_compatible(base_url, api_key, model, prompt, extra_body)
- 
-        if response.status_code == 429:
+    attempts = [(model, lambda m=model: _call_groq(m, prompt)) for model in [GROQ_MODEL] + GROQ_FALLBACK_MODELS]
+    if GEMINI_API_KEYS:
+        attempts.append((GEMINI_MODEL, lambda: _call_gemini(prompt)))
+
+    for label, call in attempts:
+        try:
+            answer = call()
+        except _RateLimited:
             # notice if the model limit is hit, then changing to the fallback
             print(f"[generate] {label} hit its rate limit, trying next fallback...")
             continue
- 
-        response.raise_for_status()
-        data = response.json()
         if label != GROQ_MODEL:
             print(f"[generate] answered using fallback: {label}")
-        return data["choices"][0]["message"]["content"].strip()
- 
+        return answer
+
     # if every configured model/provider returned 429
     tried = ", ".join(a[0] for a in attempts)
     raise RuntimeError(

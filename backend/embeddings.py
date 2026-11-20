@@ -1,173 +1,138 @@
-import chromadb
-from sentence_transformers import SentenceTransformer
+# shared embedding helper: Google Gemini Embedding API (gemini-embedding-001) via the official google-genai SDK
+# used in batch at build time (backend/build_index.py) and for a single query at runtime (backend/rag_pipeline.py)
+# no local model weights, no torch, no sentence-transformers
 
-from backend.config import (
-    EMBEDDING_MODEL_NAME,
-    CHROMA_COLLECTION_NAME,
-    MIN_SIMILARITY,
-)
+import time
 
-_model = None
+import numpy as np
+from google import genai
+from google.genai import errors, types
 
+from backend.config import GEMINI_API_KEYS, EMBEDDING_MODEL_NAME, EMBEDDING_DIM
 
-_chroma_client = None
-_collection = None
+# gemini-embedding-001 returns unit-length vectors only at its full 3072 dims;
+# truncated (Matryoshka) outputs such as 768 must be re-normalized manually
+FULL_DIM = 3072
 
+BUILD_BATCH_SIZE = 50  # texts per embed_content request when building the index
+MAX_RETRIES = 6
 
-def get_embedding_model() -> SentenceTransformer:
-    global _model
-    if _model is None:
-        _model = SentenceTransformer(EMBEDDING_MODEL_NAME)
-    return _model
-
-
-def embed_text(text: str) -> list[float]:
-    # embed a single piece of text (used for the user's question)
-    model = get_embedding_model()
-    vector = model.encode(text, normalize_embeddings=True)
-    return vector.tolist()
+_clients: dict[str, genai.Client] = {}
+_active_key_idx = 0
 
 
-def embed_texts(texts: list[str]) -> list[list[float]]:
-    # embed many texts at once (used when building the index)
-    model = get_embedding_model()
-    vectors = model.encode(
-        texts, normalize_embeddings=True, batch_size=32, show_progress_bar=True
-    )
-    return vectors.tolist()
-
-
-def get_chroma_collection():
-    global _chroma_client, _collection
-    if _collection is None:
-        from backend.config import CHROMA_PERSIST_DIR
-        _chroma_client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
-        _collection = _chroma_client.get_or_create_collection(
-            name=CHROMA_COLLECTION_NAME,
-            metadata={"hnsw:space": "cosine"},
+def _ensure_keys() -> list[str]:
+    if not GEMINI_API_KEYS:
+        raise RuntimeError(
+            "GEMINI_API_KEY / GEMINI_API_KEYS is not set. Add it to backend/.env locally, "
+            "or to the Vercel project's Environment Variables."
         )
-    return _collection
+    return GEMINI_API_KEYS
 
 
-def index_chunks(chunks: list[dict]) -> None:
-    # embed a list of preprocessed chunks (in one batch) and store them in ChromaDB
-    collection = get_chroma_collection()
-
-    texts = [c["text"] for c in chunks]
-    print(f"Embedding {len(texts)} chunks with {EMBEDDING_MODEL_NAME} ...")
-    vectors = embed_texts(texts)
-
-    ids = [c["chunk_id"] for c in chunks]
-    metadatas = [
-        {"doc_id": c["doc_id"], "category": c["category"], "title": c["title"],
-         # ChromaDB rejects None metadata values, so store "" for docs with no office
-         "office": c.get("office") or ""}
-        for c in chunks
-    ]
-
-    collection.upsert(
-        ids=ids,
-        embeddings=vectors,
-        documents=texts,
-        metadatas=metadatas,
-    )
+def iter_gemini_clients() -> list[tuple[int, genai.Client]]:
+    """Return (key_index, client) pairs starting from the currently active key."""
+    keys = _ensure_keys()
+    n = len(keys)
+    ordered = []
+    for offset in range(n):
+        idx = (_active_key_idx + offset) % n
+        key = keys[idx]
+        if key not in _clients:
+            _clients[key] = genai.Client(api_key=key)
+        ordered.append((idx, _clients[key]))
+    return ordered
 
 
-def retrieve(question: str, top_k: int = 3, category_filter: str | None = None) -> list[dict]:
-    # embed the user's question, run a similarity search against ChromaDB, and drop any hit below MIN_SIMILARITY
-    
-    collection = get_chroma_collection()
-    query_vector = embed_text(question)
-
-    where = {"category": category_filter} if category_filter else None
-    results = collection.query(
-        query_embeddings=[query_vector],
-        n_results=top_k,
-        where=where,
-    )
-
-    hits = []
-    ids = results.get("ids", [[]])[0]
-    docs = results.get("documents", [[]])[0]
-    metas = results.get("metadatas", [[]])[0]
-    dists = results.get("distances", [[]])[0]
-    for chunk_id, doc, meta, dist in zip(ids, docs, metas, dists):
-        similarity = 1 - dist
-        if similarity < MIN_SIMILARITY:
-            continue
-        hits.append({
-            "chunk_id": chunk_id,
-            "text": doc,
-            "title": meta.get("title"),
-            "category": meta.get("category"),
-            "office": meta.get("office") or None,
-            "doc_id": meta.get("doc_id"),
-            "similarity": similarity,
-        })
-    return hits
+def advance_gemini_key(exhausted_idx: int) -> None:
+    """Move the active key pointer past a rate-limited key."""
+    global _active_key_idx
+    n = len(GEMINI_API_KEYS)
+    if n > 1 and _active_key_idx == exhausted_idx:
+        _active_key_idx = (exhausted_idx + 1) % n
 
 
-def get_chunks_by_doc_id(doc_id: str) -> list[dict]:
-    # fetch every chunk belonging to one document directly by doc_id, bypassing similarity search
-    # used only when the caller already knows exactly which document is needed
-
-    collection = get_chroma_collection()
-    result = collection.get(where={"doc_id": doc_id})
-    hits = []
-    ids = result.get("ids", [])
-    docs = result.get("documents", [])
-    metas = result.get("metadatas", [])
-    for chunk_id, doc, meta in zip(ids, docs, metas):
-        hits.append({
-            "chunk_id": chunk_id,
-            "text": doc,
-            "title": meta.get("title"),
-            "category": meta.get("category"),
-            "office": meta.get("office") or None,
-            "doc_id": meta.get("doc_id"),
-            "similarity": None,  # not from a similarity search; fetched directly
-        })
-    return hits
+def get_client() -> genai.Client:
+    return iter_gemini_clients()[0][1]
 
 
-def get_chunk_by_id(chunk_id: str) -> dict | None:
-    # fetch one specific chunk directly by its ID, bypassing similarity search
-    # used to deterministically pull in a document's short summary (total fee or total processing time) 
-    
-    collection = get_chroma_collection()
-    result = collection.get(ids=[chunk_id])
-    docs = result.get("documents", [])
-    if not docs:
-        return None
-    meta = result.get("metadatas", [{}])[0]
-    return {
-        "chunk_id": chunk_id,
-        "text": docs[0],
-        "title": meta.get("title"),
-        "category": meta.get("category"),
-        "office": meta.get("office") or None,
-        "doc_id": meta.get("doc_id"),
-        "similarity": None,
-    }
+def l2_normalize(vectors: np.ndarray) -> np.ndarray:
+    # row-wise vec / np.linalg.norm(vec); guards against an all-zero row
+    vectors = np.asarray(vectors, dtype=np.float32)
+    if vectors.ndim == 1:
+        norm = np.linalg.norm(vectors)
+        return vectors / norm if norm > 0 else vectors
+    norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+    norms[norms == 0] = 1.0
+    return vectors / norms
 
 
-def retrieve_all_in_category(category: str) -> list[dict]:
-    # returns every chunk tagged with this category, no similarity ranking, no top_k cap
-    # used for enumeration queries like for example: "list all barangays"
-    
-    collection = get_chroma_collection()
-    results = collection.get(where={"category": category})
+def _is_daily_quota_error(err: errors.APIError) -> bool:
+    return "PerDay" in str(err)
 
-    hits = []
-    docs = results.get("documents", [])
-    metas = results.get("metadatas", [])
-    for doc, meta in zip(docs, metas):
-        hits.append({
-            "text": doc,
-            "title": meta.get("title"),
-            "category": meta.get("category"),
-            "office": meta.get("office") or None,
-            "doc_id": meta.get("doc_id"),
-            "similarity": None,
-        })
-    return hits
+
+def _embed_request(texts: list[str], task_type: str) -> np.ndarray:
+    delay = 10.0
+    for attempt in range(MAX_RETRIES):
+        clients = iter_gemini_clients()
+        last_err = None
+        all_daily_exhausted = True
+
+        for key_idx, client in clients:
+            try:
+                result = client.models.embed_content(
+                    model=EMBEDDING_MODEL_NAME,
+                    contents=texts,
+                    config=types.EmbedContentConfig(
+                        output_dimensionality=EMBEDDING_DIM,
+                        task_type=task_type,
+                    ),
+                )
+                vectors = np.array([e.values for e in result.embeddings], dtype=np.float32)
+                if EMBEDDING_DIM != FULL_DIM:
+                    vectors = l2_normalize(vectors)
+                return vectors
+            except errors.APIError as e:
+                # 429 = free-tier rate limit, 5xx = transient; anything else is fatal
+                retryable = e.code == 429 or (e.code is not None and e.code >= 500)
+                if not retryable:
+                    raise
+                last_err = e
+                if e.code == 429:
+                    advance_gemini_key(key_idx)
+                    if not _is_daily_quota_error(e):
+                        all_daily_exhausted = False
+                    if len(clients) > 1:
+                        print(f"[embeddings] Gemini key #{key_idx + 1} hit 429; switching to next key...")
+                else:
+                    all_daily_exhausted = False
+
+        if all_daily_exhausted:
+            raise RuntimeError(
+                f"All {len(clients)} Gemini API key(s) exceeded their daily embed_content quota. "
+                "Add another key to GEMINI_API_KEYS or wait for the daily quota reset."
+            ) from last_err
+        if attempt == MAX_RETRIES - 1:
+            raise last_err
+        print(f"[embeddings] All keys hit transient rate limit; retrying in {delay:.0f}s "
+              f"(attempt {attempt + 1}/{MAX_RETRIES})")
+        time.sleep(delay)
+        delay = min(delay * 2, 90.0)
+    raise RuntimeError("unreachable")
+
+
+def embed_texts(texts: list[str], batch_size: int = BUILD_BATCH_SIZE) -> np.ndarray:
+    # batched embedding for build time; returns an (n, EMBEDDING_DIM) float32 L2-normalized matrix
+    out = []
+    for start in range(0, len(texts), batch_size):
+        batch = texts[start:start + batch_size]
+        out.append(_embed_request(batch, task_type="RETRIEVAL_DOCUMENT"))
+        print(f"[embeddings] embedded {min(start + batch_size, len(texts))}/{len(texts)}")
+    if not out:
+        return np.zeros((0, EMBEDDING_DIM), dtype=np.float32)
+    return np.vstack(out)
+
+
+def embed_query(text: str) -> np.ndarray:
+    # single-query embedding at runtime; returns an (EMBEDDING_DIM,) float32 L2-normalized vector
+    return _embed_request([text], task_type="RETRIEVAL_QUERY")[0]

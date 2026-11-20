@@ -2,9 +2,10 @@
 # important for follow up questions because it rewrites pronouns and vague references into explicit references
 
 import re
-import requests
-from backend.config import GROQ_API_KEY, CONTEXTUALIZE_MODEL
+import groq
+from backend.config import CONTEXTUALIZE_MODEL
 from backend.debug_log import log
+from backend.generate import iter_groq_clients, advance_groq_key
 
 _AMBIGUITY_SIGNALS = re.compile(
     r"\b(it|this|that|these|those|they|them|he|she|same|also|instead|"
@@ -58,24 +59,24 @@ def _format_history(history: list[dict], max_turns: int = 4) -> str:
 
 def _call_groq(system: str, prompt: str) -> str | None:
     try:
-        response = requests.post(
-            "https://api.groq.com/openai/v1/chat/completions",
-            headers={"Authorization": f"Bearer {GROQ_API_KEY}"},
-            json={
-                "model": CONTEXTUALIZE_MODEL,
-                "messages": [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": prompt},
-                ],
-                "temperature": 0.0,
-                "max_tokens": 300,
-                "reasoning_format": "hidden",
-            },
-            timeout=20,
-        )
-        response.raise_for_status()
-        rewritten = response.json()["choices"][0]["message"]["content"].strip()
-        return rewritten.strip('"').strip("'")
+        for key_idx, client in iter_groq_clients(timeout=20.0):
+            try:
+                completion = client.chat.completions.create(
+                    model=CONTEXTUALIZE_MODEL,
+                    messages=[
+                        {"role": "system", "content": system},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.0,
+                    max_tokens=300,
+                    extra_body={"reasoning_format": "hidden"},
+                )
+                rewritten = (completion.choices[0].message.content or "").strip()
+                return rewritten.strip('"').strip("'") or None
+            except groq.RateLimitError:
+                advance_groq_key(key_idx)
+                continue
+        return None
     except Exception as e:
         # Groq down/slow/rate-limited/etc: don't break the chat, just skip rewriting; but log why it happened
         log(f"[contextualize] _call_groq failed, falling back to raw question: {e!r}")

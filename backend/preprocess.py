@@ -12,14 +12,14 @@ from backend.config import (
 _spell = SpellChecker(language="en")
 
 
-def build_domain_vocabulary(collection) -> set[str]:
-    all_data = collection.get()
+def build_domain_vocabulary(chunks: list[dict]) -> set[str]:
+    # chunks = the metadata records loaded from data/chunks_meta.json
     vocab = set()
-    for meta in all_data.get("metadatas", []):
+    for meta in chunks:
         for field in (
-            meta.get("title", ""),
-            meta.get("category", ""),
-            meta.get("title_filipino", ""),
+            meta.get("title") or "",
+            meta.get("category") or "",
+            meta.get("title_filipino") or "",
         ):
             vocab.update(w.lower() for w in field.split() if len(w) > 3)
     return vocab
