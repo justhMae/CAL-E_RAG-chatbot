@@ -918,6 +918,11 @@ body:has(.app.desktop-view) {
   overflow-y: visible;
 }
 
+.app.desktop-view .chip {
+  justify-self: start;
+  width: fit-content;
+}
+
 .app.desktop-view .chat-form {
   margin: 0;
 }
